@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact — Whitney Masulis</title>
+  <meta name="description" content="Get in touch about service design, complex systems, or interesting problems.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<a href="#main" class="skip-link">Skip to content</a>
+
+<header class="site-header">
+  <a href="index.html" class="wordmark">Whitney Masulis</a>
+  <button class="nav-toggle" aria-label="Open menu" aria-expanded="false">
+    <span></span><span></span>
+  </button>
+  <nav aria-label="Main navigation">
+    <a href="index.html">Home</a>
+    <a href="work.html">Work</a>
+    <a href="about.html">About</a>
+    <a href="contact.html" class="active">Contact</a>
+  </nav>
+</header>
+
+<main id="main">
+
+<section class="contact-hero">
+  <span class="section-label">Contact</span>
+  <h1>Let's figure something out <em>together.</em></h1>
+
+  <div class="two-col" style="margin-top: var(--sp-6); max-width: 900px;">
+    <div class="reveal">
+      <p>I'm always up for conversations about service design, complex systems, and interesting problems. Whether you're exploring a new initiative, untangling an existing one, or just want to think out loud, I'd love to hear from you.</p>
+      <p style="margin-top: var(--sp-3); color: var(--charcoal-mid); font-size: 14px;">Right now I'm particularly interested in work at the intersection of AI, caregiving, and employer benefits.</p>
+
+      <a href="mailto:whitney@whitneymasulis.com" class="contact-email">whitney@whitneymasulis.com</a>
+
+      <div class="contact-links">
+        <a href="https://www.linkedin.com/in/whitneymasulis/" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
+    </div>
+
+    <div class="reveal" style="display: flex; align-items: flex-start; padding-top: var(--sp-4);">
+      <div style="border-left: 3px solid var(--gold); padding: var(--sp-3) var(--sp-4); max-width: 360px;">
+        <blockquote style="font-family: var(--font-display); font-size: 20px; font-style: italic; line-height: 1.4; color: var(--charcoal);">The best projects start with a real conversation, not a requirements doc.</blockquote>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div style="padding-bottom: var(--sp-16);"></div>
+
+</main>
+
+<footer class="site-footer">
+  <div class="footer-bg" style="background-image: url('images/botanicals.png');"></div>
+  <div class="footer-content">
+    <div class="footer-left">
+      <div class="footer-name">Whitney Masulis</div>
+      <div class="footer-title">Service Designer</div>
+      <div class="footer-location">Brooklyn, NY</div>
+    </div>
+    <div class="footer-right">
+      <a href="mailto:whitney@whitneymasulis.com">Email</a>
+      <a href="https://www.linkedin.com/in/whitneymasulis/" target="_blank" rel="noopener">LinkedIn</a>
+    </div>
+  </div>
+  <div class="footer-copy">&copy; 2026 Whitney Masulis</div>
+</footer>
+
+<script>
+const toggle = document.querySelector('.nav-toggle');
+const nav = document.querySelector('.site-header nav');
+if (toggle) { toggle.addEventListener('click', () => { const open = nav.classList.toggle('open'); toggle.setAttribute('aria-expanded', open); }); }
+const reveals = document.querySelectorAll('.reveal');
+const observer = new IntersectionObserver((entries) => { entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } }); }, { threshold: 0.1 });
+reveals.forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
