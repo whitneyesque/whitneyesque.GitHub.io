@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Work — Whitney Masulis</title>
+  <meta name="description" content="Selected service design projects spanning insurance, public sector, automotive, and more.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<a href="#main" class="skip-link">Skip to content</a>
+
+<header class="site-header">
+  <a href="index.html" class="wordmark">Whitney Masulis</a>
+  <button class="nav-toggle" aria-label="Open menu" aria-expanded="false">
+    <span></span><span></span>
+  </button>
+  <nav aria-label="Main navigation">
+    <a href="index.html">Home</a>
+    <a href="work.html" class="active">Work</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+</header>
+
+<main id="main">
+
+<section class="section" style="padding-top: var(--sp-16); padding-bottom: var(--sp-6);">
+  <span class="section-label">Selected Work</span>
+  <h1>Each one started with a messy problem and ended with <em>a clearer path forward.</em></h1>
+  <p style="margin-top: var(--sp-3); color: var(--charcoal-mid);">Projects spanning insurance, public services, automotive, and healthcare. Click any project to read the full case study.</p>
+</section>
+
+<section class="section" style="padding-top: 0;">
+
+  <a href="#" class="project-featured reveal">
+    <div class="project-thumb">
+      <div class="thumb-quote">"I just gave you all that information. What did I get for it?"</div>
+      <span class="thumb-cite">Research participant, caregiver intake study</span>
+    </div>
+    <div class="project-info">
+      <span class="section-label" style="margin-bottom: var(--sp-1);">Featured</span>
+      <h3 style="font-size: clamp(24px, 3vw, 30px);">Designing a caregiving service that people would actually use</h3>
+      <p class="project-summary">An insurance startup needed to rethink how employer-sponsored caregiving benefits reach the people who need them most. I led the service design from research through prototype, working across product, clinical, and ops teams.</p>
+      <div class="tag-row">
+        <span class="tag">Insurance</span>
+        <span class="tag">AI Prototyping</span>
+        <span class="tag">Service Blueprint</span>
+        <span class="tag">User Research</span>
+      </div>
+    </div>
+  </a>
+
+  <div class="project-grid">
+
+    <a href="#" class="project-card reveal">
+      <div class="project-thumb">
+        <div class="thumb-quote">"We have seven teams touching one customer and nobody can see the whole picture."</div>
+        <span class="thumb-cite">VP of Digital Transformation, Automotive Client</span>
+      </div>
+      <div class="project-card-body">
+        <h3>Untangling seven teams and one customer journey</h3>
+        <p class="project-summary">Journey mapping and service alignment for a Fortune 500 automotive retailer's digital transformation.</p>
+        <div class="tag-row">
+          <span class="tag">Automotive</span>
+          <span class="tag">Journey Mapping</span>
+          <span class="tag">Cross-Functional</span>
+        </div>
+      </div>
+    </a>
+
+    <a href="#" class="project-card reveal">
+      <div class="project-thumb">
+        <div class="thumb-quote">"I drive across town to pick up a hold, and half the time it's already been returned."</div>
+        <span class="thumb-cite">Library patron, Sunset District</span>
+      </div>
+      <div class="project-card-body">
+        <h3>Redesigning the hold system at San Francisco Public Library</h3>
+        <p class="project-summary">Turning a logistics problem into a service design opportunity across 28 branches and 340K annual holds.</p>
+        <div class="tag-row">
+          <span class="tag">Public Sector</span>
+          <span class="tag">Service Design</span>
+          <span class="tag">Stakeholder Alignment</span>
+        </div>
+      </div>
+    </a>
+
+    <a href="#" class="project-card reveal">
+      <div class="project-thumb">
+        <div class="thumb-quote">"We hired designers but nobody knew what to ask them to do."</div>
+        <span class="thumb-cite">Product Director, Telecom Client</span>
+      </div>
+      <div class="project-card-body">
+        <h3>Building the UX practice from scratch inside a global telecom</h3>
+        <p class="project-summary">Establishing research operations, design standards, and team rituals for a new in-house design function.</p>
+        <div class="tag-row">
+          <span class="tag">Telecom</span>
+          <span class="tag">Org Design</span>
+          <span class="tag">Research Ops</span>
+        </div>
+      </div>
+    </a>
+
+    <a href="#" class="project-card placeholder reveal">
+      <div class="project-thumb">
+        <div style="color: var(--charcoal-soft); font-family: var(--font-mono); font-size: 12px;">Coming soon</div>
+      </div>
+      <div class="project-card-body">
+        <h3>More work on the way</h3>
+        <p class="project-summary">Additional case studies are in progress.</p>
+      </div>
+    </a>
+
+  </div>
+</section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="footer-bg" style="background-image: url('images/botanicals.png');"></div>
+  <div class="footer-content">
+    <div class="footer-left">
+      <div class="footer-name">Whitney Masulis</div>
+      <div class="footer-title">Senior Service Designer</div>
+      <div class="footer-location">Brooklyn, NY</div>
+    </div>
+    <div class="footer-right">
+      <a href="mailto:whitney@whitneymasulis.com">Email</a>
+      <a href="https://www.linkedin.com/in/whitneymasulis/" target="_blank" rel="noopener">LinkedIn</a>
+    </div>
+  </div>
+  <div class="footer-copy">&copy; 2026 Whitney Masulis</div>
+</footer>
+
+<script>
+const toggle=document.querySelector('.nav-toggle');const nav=document.querySelector('.site-header nav');
+if(toggle){toggle.addEventListener('click',()=>{const open=nav.classList.toggle('open');toggle.setAttribute('aria-expanded',open)})}
+const reveals=document.querySelectorAll('.reveal');
+const observer=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');observer.unobserve(e.target)}})},{threshold:.1});
+reveals.forEach(el=>observer.observe(el));
+</script>
+
+</body>
+</html>
