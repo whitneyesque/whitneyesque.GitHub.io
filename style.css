@@ -13,9 +13,15 @@
 }
 
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
-body{font-family:var(--font-body);color:var(--charcoal);background:var(--warm-white);font-size:15px;line-height:1.7;-webkit-font-smoothing:antialiased;animation:pageIn .4s ease both}
+body{font-family:var(--font-body);color:var(--charcoal);background:var(--warm-white);font-size:15px;line-height:1.7;-webkit-font-smoothing:antialiased;animation:pageIn .4s ease both;display:flex;flex-direction:column;min-height:100vh}
 @keyframes pageIn{from{opacity:0}to{opacity:1}}
 a{color:inherit}img{display:block;max-width:100%}
+
+/* Lock scroll when mobile nav is open */
+body.nav-open{overflow:hidden}
+
+/* Push main to fill available space so footer stays at bottom */
+main{flex:1}
 
 /* HEADER */
 .site-header{position:sticky;top:0;z-index:100;height:64px;display:flex;justify-content:space-between;align-items:center;padding:0 var(--sp-6);background:rgba(250,247,243,.92);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--cream-deep);transition:all .3s ease}
@@ -43,6 +49,10 @@ a{color:inherit}img{display:block;max-width:100%}
 .nav-toggle span{display:block;width:100%;height:2px;background:var(--charcoal);position:absolute;left:0;transition:all .3s ease}
 .nav-toggle span:first-child{top:4px}
 .nav-toggle span:last-child{bottom:4px}
+
+/* Hamburger to X when open */
+.nav-toggle[aria-expanded="true"] span:first-child{top:9px;transform:rotate(45deg)}
+.nav-toggle[aria-expanded="true"] span:last-child{bottom:9px;transform:rotate(-45deg)}
 
 /* LAYOUT */
 .section{padding:var(--sp-12) var(--sp-8);max-width:1100px;margin:0 auto}
@@ -148,7 +158,7 @@ p+p{margin-top:var(--sp-2)}
   .site-header{padding:0 var(--sp-3)}
   .site-header nav{display:none}
   .nav-toggle{display:block}
-  .site-header nav.open{display:flex;flex-direction:column;align-items:center;justify-content:center;position:fixed;inset:0;background:var(--warm-white);z-index:150;gap:var(--sp-5)}
+  .site-header nav.open{display:flex;flex-direction:column;align-items:center;justify-content:center;position:fixed;inset:0;background:var(--warm-white);z-index:150;gap:var(--sp-5);padding-top:80px}
   .site-header nav.open a{font-family:var(--font-display);font-size:24px;font-weight:700;text-transform:none;letter-spacing:0;color:var(--charcoal)}
   .hero-home{min-height:80vh;padding:calc(var(--sp-12) + 64px) var(--sp-4) var(--sp-10)}
   .section{padding:var(--sp-8) var(--sp-3)}
