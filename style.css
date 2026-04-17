@@ -19,8 +19,6 @@ a{color:inherit}img{display:block;max-width:100%}
 
 /* Lock scroll when mobile nav is open */
 body.nav-open{overflow:hidden}
-/* When nav opens, switch sticky header to fixed so overlay escapes stacking context */
-body.nav-open .site-header{position:fixed;left:0;right:0}
 
 /* Push main to fill available space so footer stays at bottom */
 main{flex:1}
@@ -159,12 +157,13 @@ p+p{margin-top:var(--sp-2)}
 
 /* RESPONSIVE */
 @media(max-width:768px){
-  .site-header{padding:0 var(--sp-3)}
+  body{padding-top:64px}
+  .site-header{padding:0 var(--sp-3);position:fixed;left:0;right:0}
   .site-header nav{display:none}
   .nav-toggle{display:block}
   .site-header nav.open{display:flex;flex-direction:column;align-items:center;justify-content:center;position:fixed;inset:0;background:var(--warm-white);z-index:9999;gap:var(--sp-5);padding-top:80px}
   .site-header nav.open a{font-family:var(--font-display);font-size:24px;font-weight:700;text-transform:none;letter-spacing:0;color:var(--charcoal)}
-  .hero-home{min-height:80vh;min-height:80dvh;padding:calc(var(--sp-12) + 64px) var(--sp-4) var(--sp-10)}
+  .hero-home{min-height:80vh;min-height:80dvh;padding:calc(var(--sp-12) + 64px) var(--sp-4) var(--sp-10);margin-top:-64px}
   .section{padding:var(--sp-8) var(--sp-3)}
   .about-hero,.contact-hero{padding:var(--sp-10) var(--sp-3) var(--sp-8)}
   .two-col,.two-col.wide-left,.two-col.wide-right,.two-col.bio-layout{grid-template-columns:1fr}
