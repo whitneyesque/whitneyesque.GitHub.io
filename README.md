@@ -1,2 +1,2 @@
-# whitneyesque.GitHub.io
+# whitneyesque.github.io
 Portfolio site
