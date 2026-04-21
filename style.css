@@ -437,6 +437,81 @@ p + p { margin-top: var(--sp-2); }
 .career-table .role-name { font-family: var(--font-display); font-size: 17px; font-weight: 700; }
 .career-table .current-row td { border-left: 3px solid var(--gold); padding-left: var(--sp-2); }
 
+/* ----- TIMELINE (about page) ----- */
+.wm-timeline { margin-top: var(--sp-10); }
+.wm-timeline + .wm-timeline { margin-top: var(--sp-12); }
+
+.wm-timeline-intro {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--charcoal-soft);
+  margin-bottom: var(--sp-2);
+}
+
+.wm-timeline-heading {
+  font-family: var(--font-display);
+  font-size: clamp(28px, 4vw, 42px);
+  font-weight: 800;
+  line-height: 1.15;
+  color: var(--charcoal);
+  margin-bottom: var(--sp-6);
+}
+
+.wm-timeline-entry {
+  display: grid;
+  grid-template-columns: 180px 1fr;
+  gap: 0 var(--sp-4);
+  padding: var(--sp-4) 0;
+  border-top: 1px solid var(--cream-deep);
+  align-items: start;
+}
+
+.wm-timeline-entry:last-child { border-bottom: 1px solid var(--cream-deep); }
+
+.wm-date-tag {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: .08em;
+  color: var(--charcoal-soft);
+  padding-top: 4px;
+}
+
+.wm-timeline-entry.current .wm-date-tag {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-1);
+  color: var(--gold-text);
+}
+
+.wm-timeline-entry.current .wm-date-tag::before {
+  content: '';
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--gold);
+  flex-shrink: 0;
+}
+
+.wm-entry-role {
+  font-family: var(--font-display);
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--charcoal);
+  margin: 0;
+}
+
+.wm-entry-company {
+  font-family: var(--font-body);
+  font-size: 15px;
+  color: var(--charcoal-soft);
+  margin: 4px 0 0;
+}
+
+.wm-entry-company em { font-style: normal; }
+
 /* ----- CONTACT ----- */
 .contact-email {
   display: inline-block;
