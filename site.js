@@ -1,6 +1,15 @@
 (function () {
   'use strict';
 
+  // iOS viewport fix: CSS vh/svh/dvh units are computed before the browser
+  // knows the exact available height (URL bar affects it). Set --vh in pixels
+  // from window.innerHeight, which is always accurate at JS execution time.
+  function setVh() {
+    document.documentElement.style.setProperty('--vh', window.innerHeight + 'px');
+  }
+  setVh();
+  window.addEventListener('resize', setVh, { passive: true });
+
   // Mobile nav toggle — keeps aria-expanded AND aria-label in sync.
   var toggle = document.querySelector('.nav-toggle');
   var nav = document.querySelector('.site-header nav');

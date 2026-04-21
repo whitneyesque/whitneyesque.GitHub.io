@@ -50,7 +50,8 @@ body {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  min-height: 100svh; /* svh = stable viewport height, doesn't jump as iOS URL bar shows/hides */
+  min-height: 100svh;
+  min-height: var(--vh, 100svh); /* --vh set in JS to exact px after iOS computes real viewport */
 }
 
 
