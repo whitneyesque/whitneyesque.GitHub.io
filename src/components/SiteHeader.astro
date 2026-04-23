@@ -1,0 +1,21 @@
+---
+interface Props {
+  active: 'home' | 'work' | 'about' | 'contact';
+  transparent?: boolean;
+}
+
+const { active, transparent = false } = Astro.props;
+const headerClass = transparent ? 'site-header header-transparent' : 'site-header';
+---
+<header class={headerClass}>
+  <a href="index.html" class="wordmark">Whitney Masulis</a>
+  <button class="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="primary-nav">
+    <span></span><span></span>
+  </button>
+  <nav id="primary-nav" aria-label="Main navigation">
+    <a href="index.html" class={active === 'home' ? 'active' : undefined} aria-current={active === 'home' ? 'page' : undefined}>Home</a>
+    <a href="work.html" class={active === 'work' ? 'active' : undefined} aria-current={active === 'work' ? 'page' : undefined}>Work</a>
+    <a href="about.html" class={active === 'about' ? 'active' : undefined} aria-current={active === 'about' ? 'page' : undefined}>About</a>
+    <a href="contact.html" class={active === 'contact' ? 'active' : undefined} aria-current={active === 'contact' ? 'page' : undefined}>Contact</a>
+  </nav>
+</header>

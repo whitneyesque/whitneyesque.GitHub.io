@@ -245,7 +245,7 @@ p + p { margin-top: var(--sp-2); }
   max-width: 780px; margin: 0 auto; text-align: center;
 }
 .hero-home h1 { color: var(--cream); margin-bottom: var(--sp-3); }
-.hero-home h1 em { color: var(--gold-light); }
+.hero-home h1 em { color: var(--gold-light); white-space: nowrap; }
 .hero-home .hero-sub {
   font-size: 17px;
   color: rgba(244, 237, 228, .9);
@@ -256,6 +256,7 @@ p + p { margin-top: var(--sp-2); }
   font-family: var(--font-mono);
   font-size: 11px; letter-spacing: .15em; text-transform: uppercase;
   color: var(--gold-light);
+  margin: 0 auto;
 }
 .hero-home .scroll-cue {
   position: absolute; bottom: var(--sp-5); left: 50%;

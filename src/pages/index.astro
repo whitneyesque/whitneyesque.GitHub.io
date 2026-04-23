@@ -1,0 +1,95 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const title = 'Whitney Masulis — Senior Service Designer';
+const description = 'Senior service designer working in the spaces between strategy and delivery. Currently at Harmonic Design in Brooklyn, NY.';
+const canonicalURL = 'https://whitneyesque.github.io/';
+---
+<BaseLayout
+  title={title}
+  description={description}
+  canonicalURL={canonicalURL}
+  ogType="website"
+  pageId="home"
+  transparentHeader={true}
+>
+  <script type="application/ld+json" slot="head" is:inline set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Whitney Masulis",
+    "jobTitle": "Senior Service Designer",
+    "url": "https://whitneyesque.github.io/",
+    "image": "https://whitneyesque.github.io/images/headshot.jpeg",
+    "worksFor": {
+      "@type": "Organization",
+      "name": "Harmonic Design"
+    },
+    "alumniOf": [
+      { "@type": "CollegeOrUniversity", "name": "MIT Sloan" },
+      { "@type": "CollegeOrUniversity", "name": "Brown University" }
+    ],
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Brooklyn",
+      "addressRegion": "NY",
+      "addressCountry": "US"
+    },
+    "sameAs": [
+      "https://www.linkedin.com/in/whitneymasulis/"
+    ]
+  })} />
+
+  <section class="hero-home">
+    <div class="hero-bg" aria-hidden="true"></div>
+    <div class="hero-content">
+      <span class="section-label on-dark">Service Design + Strategy</span>
+      <h1>Most services weren't designed. <em>They grew.</em></h1>
+      <p class="hero-sub">I help organizations see what they've actually built, find where it's tangled, and shape it into something people can move through.</p>
+      <p class="hero-credentials">Senior Service Designer at Harmonic&nbsp;Design&ensp;&middot;&ensp;MIT&nbsp;Sloan&nbsp;MBA</p>
+    </div>
+    <div class="scroll-cue" aria-hidden="true">Scroll</div>
+  </section>
+
+  <section class="section reveal">
+    <span class="section-label">What I Do</span>
+    <div class="two-col wide-left">
+      <div>
+        <h2>Service design is what happens when you zoom out <em>past the screen.</em></h2>
+      </div>
+      <div>
+        <p>How does the whole system actually work? Who's involved, where do people get stuck, what's the business model underneath? I answer those questions, then work across teams to turn the answers into services that function for the people inside them.</p>
+        <p>Research with real users. Workshops with teams who haven't been in the same room. Journey maps and blueprints that make the invisible visible. Prototypes that test whether what we're building survives contact with reality.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section full-bleed reveal">
+    <div class="section-inner">
+      <span class="section-label">What People Say</span>
+      <h2>Working with me</h2>
+      <div class="testimonial-grid">
+        <figure class="testimonial">
+          <blockquote>She built a GPT prototype from scratch, on her own initiative, that changed the trajectory of the research. She has the ability to see what's needed before anyone else, and then she makes it happen.</blockquote>
+          <figcaption><cite>Senior&nbsp;Experience&nbsp;Designer, Project&nbsp;Lead, Fortune&nbsp;500&nbsp;Client</cite></figcaption>
+        </figure>
+        <figure class="testimonial">
+          <blockquote>Whitney helped our teams think differently and gave us a fast, low-cost way to test ideas before committing further. She set a strong foundation so teams could continue prototype testing on their own.</blockquote>
+          <figcaption><cite>Kirsten&nbsp;DeHaai, Director&nbsp;of&nbsp;CX, Ferguson</cite></figcaption>
+        </figure>
+        <figure class="testimonial">
+          <blockquote>The outcome was not only a very happy client, but a client team that feels better equipped to realize the vision of their project.</blockquote>
+          <figcaption><cite>Patrick&nbsp;Quattlebaum, Founder, Harmonic&nbsp;Design</cite></figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-block reveal">
+    <div class="cta-block-inner">
+      <span class="section-label">Get In Touch</span>
+      <h2>Have something <em>tangled?</em></h2>
+      <p>I'm always interested in conversations about service design, complex systems, and what's next.</p>
+      <a href="mailto:whitney@whitneymasulis.com" class="btn">Let's Talk</a>
+    </div>
+  </section>
+</BaseLayout>

@@ -1,49 +1,17 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#FAF7F3">
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
 
-  <title>About — Whitney Masulis</title>
-  <meta name="description" content="Senior service designer, strategist, and facilitator. MIT Sloan MBA. Currently at Harmonic Design in Brooklyn, NY.">
-
-  <link rel="canonical" href="https://whitneymasulis.com/about.html">
-  <link rel="icon" type="image/svg+xml" href="favicon.svg">
-
-  <meta property="og:type" content="profile">
-  <meta property="og:url" content="https://whitneymasulis.com/about.html">
-  <meta property="og:title" content="About — Whitney Masulis">
-  <meta property="og:description" content="Senior service designer, strategist, and facilitator. MIT Sloan MBA. Currently at Harmonic Design in Brooklyn, NY.">
-  <meta property="og:image" content="https://whitneymasulis.com/images/og-card.png">
-  <meta property="og:image:width" content="1200">
-  <meta property="og:image:height" content="630">
-  <meta name="twitter:card" content="summary_large_image">
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Petrona:ital,wght@0,400;0,700;0,800;1,400;1,700&family=DM+Sans:ital,opsz,wght@0,9..40,300..700;1,9..40,300..700&family=DM+Mono:wght@300;400&display=swap">
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
-
-<a href="#main" class="skip-link">Skip to content</a>
-
-<header class="site-header">
-  <a href="index.html" class="wordmark">Whitney Masulis</a>
-  <button class="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="primary-nav">
-    <span></span><span></span>
-  </button>
-  <nav id="primary-nav" aria-label="Main navigation">
-    <a href="index.html">Home</a>
-    <a href="work.html">Work</a>
-    <a href="about.html" class="active" aria-current="page">About</a>
-    <a href="contact.html">Contact</a>
-  </nav>
-</header>
-
-<main id="main">
-
+const title = 'About — Whitney Masulis';
+const description = 'Senior service designer, strategist, and facilitator. MIT Sloan MBA. Currently at Harmonic Design in Brooklyn, NY.';
+const canonicalURL = 'https://whitneyesque.github.io/about.html';
+---
+<BaseLayout
+  title={title}
+  description={description}
+  canonicalURL={canonicalURL}
+  ogType="profile"
+  pageId="about"
+>
   <section class="about-hero">
     <span class="section-label">About</span>
     <h1>The best services look simple from the outside and have <em>a lot of structure underneath.</em></h1>
@@ -59,7 +27,7 @@
       </div>
       <div>
         <div class="headshot-wrap">
-          <img src="images/headshot.jpeg" alt="Whitney Masulis, smiling, wearing a patterned blue blouse against a dark blue background" width="600" height="600" loading="lazy" decoding="async">
+          <img src="/images/headshot.jpeg" alt="Whitney Masulis, smiling, wearing a patterned blue blouse against a dark blue background" width="600" height="600" loading="lazy" decoding="async">
         </div>
       </div>
     </div>
@@ -167,25 +135,4 @@
       <a href="mailto:whitney@whitneymasulis.com" class="btn">Get In Touch</a>
     </div>
   </section>
-
-</main>
-
-<footer class="site-footer">
-  <div class="footer-bg" aria-hidden="true"></div>
-  <div class="footer-content">
-    <div class="footer-left">
-      <div class="footer-name">Whitney Masulis</div>
-      <div class="footer-title">Senior Service Designer</div>
-      <div class="footer-location">Brooklyn, NY</div>
-    </div>
-    <div class="footer-right">
-      <a href="mailto:whitney@whitneymasulis.com">Email</a>
-      <a href="https://www.linkedin.com/in/whitneymasulis/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-    </div>
-  </div>
-  <div class="footer-copy">&copy; 2026 Whitney Masulis</div>
-</footer>
-
-<script src="site.js" defer></script>
-</body>
-</html>
+</BaseLayout>
