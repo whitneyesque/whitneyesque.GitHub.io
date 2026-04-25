@@ -1,0 +1,80 @@
+---
+import BaseLayout from './BaseLayout.astro';
+
+interface Props {
+  title: string;
+  client: string;
+  year: number;
+  role: string;
+  team?: string;
+  timeline: string;
+  tags: string[];
+  summary: string;
+  hero_image?: string;
+  slug: string;
+}
+
+const { title, client, year, role, team, timeline, tags, summary, hero_image, slug } = Astro.props;
+
+const canonicalURL = `https://whitneyesque.github.io/cases/${slug}.html`;
+const pageTitle = `${title} — Whitney Masulis`;
+---
+<BaseLayout
+  title={pageTitle}
+  description={summary}
+  canonicalURL={canonicalURL}
+  ogType="website"
+  pageId="work"
+>
+  <article class="case-article">
+
+    <header class="case-hero" style={hero_image ? `--hero-image: url('${hero_image}')` : undefined} data-has-image={hero_image ? 'true' : undefined}>
+      <div class="case-hero-inner">
+        <a href="/work.html" class="case-back-top">← Work</a>
+        <h1 class="case-title">{title}</h1>
+        <p class="case-summary">{summary}</p>
+      </div>
+    </header>
+
+    <div class="case-meta-bar">
+      <div class="case-meta-inner">
+        <dl class="case-meta-list">
+          <div class="case-meta-item">
+            <dt>Client</dt>
+            <dd>{client}</dd>
+          </div>
+          <div class="case-meta-item">
+            <dt>Year</dt>
+            <dd>{year}</dd>
+          </div>
+          <div class="case-meta-item">
+            <dt>Role</dt>
+            <dd>{role}</dd>
+          </div>
+          <div class="case-meta-item">
+            <dt>Timeline</dt>
+            <dd>{timeline}</dd>
+          </div>
+          {team && (
+            <div class="case-meta-item">
+              <dt>Team</dt>
+              <dd>{team}</dd>
+            </div>
+          )}
+        </dl>
+        <div class="tag-row">
+          {tags.map(tag => <span class="tag">{tag}</span>)}
+        </div>
+      </div>
+    </div>
+
+    <div class="case-body">
+      <slot />
+    </div>
+
+    <footer class="case-footer">
+      <a href="/work.html" class="case-back-bottom">← Back to Work</a>
+    </footer>
+
+  </article>
+</BaseLayout>
