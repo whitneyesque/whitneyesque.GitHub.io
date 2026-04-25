@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>OG Card Export — Whitney Masulis</title>
+<link href="https://fonts.googleapis.com/css2?family=Petrona:wght@800&family=DM+Mono:wght@400&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { width: 1200px; height: 630px; overflow: hidden; }
+
+  .og-card {
+    width: 1200px;
+    height: 630px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .bg {
+    position: absolute;
+    inset: 0;
+    background-image: url('./public/images/botanicals.jpg');
+    background-size: cover;
+    background-position: center 40%;
+  }
+
+  .overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      135deg,
+      rgba(10, 10, 8, 0.72) 0%,
+      rgba(10, 10, 8, 0.55) 40%,
+      rgba(10, 10, 8, 0.40) 100%
+    );
+  }
+
+  .content {
+    position: relative;
+    z-index: 1;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 72px 80px;
+  }
+
+  .name {
+    font-family: 'Petrona', Georgia, serif;
+    font-weight: 800;
+    font-size: 72px;
+    line-height: 1.0;
+    color: #F7F5F0;
+    letter-spacing: -1px;
+    margin-bottom: 16px;
+  }
+
+  .subtitle {
+    font-family: 'DM Mono', monospace;
+    font-weight: 400;
+    font-size: 16px;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    color: #D4D0C6;
+  }
+</style>
+</head>
+<body>
+  <div class="og-card">
+    <div class="bg"></div>
+    <div class="overlay"></div>
+    <div class="content">
+      <div class="name">Whitney Masulis</div>
+      <div class="subtitle">Service Design & Strategy</div>
+    </div>
+  </div>
+</body>
+</html>

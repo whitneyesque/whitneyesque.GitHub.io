@@ -1,5 +1,10 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+
+// Build a set of published case slugs so we can link cards dynamically
+const publishedCases = await getCollection('cases', entry => entry.data.status === 'published');
+const published = new Set(publishedCases.map(e => e.slug));
 
 const title = 'Work — Whitney Masulis';
 const description = 'Selected service design projects spanning insurance, public sector, automotive, telecom, and healthcare.';
@@ -37,7 +42,10 @@ const canonicalURL = 'https://whitneyesque.github.io/work.html';
           <span class="tag">Service Blueprint</span>
           <span class="tag">User Research</span>
         </div>
-        <span class="project-status">Contact me to view full portfolio</span>
+        {published.has('agetech')
+          ? <a href="/cases/agetech.html" class="btn">Read Case Study</a>
+          : <span class="project-status">Contact me to view full portfolio</span>
+        }
       </div>
     </article>
 
