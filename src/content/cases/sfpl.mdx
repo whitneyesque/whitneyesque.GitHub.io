@@ -21,6 +21,7 @@ import StatRow from '../../components/StatRow.astro';
 import PullQuote from '../../components/PullQuote.astro';
 import BotanicalDivider from '../../components/BotanicalDivider.astro';
 import SpecimenSignoff from '../../components/SpecimenSignoff.astro';
+import Placeholder from '../../components/Placeholder.astro';
 
 <StatRow stats={[
   { value: '32', label: 'Staff ambassadors across departments' },
@@ -36,6 +37,8 @@ The San Francisco Public Library has served the city since 1878. By the early 20
 SFPL's leadership wanted a strategic plan that wouldn't sit on a shelf. They assembled a consulting team (Gensler, Margaret Sullivan Studio, Harmonic Design, Contigo Communications, and Corey, Canapary & Galanis Research) to run what the firm later described as the most rigorous strategic planning process in public library history.
 
 Harmonic Design's piece of that work was the part that decides whether a strategic plan ever becomes real: getting the people who deliver the service to shape the strategy that governs them.
+
+<Placeholder kind="Establishing image" note="Workshop in motion — staff ambassadors at tables, flip-chart visible. Candidate on file: raw-case-material/sfpl/SFPL presenting.JPG." />
 
 ## My role <em>(pending Whitney's interview).</em>
 
@@ -57,6 +60,8 @@ Thirty-two staff members, drawn from departments across the system, were chosen 
 
 The ambassador model is the case's structural argument. It's also the most portable thing about the work. The library-specific findings stay local, but the shape of how an 800-person organization can include its frontline in its own strategy travels to any service-delivery institution.
 
+<Placeholder kind="Artifact image" note="Values worksheet referenced by the ambassador's quote below ('our value choices for the worksheet'). Blurred or cropped is fine — what matters is that the artifact the quote points at is visible." />
+
 <PullQuote attribution="SFPL staff ambassador, workshop session">
 I liked being able to talk in small groups about our value choices. It prompted deeper conversations, and I could gain a better direction on where my colleagues are at with their own value system.
 </PullQuote>
@@ -69,9 +74,13 @@ I really appreciate seeing that the feedback from the last session was taken int
 
 This section is intentionally left thin. Until Whitney describes the moment the work pivoted, anything written here would be speculation. The interview should surface either a values-alignment moment between staff and executives that was harder than expected, a piece of frontline insight that changed the priorities, or a process design choice that almost didn't get made and turned out to matter.
 
+<Placeholder kind="Pull quote or insight callout, from Whitney" note="The turn beat — the moment she thought she had one problem and realized she had another, or the rigor moment that earned the unanimous adoption. Owed by the case-interviewer round." />
+
 ## What the work produced: <em>a unanimous vote on Vision 2030.</em>
 
 In 2024, the San Francisco Public Library Commission unanimously adopted the strategic plan, the **Vision 2030** plan, committing to a six-year effort to create "a democratic, equitable, and vibrant San Francisco for everyone." The plan named five strategic priorities.
+
+<Placeholder kind="List or visual of the five strategic priorities" note="Body says 'the plan named five strategic priorities' but the priorities themselves never appear. Either name them inline or show the Strategic Plan one-sheet produced by the consulting team." />
 
 <PullQuote attribution="Michael Lambert, City Librarian, Vision 2030 SFPL Strategic Plan: 2024–2030">
 This partnership between SFPL and our consulting team resulted in a strategic framework that's tailored to community needs while aligning with organizational values. It not only ensures SFPL's adaptability in an ever-developing culture but also serves as a perfect example for organizations navigating change and seeking to set a course for future excellence.
@@ -80,5 +89,21 @@ This partnership between SFPL and our consulting team resulted in a strategic fr
 ## What the case is really about.
 
 The portfolio's three reader types each need a different read on this case, and the current draft hedges across all of them. The next composer round, after Whitney's interview, should pick one. For hiring managers at strategic design teams, the case proves she can run a co-creation process inside a large public-sector institution and earn a unanimous vote out of it. For ops and strategy leaders, it shows that service design isn't a research-only practice; it's a way to make strategy actually take. For peers, it demonstrates the rigor of synthesizing staff voice into priorities without losing fidelity. The version below leans toward the first read; Whitney's call.
+
+## What I need from you
+
+Four `<Placeholder />` blocks are inserted in the body where the case is asking for an asset, a quote, or a piece of named content. Each is the smallest fix that would let the surrounding prose stand on its own.
+
+**1. Establishing image — workshop in motion.** Sits after the opening section, before "My role." Candidate already on file: `raw-case-material/sfpl/SFPL presenting.JPG` (sticky-note worksheets, flip-chart, "Critique & Feedback" on screen). Confirm it's clearable for portfolio use, or supply an alternate working-session shot. Without it, the case opens cold under a stat row and a lot of body copy.
+
+**2. Values worksheet artifact.** Sits inside the ambassador-model section, immediately above the first staff pull quote. The quote literally points at it ("our value choices for the worksheet"). A blurred or tightly cropped frame is fine — fidelity matters more than legibility. If no photo exists, a clean recreation of the worksheet's structure would also work.
+
+**3. The "turn" beat — pull quote or insight callout, in Whitney's voice.** Sits inside the placeholder "The turn" section. This is the case-interviewer round's job, not the visual round's; the placeholder is here to mark that the visual treatment of this section depends on a content beat that doesn't yet exist. Once the interview surfaces the moment of reframe (or the rigor moment that earned unanimity), drop a `<PullQuote />` or `<InsightCallout />` in the slot.
+
+**4. The five strategic priorities.** Sits inside "What the work produced," right after the sentence that promises them. The body currently says "the plan named five strategic priorities" but never names them. Either list them inline as a short numbered list, or supply a clean image of the Strategic Plan one-sheet the consulting team produced. Vision 2030 is public, so the priorities can be named directly.
+
+**Specimen artwork — flagged separately.** The MDX points at `/images/specimen-redwood.jpg` and `/images/signoff-redwood.png`. Neither file exists on disk yet. The design-system-applier's choice of redwood is a working pick, not a confirmed one — if it survives Whitney's review against the V3 specimen-symbolism table, the assets need to be sourced or commissioned in the same `specimen-{name}.jpg` / `signoff-{name}.png` pattern as the other cases. Until then the case will render with broken images at the top and bottom.
+
+**One thing I'm not asking for.** A portrait of Whitney inside the Whitney-led case. The "My role" section is honest about its own placeholder status, and dressing it up with a portrait before the interview defines what she actually did would imply more resolution than the case has.
 
 <SpecimenSignoff specimen="/images/signoff-redwood.png" />
