@@ -1,0 +1,115 @@
+---
+title: 'A refund that crosses five companies. <em>And a story about who was slowing it down that did not survive contact with the data.</em>'
+client: 'Allied Solutions (auto / financial services)'
+year: 2024
+role: 'Service designer, Harmonic Design'
+team: 'Five-person Harmonic team partnered with Allied''s Refund+ project lead and roughly 25 colleagues across product, technology, operations, and partnerships'
+timeline: 'Jan – Jun 2024 (Phases 2 – 3 of a nine-month engagement)'
+tags:
+  - 'Service Design'
+  - 'Service Blueprinting'
+  - 'Strategic Research'
+  - 'Enterprise'
+summary: 'A nine-month redesign of a multi-party refund service that started by overturning three internal assumptions about who the bottleneck actually was.'
+specimen: '/images/specimen-fig-split.jpg'
+specimenSignoff: '/images/signoff-fig-split.png'
+slug: 'Allied'
+status: 'draft'
+---
+import StatRow from '../../components/StatRow.astro';
+import PullQuote from '../../components/PullQuote.astro';
+import InsightCallout from '../../components/InsightCallout.astro';
+import BotanicalDivider from '../../components/BotanicalDivider.astro';
+import SpecimenSignoff from '../../components/SpecimenSignoff.astro';
+
+<StatRow stats={[
+  { value: '5', label: 'Parties in the service' },
+  { value: '70 → 30', label: 'Days, baseline vs. target time-to-recovery' },
+  { value: '9 months', label: 'Total engagement' },
+]} />
+
+## A service no one could see end to end. <em>And money that moved slowly through it.</em>
+
+Allied Solutions sits in the middle of a transaction most car buyers never think about. When someone pays off an auto loan early, wrecks the car, or has it repossessed, the ancillary products bundled into that loan (GAP insurance, extended warranties, vehicle service contracts) are owed back to the borrower in prorated refunds. Allied's Refund+ service handles that work on behalf of lenders, coordinating with dealers and the product providers who originally sold the contracts.
+
+It is a service with five parties: the borrower, the lender, the dealer, the product provider, and Allied in the middle. Each one has its own systems, its own incentives, and its own idea of when "fast" is fast enough. By the time the team brought us in, the service was working. But no one could see it end to end, the money was moving slowly, and a credit-union client had recently walked. Allied's leadership wanted Refund+ to grow into a category-defining platform; the existing service had grown into something else entirely.
+
+Harmonic was hired in October 2023 to research the current state, design a future state, and produce a buildable architecture for it. I joined in Phase 2, contributing to research synthesis, future-state concept development, the collaborative blueprinting workshop, and the final deliverables.
+
+## Following the money. <em>Three things Allied believed about its own service did not survive contact with the data.</em>
+
+Between January and March 2024, the team conducted twelve 90-minute interviews with dealerships in Georgia, California, and Colorado (three of them on-site in GA), three 90-minute interviews with lenders, and two half-day on-site sessions with lenders: a regional credit union and a top-five US bank. The dealer sample spanned single-location franchises to multi-site dealer groups; the lender sample spanned a single-state credit union to a fifty-state indirect-lending operation, plus an auto-finance arm of a major manufacturer.
+
+Three things Allied believed about its own service did not survive contact with the data.
+
+<InsightCallout label="What we thought / What we learned">
+
+**1. Clients will largely stick with us.** &nbsp;→&nbsp; The more lenders did on their own, the less they needed us. One credit-union client had already left for a competitor that connected directly to providers.
+
+**2. Refund+ is operating as both a compliance service and a recovery service.** &nbsp;→&nbsp; Lenders did not consistently feel either was being delivered. Several were quietly building in-house cancellation programs as a hedge.
+
+**3. Dealerships are the cause of refund delays.** &nbsp;→&nbsp; Most dealerships processed cancellations promptly. The longest delays sat with product providers and the US Postal Service.
+
+</InsightCallout>
+
+The third one was the load-bearing reframe. For years, the internal narrative at Allied had pointed at dealers as the slow link: unresponsive, hard to reach, sending checks to the wrong address. Field research told a different story. Dealers were caught in the middle. They could not issue a refund check until both the data and the funds arrived from the provider, which usually arrived on the provider's monthly reconciliation cadence and by mail. Allied's automated "attempt to collect" emails landed on dealers who genuinely had nothing new to report, manufacturing the appearance of unresponsiveness from a workflow that had nowhere to move.
+
+<PullQuote attribution="Lender, research interview, March 2024">
+Refund+ thinks its job is done the moment we front the money.
+</PullQuote>
+
+<PullQuote attribution="Lender, research interview, March 2024">
+We found that having to connect to the dealers on almost anything is near impossible. It is a very, very, very heavy [process].
+</PullQuote>
+
+We presented the findings to Allied leadership on March 26, 2024. I took rough verbatim transcription during the readout, capturing the questions people asked, the language they used to push back, and the specific moments where the room recognized it had been working on the wrong problem. The product owner at Refund+ summarized the room's reaction in one line:
+
+<PullQuote attribution="Refund+ product lead, post-readout, March 26 2024">
+Some aha moments, a plot twist, some things we already believed.
+</PullQuote>
+
+The "plot twist" was the dealer reframing. From there, the question changed shape: not *how do we get dealers to be faster*, but *how do we redesign Refund+ around the actual flow of information and money*.
+
+<BotanicalDivider />
+
+## 138 ideas, <em>one path and two strategic bets.</em>
+
+Phase 2.5 was a series of virtual working sessions with Allied's product, operations, and technology leaders. Across four sessions, the team (the Refund+ project lead, Allied SMEs, and the Harmonic group) generated 138 future-state ideas. Our job was to compress them into a proposal Allied's executive leadership could decide on.
+
+We landed on a recommended direction and two strategic experiments:
+
+**Recommended: Refund+ ′+′, a modernized routing system.** A scalable, automated cancellation routing platform built on a unified data architecture. Lender loan files are ingested daily with status flags (Early Payoff, Repossession, Total Loss) that trigger cancellation cases. Cases are routed according to state regulatory profiles and lender configurations, then handed to data partners through a "smart partner router." Dealers see open cases and invoices in a portal or DMS integration. Providers pay Allied directly via EFT. Reconciliation auto-completes when amounts fall within a tolerance set in the lender's profile.
+
+**Experiment 2A: Provider Direct.** Vertical integration with high-volume providers. Allied builds direct API connections, bypasses third-party intermediaries, and uses a tiered ranking (Direct API → DMS → lender image drives) to choose the cleanest data source for each case.
+
+**Experiment 2B: Provider BPO.** The boldest reframe in the deck. Allied becomes the cancellation administrator *for providers*: a direct-to-provider business process outsourcing service, paid out of provider cancellation fees. This was a quiet flip of the business model, from being the lender's agent to sitting on both sides of the supply chain. It opened a second revenue line and gave providers regulatory cover they were starting to want.
+
+The recommendations were pre-read in early May and presented to leadership on May 8 for a directional decision. Leadership approved the path forward, and the team moved to a five-day in-person blueprinting and evolution-mapping workshop the first week of June.
+
+## A week of blueprinting <em>from a chair I couldn't be in.</em>
+
+The blueprinting workshop took place June 3 – 7, 2024 at Cohatch Carmel, a co-working space in Carmel, Indiana, near Allied's headquarters. The invite was explicit: *"The workshop will be conducted in person only. There will NOT be a virtual meeting for participants to join."*
+
+I attended the entire week remotely, anyway. A laptop in the corner of the room gave me the audio. A shared chat with Mariah and Matias, the two Harmonic designers facilitating in the room, was my channel into the conversation. I could not introduce myself across the table, follow people into the hallway during breaks, or read the room's body language. I had to rely on a microphone that often picked up the wrong person, a rotating cast of voices I had to identify by tone, and a pair of facilitators I could only reach by typing.
+
+It changed what I could contribute, and clarified it.
+
+What I could not do from the chat was facilitate. What I *could* do was hold the model. A five-day blueprint covers something like 40 columns and a hundred capability cards. The team in the room is making fast decisions on a wall; those decisions accumulate, and after two days a participant will start referring to a concept by a different name than the one on the sticky note. *Who said one-to-one or one-to-many? Does a dealer have to have an API to have a portal? When Mariah says "obtaining a quote," does she mean the estimate or the ECRA?* Every clarification from the chat was an attempt to keep what was being said and what was being mapped from drifting apart.
+
+<PullQuote attribution="Workshop chat, June 5 2024">
+Okay, I don't understand the portal being built on top of an API if the primary case is to build a portal for dealers who don't have an API to Allied to use.
+</PullQuote>
+
+The most useful chat I sent during the week was three words: *Do they realize they are changing it?* Someone in the room had quietly redrawn the provider-API logic on a sticky note, and the room had moved on without noticing. The facilitators caught it, paused, and brought the question back to the group. The blueprint as it stood would have committed Allied to a capability nobody had agreed to fund.
+
+<PullQuote attribution="Workshop chat, June 4 2024">
+Just want to make sure she is using the same language they are.
+</PullQuote>
+
+I also pushed for a row in the blueprint that was not standard in our firm's template: a **status milestone** row. Each loan account has a status: *active loan*, *funds received – reconciliation in progress*, *funds received – payment in progress*, *refund delivered*. The row sits underneath the customer-action row and tracks the contractual state of the case as it moves across the service. Without it, the blueprint reads as a sequence of actions but does not show what the system *thinks the case is* at any given step. With it, the blueprint becomes a specification: the lender portal, the dealer portal, and the auto-reconciliation logic all hang off those status names.
+
+## What Allied got at delivery. <em>A blueprint, two evolution maps, and a capability inventory.</em>
+
+The week ended with a service blueprint, two views of an evolution map (by business capability and by concept), and a capability inventory of every underlying ability Allied would need to build, modify, or buy to reach the target state. The deliverables were structured so that program managers could plan multi-disciplinary workstreams across data, partnerships, technology, and service operations.
+
+<SpecimenSignoff specimen="/images/signoff-fig-split.png" />
