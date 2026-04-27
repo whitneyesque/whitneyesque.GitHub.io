@@ -1,0 +1,93 @@
+---
+title: 'Treating product data as a service, <em>not a database.</em>'
+client: 'Ferguson Enterprises'
+year: 2024
+role: 'TBD — engagement role pending interview'
+team: 'TBD — Harmonic team composition pending interview'
+timeline: 'TBD — engagement dates pending interview'
+tags:
+  - 'Service Design'
+  - 'Service Blueprinting'
+  - 'Data Strategy'
+  - 'Cross-functional Alignment'
+  - 'Roadmapping'
+summary: 'Reframed an overwhelmed product-data team''s tooling problem as a service problem, mapped 275 steps across twelve roles, and produced a four-year roadmap that funded itself.'
+specimen: '/images/specimen-cymbidium.jpg'
+specimenSignoff: '/images/signoff-cymbidium.png'
+slug: 'ferguson-data'
+status: 'draft'
+---
+import StatRow from '../../components/StatRow.astro';
+import PullQuote from '../../components/PullQuote.astro';
+import InsightCallout from '../../components/InsightCallout.astro';
+import BotanicalDivider from '../../components/BotanicalDivider.astro';
+import SpecimenSignoff from '../../components/SpecimenSignoff.astro';
+
+<StatRow stats={[
+  { value: '12', label: 'Stakeholder roles mapped' },
+  { value: '275+', label: 'Steps in the experience map' },
+  { value: '290+', label: 'Capabilities to modify or build' },
+  { value: '4 yr', label: 'Phased roadmap' },
+]} />
+
+## A back office that couldn't keep up <em>with the front.</em>
+
+Ferguson is the largest value-added distributor for residential and non-residential construction across North America: plumbing, HVAC, appliances, lighting, PVF, water and wastewater. The front of the business had grown for two decades. The back office hadn't.
+
+A small product-data team was hand-keying spreadsheets for tens of thousands of vendors and hundreds of thousands of products. Every product needed enrichment, normalization, vetting, and uploading into an inefficient database. Seasonal updates piled on. The infrastructure was undersized and the people running it were burning out.
+
+The easy story to tell about this is a tooling story: replace the database, automate the enrichment, buy a PIM. The harder and more useful story is what happens when the bottleneck isn't the tool.
+
+<PullQuote>
+The bottleneck isn't the tool. It's that no one in the company sees product data as a service that other parts of the business depend on, with its own users, its own service levels, and its own failure modes.
+</PullQuote>
+
+## The reframe: <em>data as a service.</em>
+
+Most data-strategy work focuses on the plumbing: data lakes, metadata, platform efficiency. The Ferguson engagement started somewhere else. Who is the product-data team *serving*, and what would change if those internal customers were treated like customers?
+
+Sales, merchandising, content, enterprise architecture, store operations, and the vendors who supply the data each had a different relationship to the same product record. None of those relationships had been designed.
+
+<InsightCallout label="Reframe">
+**From technical asset to service.**
+
+The shift wasn't aesthetic. Treating product data as a service meant the team had users, not requesters. It meant service levels, not ticket queues. It meant designing the work, not just running it. That's the move that made every downstream artifact possible.
+</InsightCallout>
+
+## Mapping a system <em>no one had ever seen end-to-end.</em>
+
+The work began by partnering with the core product-data team and then deliberately widening the room. The interviews ran from the people typing data into spreadsheets out to sales reps who depend on accurate listings, enterprise architects responsible for the platforms underneath, customer-facing reps who answer the questions when data is wrong, and the vendors at the upstream edge who supply the source information in the first place.
+
+Twelve roles came out of those conversations. The resulting experience map ran past 275 steps. It was the first time anyone at Ferguson had seen the full path a single product record travels, from a vendor's hands to a customer's order.
+
+That map became the working surface for everything downstream:
+
+- **Opportunity workshops.** The internal team used the map to prioritize problems, surface opportunities, and develop concepts for a new ingestion-and-enrichment service. Putting the operators at the design table was load-bearing. They would have to run the new system, so they had to help build it.
+- **Service blueprinting.** Cross-functional sessions translated the prioritized opportunities into a future-state service, with the front-stage and backstage detail required to actually run it. This is where "what could be different" turned into "what we'd have to build, hire, retrain, or buy."
+- **Evolution mapping.** A backcast across three time horizons sequenced the capabilities the future-state service would need, so the program could be phased without losing coherence.
+
+<BotanicalDivider />
+
+## What the map <em>made visible.</em>
+
+Two findings did the most strategic work.
+
+**Redundant workflows.** Two of the team's main workflows overlapped in ways that hadn't been visible until the map sat on one wall. Merging them was the first concrete cost-out the engagement delivered.
+
+**Capability gaps at scale.** The evolution map enumerated 290+ business and service capabilities that would need to be modified or created. That number is large on purpose.
+
+<PullQuote>
+It's not a backlog. It's the size of the actual transformation, named so the organization could plan against it instead of underestimating it.
+</PullQuote>
+
+## A roadmap <em>that funded itself.</em>
+
+The team came out of the engagement with three things they didn't have going in:
+
+1. An end-to-end picture of how product data actually flows through Ferguson, at the level of detail required to make decisions about it.
+2. A phased four-year plan sequencing the 290+ capabilities into something a leadership team could read in a meeting.
+3. A set of high-level estimates the team used to build a business case, secure funding for the next phase, and start implementation planning with confidence rather than dread.
+
+The handoff isn't "we delivered a roadmap." It's that a small, overworked team walked out of the engagement with the language and the artifacts to advocate for their own program, internally, in front of the people who controlled the budget.
+
+<SpecimenSignoff specimen="/images/signoff-cymbidium.png" />
