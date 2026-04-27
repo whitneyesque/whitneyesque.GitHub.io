@@ -17,8 +17,10 @@ const cases = defineCollection({
     timeline: z.string(),
     /** Tags shown on work grid and case page e.g. ["Service Design", "AI Prototyping"] */
     tags: z.array(z.string()),
-    /** Botanical specimen name for decorative motif e.g. "pomegranate-split" */
+    /** Cover specimen image path for V3 design system, e.g. "/images/specimen-protea.jpg" */
     specimen: z.string().optional(),
+    /** Small specimen detail crop for end-of-case signoff (V3 Exception 3). Optional PNG. */
+    specimenSignoff: z.string().optional(),
     /** One sentence used on the work grid card */
     summary: z.string(),
     /** Optional hero image path e.g. "/images/cases/agetech/hero.jpg" */

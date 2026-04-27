@@ -1,0 +1,30 @@
+---
+/**
+ * DarkBand — full-bleed dark section inside a case body.
+ * Houses screenshot cards (or screenshot placeholders).
+ *
+ * Usage:
+ *   <DarkBand label="The prototypes">
+ *     <h2>Two named prototypes, <em>deployed in real branches.</em></h2>
+ *     <p class="case-darkband-intro">...</p>
+ *
+ *     <div class="case-darkband-figures">
+ *       <figure class="case-darkband-figure">
+ *         <div class="case-darkband-figure-placeholder">Make-It-Happen prototype overview</div>
+ *         <figcaption class="case-darkband-figure-caption">Fig. 01 · Round Rock</figcaption>
+ *       </figure>
+ *       ...
+ *     </div>
+ *   </DarkBand>
+ */
+interface Props {
+  label?: string;
+}
+const { label } = Astro.props;
+---
+<section class="case-darkband">
+  <div class="case-darkband-inner">
+    {label && <span class="section-label on-dark">{label}</span>}
+    <slot />
+  </div>
+</section>

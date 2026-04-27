@@ -11,10 +11,24 @@ interface Props {
   tags: string[];
   summary: string;
   hero_image?: string;
+  /**
+   * Cover specimen (Exception 1 in the V3 design system).
+   * Pass the path to a specimen image, e.g. '/images/specimen-protea.jpg'.
+   * Optional. If omitted, no watermark renders.
+   */
+  specimen?: string;
+  /**
+   * Optional alt-text for accessibility tooling. The specimen is decorative,
+   * so this is left empty by default and the SVG is aria-hidden.
+   */
+  specimen_alt?: string;
   slug: string;
 }
 
-const { title, client, year, role, team, timeline, tags, summary, hero_image, slug } = Astro.props;
+const {
+  title, client, year, role, team, timeline, tags, summary,
+  hero_image, specimen, specimen_alt = '', slug,
+} = Astro.props;
 
 const canonicalURL = `https://whitneyesque.github.io/cases/${slug}.html`;
 const pageTitle = `${title} — Whitney Masulis`;
@@ -29,9 +43,19 @@ const pageTitle = `${title} — Whitney Masulis`;
   <article class="case-article">
 
     <header class="case-hero" style={hero_image ? `--hero-image: url('${hero_image}')` : undefined} data-has-image={hero_image ? 'true' : undefined}>
+      {specimen && (
+        <img
+          class="case-hero-specimen"
+          src={specimen}
+          alt={specimen_alt}
+          aria-hidden={specimen_alt ? undefined : 'true'}
+          loading="eager"
+          decoding="async"
+        />
+      )}
       <div class="case-hero-inner">
         <a href="/work.html" class="case-back-top">← Work</a>
-        <h1 class="case-title">{title}</h1>
+        <h1 class="case-title" set:html={title} />
         <p class="case-summary">{summary}</p>
       </div>
     </header>
