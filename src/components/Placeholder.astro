@@ -1,0 +1,203 @@
+---
+/**
+ * Placeholder.astro — scaffolding component used by the visual-director agent.
+ *
+ * NOT part of the V4 design system. Renders a clearly-marked "to-do" block
+ * sized to fill the slot a real asset would occupy (image, stat, pull quote,
+ * or content section). Used during draft review so the writer can see layout
+ * consequences of missing assets in context. Should be replaced with real
+ * content (or removed) before publishing.
+ */
+interface Props {
+  /** What kind of asset is missing */
+  kind: 'image' | 'stat' | 'quote' | 'section';
+  /** How much vertical space this placeholder should occupy */
+  size?: 'hero' | 'darkband-figure' | 'in-body-figure' | 'stat-cell' | 'block';
+  /** Concrete ask in plain language ("workshop photo of five frames on whiteboard") */
+  ask: string;
+  /** Why this asset would strengthen the case (one sentence) */
+  why?: string;
+  /** Alternative options if the primary ask isn't available */
+  alternatives?: string[];
+  /** Where this recommendation came from */
+  source?: 'critic-flag' | 'visual-director-recommendation';
+}
+
+const {
+  kind,
+  size = 'in-body-figure',
+  ask,
+  why,
+  alternatives = [],
+  source = 'visual-director-recommendation',
+} = Astro.props;
+---
+
+<div
+  class:list={[
+    'placeholder',
+    `placeholder--${kind}`,
+    `placeholder--size-${size}`,
+  ]}
+  role="img"
+  aria-label={`Placeholder, ${kind}: ${ask}`}
+>
+  <div class="placeholder-inner">
+    <div class="placeholder-meta">
+      <span class="placeholder-kind">{kind}</span>
+      {source === 'critic-flag' && <span class="placeholder-source">critic flag</span>}
+    </div>
+    <p class="placeholder-ask">{ask}</p>
+    {why && <p class="placeholder-why">{why}</p>}
+    {alternatives.length > 0 && (
+      <details class="placeholder-alternatives">
+        <summary>Alternatives ({alternatives.length})</summary>
+        <ul>
+          {alternatives.map((alt) => <li>{alt}</li>)}
+        </ul>
+      </details>
+    )}
+  </div>
+</div>
+
+<style>
+  .placeholder {
+    border: 2px dashed var(--gold, #C8943E);
+    background: rgba(200, 148, 62, 0.06);
+    padding: 2rem;
+    margin: 2.5rem 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    font-family: var(--font-mono, 'DM Mono', monospace);
+    font-size: 14px;
+    color: var(--charcoal, #2A2520);
+  }
+
+  .placeholder-inner {
+    max-width: 60ch;
+    text-align: left;
+  }
+
+  .placeholder-meta {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    margin-bottom: 1rem;
+    display: flex;
+    gap: 0.75rem;
+    align-items: center;
+  }
+
+  .placeholder-kind {
+    background: var(--gold, #C8943E);
+    color: var(--warm-white, #FAF7F3);
+    padding: 0.25rem 0.6rem;
+    border-radius: 2px;
+    font-weight: 700;
+  }
+
+  .placeholder-source {
+    color: var(--rust, #B85C3A);
+    font-weight: 700;
+  }
+
+  .placeholder-ask {
+    font-family: var(--font-display, 'Petrona', Georgia, serif);
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 1.4;
+    margin: 0 0 0.6rem 0;
+    color: var(--charcoal, #2A2520);
+  }
+
+  .placeholder-why {
+    font-size: 13px;
+    color: var(--charcoal-mid, #4A443D);
+    margin: 0 0 1rem 0;
+    font-style: italic;
+  }
+
+  .placeholder-alternatives {
+    font-size: 12px;
+    color: var(--charcoal-mid, #4A443D);
+    margin-top: 0.75rem;
+  }
+
+  .placeholder-alternatives summary {
+    cursor: pointer;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+
+  .placeholder-alternatives ul {
+    margin: 0.5rem 0 0 1.25rem;
+    padding: 0;
+  }
+
+  /* Size variants — mimic the slot the real asset would occupy */
+  .placeholder--size-hero {
+    min-height: 70vh;
+    margin: 0;
+  }
+
+  .placeholder--size-darkband-figure {
+    min-height: 360px;
+    background: rgba(42, 37, 32, 0.92);
+    color: var(--cream, #F4EDE4);
+    border-color: var(--gold, #C8943E);
+  }
+
+  .placeholder--size-darkband-figure .placeholder-ask,
+  .placeholder--size-darkband-figure .placeholder-why {
+    color: var(--cream, #F4EDE4);
+  }
+
+  .placeholder--size-in-body-figure {
+    min-height: 240px;
+  }
+
+  .placeholder--size-stat-cell {
+    min-height: 80px;
+    padding: 1rem;
+    margin: 0;
+    font-size: 12px;
+  }
+
+  .placeholder--size-stat-cell .placeholder-ask {
+    font-size: 16px;
+  }
+
+  .placeholder--size-block {
+    min-height: 180px;
+  }
+
+  /* Kind variants — override styling for non-image-shaped placeholders */
+  .placeholder--quote {
+    background: var(--cream, #F4EDE4);
+    border-color: var(--charcoal-mid, #4A443D);
+    border-left: 4px solid var(--gold, #C8943E);
+    padding: 2.5rem 3rem;
+  }
+
+  .placeholder--quote .placeholder-ask {
+    font-size: 28px;
+    font-style: italic;
+  }
+
+  .placeholder--stat {
+    background: rgba(200, 148, 62, 0.14);
+    border-color: var(--gold, #C8943E);
+  }
+
+  .placeholder--section {
+    background: rgba(184, 92, 58, 0.06);
+    border-color: var(--rust, #B85C3A);
+  }
+
+  .placeholder--section .placeholder-kind {
+    background: var(--rust, #B85C3A);
+  }
+</style>
