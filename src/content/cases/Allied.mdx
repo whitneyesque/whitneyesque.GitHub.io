@@ -21,6 +21,7 @@ import PullQuote from '../../components/PullQuote.astro';
 import InsightCallout from '../../components/InsightCallout.astro';
 import BotanicalDivider from '../../components/BotanicalDivider.astro';
 import SpecimenSignoff from '../../components/SpecimenSignoff.astro';
+import Placeholder from '../../components/Placeholder.astro';
 
 <StatRow stats={[
   { value: '5', label: 'Parties in the service' },
@@ -84,11 +85,36 @@ We landed on a recommended direction and two strategic experiments:
 
 **Experiment 2B: Provider BPO.** The boldest reframe in the deck. Allied becomes the cancellation administrator *for providers*: a direct-to-provider business process outsourcing service, paid out of provider cancellation fees. This was a quiet flip of the business model, from being the lender's agent to sitting on both sides of the supply chain. It opened a second revenue line and gave providers regulatory cover they were starting to want.
 
+<Placeholder
+  kind="section"
+  size="block"
+  ask="One or two paragraphs expanding the Provider BPO move: the thinking that got the team there, the resistance it met inside Allied, and the trade-offs that came with it."
+  why="The BPO bet is the only one of the three concepts that changes what kind of company Allied is. The critic flagged it as currently treated as a sidebar; if the case argues the 'most strategic line of a future state changes what kind of company you are' thesis, this becomes the climax."
+  alternatives={[
+    "Confirm whose recommendation the BPO move was — Whitney's, the team's, or the Refund+ lead's — so the individual contribution behind the most strategic move in the deck is legible.",
+    "If the move is too sensitive to expand publicly, name that explicitly and let the case lean on Refund+ '+' as the spine instead.",
+  ]}
+  source="critic-flag"
+/>
+
 The recommendations were pre-read in early May and presented to leadership on May 8 for a directional decision. Leadership approved the path forward, and the team moved to a five-day in-person blueprinting and evolution-mapping workshop the first week of June.
 
 ## A week of blueprinting <em>from a chair I couldn't be in.</em>
 
 The blueprinting workshop took place June 3 – 7, 2024 at Cohatch Carmel, a co-working space in Carmel, Indiana, near Allied's headquarters. The invite was explicit: *"The workshop will be conducted in person only. There will NOT be a virtual meeting for participants to join."*
+
+<Placeholder
+  kind="section"
+  size="block"
+  ask="A one- or two-sentence why-remote context — whatever framing you're comfortable disclosing — to land before 'I attended the entire week remotely, anyway' so the move reads as principled rather than headstrong."
+  why="The critic flagged that without context the line currently reads as defiance, which is the opposite of the section's intent. Without the front matter, the strongest section in the draft spends its first paragraph fighting an unstated question."
+  alternatives={[
+    "Disclose the chronic-illness accommodation (hEDS / POTS / MCAS, per the March 25 2024 email to Harmonic leadership) and let the section absorb the frame; this is the Composer's recommended candidate.",
+    "Use a logistics-only framing — 'a constraint I'd negotiated up front with Harmonic and Allied' — without naming the accommodation.",
+    "Reframe the section opener so the in-person-only invite leads to the 'anyway' more obliquely, rendering the why-remote question less prominent.",
+  ]}
+  source="critic-flag"
+/>
 
 I attended the entire week remotely, anyway. A laptop in the corner of the room gave me the audio. A shared chat with Mariah and Matias, the two Harmonic designers facilitating in the room, was my channel into the conversation. I could not introduce myself across the table, follow people into the hallway during breaks, or read the room's body language. I had to rely on a microphone that often picked up the wrong person, a rotating cast of voices I had to identify by tone, and a pair of facilitators I could only reach by typing.
 
@@ -102,14 +128,67 @@ Okay, I don't understand the portal being built on top of an API if the primary 
 
 The most useful chat I sent during the week was three words: *Do they realize they are changing it?* Someone in the room had quietly redrawn the provider-API logic on a sticky note, and the room had moved on without noticing. The facilitators caught it, paused, and brought the question back to the group. The blueprint as it stood would have committed Allied to a capability nobody had agreed to fund.
 
+<Placeholder
+  kind="image"
+  size="in-body-figure"
+  ask="A screenshot or stylized typographic treatment of the workshop chat backchannel from June 4, with the message 'Do they realize they are changing it?' foregrounded and surrounding lines blurred or de-identified."
+  why="This is the most distinctive craft moment in the case. Visual evidence of the chat-as-channel turns the prose into a specific working method rather than a general claim, and earns the 'hold the model when the room can't' frame the section is built on."
+  alternatives={[
+    "A typographic treatment setting the line as a stylized in-body figure (chat-bubble or terminal-styled), if Harmonic NDA prevents publishing the actual capture.",
+    "A composite frame of three or four chat-clarification messages from the week, if a single line feels thin on its own.",
+  ]}
+/>
+
 <PullQuote attribution="Workshop chat, June 4 2024">
 Just want to make sure she is using the same language they are.
 </PullQuote>
 
 I also pushed for a row in the blueprint that was not standard in our firm's template: a **status milestone** row. Each loan account has a status: *active loan*, *funds received – reconciliation in progress*, *funds received – payment in progress*, *refund delivered*. The row sits underneath the customer-action row and tracks the contractual state of the case as it moves across the service. Without it, the blueprint reads as a sequence of actions but does not show what the system *thinks the case is* at any given step. With it, the blueprint becomes a specification: the lender portal, the dealer portal, and the auto-reconciliation logic all hang off those status names.
 
+<Placeholder
+  kind="image"
+  size="in-body-figure"
+  ask="A heavily blurred or de-identified crop of the future-state service blueprint with the Status Milestone row visible (active loan / funds received – reconciliation in progress / funds received – payment in progress / refund delivered) and surrounding column text illegible."
+  why="The Status Milestone row is the load-bearing piece of craft this section turns on; an artifact crop makes the contribution concrete in a way the prose cannot, and gives the credit claim something to point at."
+  alternatives={[
+    "A clean redraw of just the Status Milestone row and the customer-action row above it, as a typographic element, if the actual blueprint cannot be shown.",
+    "A mini-diagram showing the four status names and how each one maps to a different system view (lender portal, dealer portal, auto-reconciliation logic), if a blueprint crop is unavailable.",
+    "Confirmation in the next interview round that the row was specifically your push (not a team call), so the first-person 'I also pushed for' framing holds — see the critic flag on credit attribution.",
+  ]}
+/>
+
 ## What Allied got at delivery. <em>A blueprint, two evolution maps, and a capability inventory.</em>
 
 The week ended with a service blueprint, two views of an evolution map (by business capability and by concept), and a capability inventory of every underlying ability Allied would need to build, modify, or buy to reach the target state. The deliverables were structured so that program managers could plan multi-disciplinary workstreams across data, partnerships, technology, and service operations.
+
+<Placeholder
+  kind="section"
+  size="block"
+  ask="A short outcomes section: did Allied fund the build? Which horizon did they prioritize (Refund+ '+', Provider Direct, Provider BPO, or a combination)? Has any of the future state shipped, and what's in production as of today?"
+  why="This is the section most hiring managers read first. The current draft ends at delivery; an in-house strategic design lead will read the absence as either 'work didn't ship' or 'designer doesn't track outcomes' — both bad inferences for a senior portfolio piece."
+  alternatives={[
+    "If nothing has shipped yet, state that plainly and explain the value the work delivered anyway (decisions reached, internal capability built, deferred bets retained).",
+    "If outcomes are confidential, name that explicitly and substitute a one-paragraph reflection on the artifact's reception inside Allied — what changed in how the team talked about the service after the readout.",
+    "Tighten the StatRow caption on '70 → 30 days' alongside this section so a casual reader does not misread the target as an achieved outcome.",
+  ]}
+  source="critic-flag"
+/>
+
+## What I need from you
+
+Five gaps the critic flagged or the artifact set is missing, marked in place above with `<Placeholder />` blocks. The ask, the why, and a few alternative framings are inside each block. In rough priority order:
+
+1. **Outcomes section** — critic-flag, HIGH. The case ends at delivery and most hiring managers read the outcomes section first. Even a one-paragraph honest accounting beats the current absence; if nothing has shipped, say that and explain what the value was anyway.
+2. **Why-remote context** — critic-flag, MED-HIGH. One or two sentences before "I attended the entire week remotely, anyway" so the strongest section in the draft does not spend its first paragraph fighting an unstated question. The chronic-illness frame is the Composer's flagged candidate; a logistics-only framing is also clean.
+3. **Provider BPO expansion** — critic-flag, MED-HIGH. The most strategically interesting bet in the deck currently sits at sidebar weight. If the case argues the Provider-BPO thesis (option *(c)* in the Composer's open questions), this is where it becomes the climax.
+4. **Workshop chat artifact** — visual-director-recommendation. A screenshot or stylized treatment of the *Do they realize they are changing it?* backchannel moment. Distinctive craft, currently prose-only.
+5. **Blueprint crop with the Status Milestone row** — visual-director-recommendation, with a critic credit-claim cross-reference. Visual evidence of the load-bearing piece of craft in section 4. Also the place where confirming the row was specifically your push (not a team call) matters most.
+
+Two things I considered and chose not to flag:
+
+- **A hero image above the StatRow.** The other shipped V4 cases (agetech, carmax, ferguson-cx) all use StatRow as the visual hero with no separate image; adding one here would break the convention.
+- **A 138 → 3 funnel diagram.** The Composer's Art Director note suggested this if a clean Miro funnel exists. The section earns its weight on the BPO move, and a funnel diagram would compete with the BPO expansion for attention. If a Miro export already exists and is easy to publish, drop it in — but it is not load-bearing.
+
+A separate Art Director thread, not blocked on you: `/images/specimen-fig-split.jpg` and `/images/signoff-fig-split.png` do not yet exist on disk. The page will render with broken-image fallbacks until those assets are produced. The carmax case (PR #8) is in the same state for `specimen-fig.jpg` / `signoff-fig.png`, so coordinating bench production for both fig variants together would be efficient.
 
 <SpecimenSignoff specimen="/images/signoff-fig-split.png" />
