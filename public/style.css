@@ -943,3 +943,289 @@ p + p { margin-top: var(--sp-2); }
   border-radius: 0 0 4px 4px;
 }
 .skip-link:focus { top: 0; }
+
+/* === Case study V3 additions (from ferg-cx-agetech bundle) === */
+/* =========================================================
+   APPEND TO style.css
+   New components for case studies — V3 design system
+   ========================================================= */
+
+/* ----- COVER SPECIMEN (Exception 1) -----
+   Decorative botanical watermark behind/beside the case-hero title.
+   Lives inside .case-hero alongside .case-hero-inner. */
+.case-hero-specimen {
+  position: absolute;
+  top: 50%;
+  right: var(--sp-8);
+  transform: translateY(-50%);
+  width: 280px;
+  height: auto;
+  opacity: .42;
+  pointer-events: none;
+  z-index: 0;
+  /* The image is on a near-black background and we're on --charcoal,
+     so it blends naturally. A subtle blend mode helps the edges sink in. */
+  mix-blend-mode: lighten;
+}
+
+.case-hero[data-has-image] .case-hero-specimen {
+  /* If a hero image is also present, the specimen lives in the lower-right corner
+     and is more transparent so it doesn't fight the photograph. */
+  opacity: .28;
+  width: 220px;
+  top: auto;
+  bottom: var(--sp-6);
+  transform: none;
+}
+
+@media (max-width: 900px) {
+  .case-hero-specimen {
+    width: 180px;
+    right: var(--sp-3);
+    opacity: .25;
+  }
+}
+
+@media (max-width: 600px) {
+  .case-hero-specimen {
+    width: 130px;
+    opacity: .18;
+    right: var(--sp-2);
+  }
+}
+
+/* ----- DARK BAND (case body component) -----
+   Full-bleed dark section for screenshots. Breaks out of .case-body's 800px column
+   using the negative-margin trick. */
+.case-darkband {
+  background: var(--charcoal);
+  color: var(--cream);
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
+  margin-top: var(--sp-10);
+  margin-bottom: var(--sp-10);
+  padding: var(--sp-10) 0;
+}
+
+.case-darkband-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 var(--sp-8);
+}
+
+.case-darkband .section-label {
+  color: var(--gold-light);
+  margin-bottom: var(--sp-3);
+}
+
+.case-darkband h2,
+.case-darkband h3 {
+  color: var(--cream);
+}
+
+.case-darkband h2 em,
+.case-darkband h3 em {
+  color: var(--gold-light);
+}
+
+.case-darkband-intro {
+  max-width: 640px;
+  color: rgba(244, 237, 228, .85);
+  margin-bottom: var(--sp-6);
+}
+
+.case-darkband-figures {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--sp-4);
+  margin-top: var(--sp-5);
+}
+
+.case-darkband-figures.single { grid-template-columns: 1fr; }
+
+.case-darkband-figure {
+  background: #24262E;
+  border: 1px solid #333640;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.case-darkband-figure img {
+  width: 100%;
+  height: auto;
+  display: block;
+  filter: brightness(0.96) contrast(1.04);
+}
+
+.case-darkband-figure-placeholder {
+  aspect-ratio: 16 / 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: var(--sp-4);
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: rgba(244, 237, 228, .55);
+  background:
+    repeating-linear-gradient(
+      45deg,
+      rgba(212, 168, 90, .04) 0,
+      rgba(212, 168, 90, .04) 2px,
+      transparent 2px,
+      transparent 14px
+    ),
+    #24262E;
+}
+
+.case-darkband-figure-caption {
+  padding: var(--sp-2) var(--sp-3);
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: rgba(244, 237, 228, .55);
+  border-top: 1px solid #333640;
+}
+
+@media (max-width: 768px) {
+  .case-darkband {
+    margin-top: var(--sp-6);
+    margin-bottom: var(--sp-6);
+    padding: var(--sp-6) 0;
+  }
+  .case-darkband-inner { padding: 0 var(--sp-3); }
+  .case-darkband-figures { grid-template-columns: 1fr; }
+}
+
+/* ----- PROCESS TIMELINE (case body component) -----
+   Horizontal flex of phase cards. Static, all phases at equal weight. */
+.process-timeline {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0;
+  margin: var(--sp-6) 0;
+  padding: 0;
+  list-style: none;
+  background: var(--cream);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.process-timeline-step {
+  flex: 1 1 130px;
+  padding: var(--sp-3) var(--sp-3) var(--sp-4);
+  border-right: 1px solid var(--cream-deep);
+  position: relative;
+}
+
+.process-timeline-step:last-child { border-right: none; }
+
+.process-timeline-step::after {
+  content: '';
+  position: absolute;
+  left: var(--sp-3);
+  right: var(--sp-3);
+  bottom: 0;
+  height: 3px;
+  background: var(--gold);
+}
+
+.process-timeline-num {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: .15em;
+  text-transform: uppercase;
+  color: var(--gold-text);
+  margin-bottom: var(--sp-1);
+}
+
+.process-timeline-name {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 1.25;
+  color: var(--charcoal);
+}
+
+@media (max-width: 768px) {
+  .process-timeline { flex-direction: column; }
+  .process-timeline-step {
+    border-right: none;
+    border-bottom: 1px solid var(--cream-deep);
+    padding: var(--sp-3);
+  }
+  .process-timeline-step:last-child { border-bottom: none; }
+  .process-timeline-step::after {
+    left: var(--sp-3);
+    right: var(--sp-3);
+  }
+}
+
+/* ----- BOTANICAL DIVIDER (Exception 2) -----
+   Heavily cropped dark band, full-bleed, used at the narrative hinge. */
+.botanical-divider {
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
+  margin-top: var(--sp-10);
+  margin-bottom: var(--sp-10);
+  height: 88px;
+  background-image: url('/images/botanicals-dark18x1.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+}
+
+/* Soften the seam at the top and bottom so it reads as texture, not photo */
+.botanical-divider::before,
+.botanical-divider::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 12px;
+  pointer-events: none;
+}
+
+.botanical-divider::before {
+  top: 0;
+  background: linear-gradient(to bottom, var(--warm-white), transparent);
+}
+
+.botanical-divider::after {
+  bottom: 0;
+  background: linear-gradient(to top, var(--warm-white), transparent);
+}
+
+@media (max-width: 768px) {
+  .botanical-divider {
+    height: 64px;
+    margin-top: var(--sp-6);
+    margin-bottom: var(--sp-6);
+  }
+}
+
+/* ----- SPECIMEN SIGNOFF (Exception 3) -----
+   Small detail crop above the next-project / back link. */
+.specimen-signoff {
+  display: flex;
+  justify-content: center;
+  margin-top: var(--sp-10);
+  margin-bottom: var(--sp-3);
+}
+
+.specimen-signoff img {
+  width: 80px;
+  height: auto;
+  opacity: .55;
+}
+
+@media (max-width: 768px) {
+  .specimen-signoff { margin-top: var(--sp-6); }
+  .specimen-signoff img { width: 64px; }
+}

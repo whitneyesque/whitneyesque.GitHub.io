@@ -1,0 +1,29 @@
+---
+/**
+ * ProcessTimeline — horizontal flex of phase cards.
+ * Static. No active state, no hover, all phases at equal weight.
+ *
+ * Usage:
+ *   <ProcessTimeline phases={[
+ *     { num: '01', name: 'Monitor & Frame' },
+ *     { num: '02', name: 'Explore & Identify' },
+ *     ...
+ *   ]} />
+ */
+interface Phase {
+  num: string;
+  name: string;
+}
+interface Props {
+  phases: Phase[];
+}
+const { phases } = Astro.props;
+---
+<ol class="process-timeline" role="list">
+  {phases.map(({ num, name }) => (
+    <li class="process-timeline-step">
+      <span class="process-timeline-num">Phase {num}</span>
+      <span class="process-timeline-name">{name}</span>
+    </li>
+  ))}
+</ol>
