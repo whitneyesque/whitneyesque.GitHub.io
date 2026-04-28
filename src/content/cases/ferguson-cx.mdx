@@ -24,6 +24,7 @@ import ProcessTimeline from '../../components/ProcessTimeline.astro';
 import DarkBand from '../../components/DarkBand.astro';
 import BotanicalDivider from '../../components/BotanicalDivider.astro';
 import SpecimenSignoff from '../../components/SpecimenSignoff.astro';
+import Placeholder from '../../components/Placeholder.astro';
 
 <StatRow stats={[
   { value: '2', label: 'Prototypes deployed live' },
@@ -38,6 +39,18 @@ The Pro Pickup, or PPU, is the moment a contractor walks into a Ferguson branch 
 That brief is straightforward in shape and slippery in substance. "Perception of waiting" sounds like a problem but isn't yet a design target. Waiting where? Waiting because of what? Waiting that costs the customer what?
 
 The work sat inside Ferguson's CX team, partnered with their internal service design lead. Solo on the design side, part time, with little outside oversight. The early job was less about producing prototypes and more about figuring out what problem to actually solve.
+
+<Placeholder
+  kind="section"
+  size="block"
+  ask="2–3 sentences naming what PPU means to Ferguson commercially: volume, who the contractor customer is, why these accounts matter, and the operational stakes when a pickup goes wrong"
+  why="Critic flagged HIGH: Ferguson is treated as a neutral backdrop. An in-house head of strategic design will close the tab unsure she understood the economics — a $20B distributor and a wait-time scenario aren't enough to show Whitney could read the room."
+  alternatives={[
+    "A single sentence on PPU's share of branch revenue or contractor-volume context",
+    "Quote a specific operational stake: e.g., what a botched pickup costs a branch in re-orders or trust"
+  ]}
+  source="critic-flag"
+/>
 
 ## A seven-phase framework, <em>built while running it.</em>
 
@@ -57,6 +70,19 @@ The cadence was a couple of hours of facilitated work each month, sustained over
 
 Two pieces of upstream work shaped everything that came after. The first was a Pro Pickup service blueprint that mapped what was supposed to happen at every step. The second was a workshop that produced eight Counter Experience Principles: enable a frictionless ordering experience, value time, enable project success, in the moment, trusted advisor, unlock expert collaboration with information, provide value from start to finish, and a partnership-oriented principle around being valued rather than just transacted with. The principles weren't decoration. They became the rubric the prototyping teams used to evaluate every concept.
 
+<Placeholder
+  kind="image"
+  size="in-body-figure"
+  ask="The eight Counter Experience Principles, shown as the workshop artifact (the principles SVG / JPEG already in raw-case-material/ferguson-cx/)"
+  why="The principles are doing structural work in the case (they became the rubric for every prototype) but currently ride as a long prose run of eight names. A single artifact image lets the reader see the rubric instead of parsing it."
+  alternatives={[
+    "principles clustering.jpg from raw material — shows the workshop process behind the principles",
+    "Drop the figure; trim the principles list in prose to 3–4 representative names",
+    "Crop the principles SVG to a 2-column grid showing names + short glosses"
+  ]}
+  source="visual-director-recommendation"
+/>
+
 <BotanicalDivider />
 
 <InsightCallout label="The reframe">
@@ -67,6 +93,18 @@ The customer insights work surfaced five Wait Time Scenarios. The SME Advisory B
 - **Order Not Ready.** A customer arrives on time and finds out their order won't be complete. The wait curdles into disappointment.
 - **Associate Not Present.** A customer arrives at a designated PPU area and there's no one to help. The wait curdles into abandonment.
 </InsightCallout>
+
+<Placeholder
+  kind="section"
+  size="block"
+  ask="1–2 sentences inside or right after the reframe naming what Whitney specifically did to make it possible — synthesizing the five scenarios from the research, structuring the SME prioritization session, posing the 'duration vs. trust failure' cut that surfaced the second category"
+  why="Critic flagged HIGH: the reframe is the case's argument, but the prose hands agency to the SME Advisory Board ('the board picked the two that mattered most'). The 'wait curdles into betrayal' framing is too good to let pass as a passive observation; the case needs to own the call."
+  alternatives={[
+    "Single sentence: name the prioritization frame Whitney designed (e.g., duration vs. trust failure)",
+    "A line of attribution: 'I structured the prioritization so the board could see the second category at all'"
+  ]}
+  source="critic-flag"
+/>
 
 That reframe changed the design problem entirely. The job was no longer to reduce or distract from waiting. It was to prevent the two moments where waiting becomes betrayal. Every prototype that came after was a response to a specific service breakdown, not a generic wait-time experience.
 
@@ -119,6 +157,36 @@ We have gone light years ahead in our communication by not just leaving them to 
 
 CX leadership's read was clear. The service design approach gave the business a quick and low-cost way to test whether something was worth exploring further. Bringing field staff and HQ together in the same workshops produced visibility in both directions that the company doesn't normally get. And the prototyping teams were now in a position to keep iterating on their own, with support rather than dependency.
 
+<Placeholder
+  kind="section"
+  size="block"
+  ask="One honest sentence acknowledging the measurement gap — that customer-side metrics weren't part of the engagement scope and the work was structured as a 'is this worth exploring further' test, not a measurement study"
+  why="Critic flagged: outcomes lean on internal proxies (criteria-met, framework, branch counts) plus testimonials, with no customer-side or business-side number. A single honest sentence acknowledging the measurement gap is stronger than hoping a skeptical reader doesn't notice."
+  alternatives={[
+    "A paraphrased customer-side observation drawn from the Round Rock Testing Mid-Point Review PDF if any usable signal exists there",
+    "Leave inline; rely on Kirsten Caraway's leadership read to do this work implicitly (Composer flagged Kirsten's quote as a candidate to restore here)"
+  ]}
+  source="critic-flag"
+/>
+
 The branch leads asked, unprompted, about cross-pollinating the prototypes: trying KnockKnock at Round Rock and Make-It-Happen at Tamarac.
+
+## What I need from you
+
+This section is scaffolding from the visual-director agent. Delete it before publishing.
+
+### Images (3)
+- **Fig. 01 · Make-It-Happen overview** — the prototype overview page (three-component-box layout) for the Round Rock prototype, to replace the placeholder div inside the DarkBand. *Where:* `case-darkband-figure-placeholder` div, first figure under "## Two named prototypes". *Source:* raw-case-material — `Ferguson Prototypes SD 07292022-1225.pptx.pdf`. *Target path:* `/images/cases/ferguson-cx/make-it-happen-overview.jpg`. *Alternatives:* RR Storyboard Printout if the prototype overview page doesn't crop cleanly.
+- **Fig. 02 · KnockKnock overview** — the prototype overview page (five-component-box layout) for the Tamarac prototype, to replace the second placeholder div in the DarkBand. *Where:* second `case-darkband-figure-placeholder` div in the DarkBand. *Source:* raw-case-material — same Prototypes deck PDF. *Target path:* `/images/cases/ferguson-cx/knockknock-overview.jpg`. *Alternatives:* Tc Storyboard Printout, or a photo of the doorbell installed at the Tamarac PPU area (would need human-capture).
+- **Counter Experience Principles** — see inserted Placeholder above the BotanicalDivider. *Where:* between the principles paragraph and the BotanicalDivider. *Source:* raw-case-material — `experience principles.svg` / `.jpeg` / `.pdf`. *Alternatives:* `principles clustering.jpg` (shows the workshop process), or trim the principles to 3–4 names in prose and skip the figure.
+
+### Sections to add (per critic) (4)
+- **Ferguson business context (HIGH)** — see inserted Placeholder before "## A seven-phase framework". 2–3 sentences naming what PPU means commercially, what abandonment costs the branch, and why a $20B distributor brought a part-time solo designer in. *Where:* end of opening section, before the framework H2.
+- **Reframe agency (HIGH)** — see inserted Placeholder after the InsightCallout. 1–2 sentences naming what Whitney specifically did to make the reframe possible (synthesizing the five scenarios, structuring the prioritization, posing the "duration vs. trust failure" cut). *Where:* directly after the InsightCallout closer.
+- **Methods depth (MEDIUM)** — *not* placeholdered inline because the fix is a prose substitution, not a slot. Critic asked: cut three or four method names from the framework section and replace with one moment of methodological depth — e.g., what the Cupcake Canvas surfaced about KnockKnock that storyboarding hadn't, or how the eight principles were narrowed from a larger working set. *Where:* the framework paragraph that names Crazy 8s, Round Robin, Service Envy, Cupcake Canvas, body storming.
+- **Outcomes acknowledgment / customer voice (MEDIUM)** — see inserted Placeholder before the cross-pollination closer. One honest sentence on the measurement gap, or a paraphrased customer-side observation if the Round Rock Testing Mid-Point Review PDF surfaces one. *Where:* between the CX-leadership-read paragraph and the closing cross-pollination beat.
+
+### Stat values (0)
+The current 2 / 7 / 2 StatRow has real values, no missing cells. Note for Whitney: the critic flagged the StatRow as four internal-proxy artifacts and suggested swapping one for something the case actually earns through the testimonials and post-engagement section ("Both prototypes outlasted the engagement" or "Cross-branch interest from non-pilot leads"). That's an editorial swap, not a missing-value gap — flagging here so it doesn't get lost.
 
 <SpecimenSignoff specimen="/images/signoff-protea.png" />
