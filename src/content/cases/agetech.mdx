@@ -21,6 +21,7 @@ import PullQuote from '../../components/PullQuote.astro';
 import InsightCallout from '../../components/InsightCallout.astro';
 import BotanicalDivider from '../../components/BotanicalDivider.astro';
 import SpecimenSignoff from '../../components/SpecimenSignoff.astro';
+import Placeholder from '../../components/Placeholder.astro';
 
 <StatRow stats={[
   { value: '12', label: 'Caregivers tested across two cohorts' },
@@ -50,6 +51,18 @@ I didn't know I'd have to invent most of these things when I started. I was deve
 
 To build it, I used the client's enterprise OpenAI account and a set of four specialized AI projects, each with a different expert persona: one focused on data science and questionnaire architecture, one on service design and testing protocols, one on geriatric care content and language, and one on competitive intelligence and business analysis. Rather than one long, increasingly muddled conversation thread, I could route specific questions to the right expertise at the right moment. The geriatric care persona caught things late in the build that I wished I'd had it review earlier. That's a lesson I'll carry forward.
 
+<Placeholder
+  kind="section"
+  size="block"
+  ask="Expand the four-persona AI-collaborator workflow into its own beat: when each persona was used, what each one caught that the others missed, what was novel about routing across them"
+  why="Critic flagged this as the lever the title's methodology promise needs. Right now the four-persona move is the strongest evidence of senior-level practice in the case and is compressed into a one-paragraph cameo."
+  alternatives={[
+    "Add a single H3 inside this section ('Routing the build through expert personas') with a one-paragraph expansion",
+    "Soften the title and lede toward the redesign-as-turn frame the body actually delivers, leaving the personas as-is"
+  ]}
+  source="critic-flag"
+/>
+
 The build had two intertwined problems.
 
 **The first was what to ask.** The forecast hadn't been content-defined yet. The team worked together to scope what a forecast should include, then I turned to the data-science persona to build an example. I prompted it to behave as a senior data scientist, because I wasn't supposed to bother the actual data scientists at the company. I asked it: if 10,000 average Americans who meet our target audience signed up and each created a profile saying they were caring for an aging parent, what are the 20 most common combinations of comorbidities? Of all possible inputs, which would have the biggest impact on the forecast? What's the smallest number of questions that would still let the model produce something specific?
@@ -72,6 +85,19 @@ That reframed how I thought about language in this context. It's not enough to c
 
 We ran two cohorts in March 2026, 12 caregivers total, recruited through an online research platform. All were employed full-time and actively caring for an aging family member.
 
+<Placeholder
+  kind="image"
+  size="in-body-figure"
+  ask="Research synthesis board from cohort 1 testing — the redacted/blurred interview synthesis"
+  why="The testing arc is dense and prose-only; an image of the synthesis grounds the work and shows what 'designed the experience backwards' looked like as a finding before the cohort 1 reaction lands."
+  alternatives={[
+    "Blurred service blueprint of the original cohort-1 flow that participants moved through",
+    "Annotated screenshot of the original intake-first experience",
+    "Skip the in-body image; the testing arc carries on prose alone"
+  ]}
+  source="visual-director-recommendation"
+/>
+
 **The first cohort showed us we'd designed the experience backwards.** The original flow front-loaded data collection so the team could take outputs and manually load them into the wireframes. Participants answered questions one at a time. At the end, they were shown a profile for their loved one and a profile for themselves. The profiles fell flat. After spending all that time on deeply personal questions, they were getting back summaries of information they already knew. The forecasts came next, presented as a static wireframe with only one tab open, so participants saw a fraction of the information. Their reaction was tepid. A dashboard appeared after that, which they again read as a summary of what they'd told us. The feature they were most excited about came last: situational guidance, where they could ask the chatbot about their specific caregiving challenges. Most participants barely reached it.
 
 <PullQuote attribution="Synthesis of Cohort 1 feedback, caregiver intake testing">
@@ -86,6 +112,18 @@ The forecast revealed a harder design problem in a separate session: the line be
 
 His reaction was immediate. *This would have freaked us out at the time. It felt like the tool was making a big assumption about a diagnosis.* He was right. The forecast had taken ambiguous early signals and mapped them onto a single trajectory without acknowledging that grief, stress, and medical conditions can look identical at this stage. For a tool designed to help people plan, that's a serious problem. **A projection that assumes the worst without naming what it doesn't know doesn't feel like guidance. It feels like a verdict.** The forecast needed to present ranges and scenarios rather than a single path, and to be explicit about the limits of its own confidence.
 
+<Placeholder
+  kind="section"
+  size="block"
+  ask="Recruited-participant version of the forecast-as-verdict moment — a cohort 1 analog to the executive sponsor's 'big assumption about a diagnosis' reaction"
+  why="Critic flagged stakeholder concentration: of the four named scenes in the testing arc, two are the executive sponsor. Pulling this beat to a participant moves evidentiary weight back to the recruited cohort and answers the Public Policy Lab read that the funder's voice is landing as loud as the caregivers' voices."
+  alternatives={[
+    "If no participant version exists in cohort 1 transcripts, name the executive sponsor's role explicitly the first time he appears so a careful reader isn't surprised when he reappears in cohort 2",
+    "Keep the executive sponsor scene as written and accept the stakeholder concentration"
+  ]}
+  source="critic-flag"
+/>
+
 Then the session that changed how I thought about the whole design. One participant's parent was in the final stage of dementia, and probably had only months to live. I wasn't facilitating that session. I was acting as the Wizard of Oz behind the scenes. Mid-session, I sent a message to the facilitator: skip the rest of the questions, and don't show the forecast. A five-year financial projection isn't something you put in front of someone whose parent has months or weeks left. We shifted gears in real time.
 
 That moment clarified something about the entire design. The tool needed to account for the full range of phases someone might be in when they first encountered it, including end-stages, and it needed to adapt quickly. The participant whose parent was dying wasn't an outlier to route around. The most important design problems lived at the edges of the user population, not in the middle.
@@ -95,6 +133,19 @@ That moment clarified something about the entire design. The tool needed to acco
 Instead of starting with intake, we started with guidance. The first message introduced eight modes, each designed to deliver an actionable output within about ten minutes, and let the participant pick where to begin. The intake questionnaire became a consolidated block afterward, and instead of an adaptive one-question-at-a-time delivery, participants saw the full set of questions at once. If they had already provided answers to any of them in the course of the chatbot conversation, the GPT incorporated those and reduced the question set.
 
 That was a deliberate trade-off. Less elegant, but it gave people a sense of scope and control that the "smarter" version hadn't.
+
+<Placeholder
+  kind="image"
+  size="in-body-figure"
+  ask="Before/after of the cohort 1 vs cohort 2 flow — paired lo-fi wireframes showing the intake-first vs guidance-first architectures"
+  why="The redesign is the central turn of the case but is described entirely in prose. A paired before/after makes the structural change concrete and earns the strategic-reframe callout that follows."
+  alternatives={[
+    "Single lo-fi of the cohort 2 (guidance-first) flow only, as the version that worked",
+    "Annotated screenshot of the cohort 2 mode-picker first message",
+    "Skip; let the prose carry the pivot"
+  ]}
+  source="visual-director-recommendation"
+/>
 
 <InsightCallout label="Strategic reframe">
 Value has to come before effort. Cohort 1 told us this in the most direct way possible: if you ask people to give a lot before they get anything back, you will lose them, especially if they're already stretched thin. The reframe wasn't just a UX choice; it changed the product's architecture.
@@ -146,6 +197,19 @@ than as validation that already happened.
 
 The testing gave them enough confidence in the concept's desirability and the interaction model to justify moving forward. The next phase is substantially larger: building the production AI, developing the real forecast model with a data science team, and running a two-month beta this fall that will include the AI, the forecast, human care guide calls, and task management features. That beta is a meaningful investment. The prototype is what made it defensible.
 
+<Placeholder
+  kind="section"
+  size="block"
+  ask="3–5 sentences naming the strategic frame (whose problem, why now, what the insurer gains: retention / MLR / group-benefits differentiation), the funding threshold the prototype had to clear, and what the team chose to leave out of the beta to make it defensible"
+  why="Critic's high-severity flag: the case is told from the design-research perspective with the business as a neutral backdrop. For an insurer hiring at this level, this is the gap between 'good designer' and 'designer who can lead inside an enterprise' — a CMO or strategy lead reading this currently sees a well-run study, not a designer who can talk to their CFO."
+  alternatives={[
+    "A single sentence naming the customer (employer / member / broker) and the funding threshold, leaving deeper economics out",
+    "Move the strategic frame into the lede so the business stakes are set up before the methodology narrative",
+    "Demonstrate which numbers mattered without claiming numbers you don't have"
+  ]}
+  source="critic-flag"
+/>
+
 ## Four things <em>that traveled with me out of this project.</em>
 
 **Prototype fidelity has to match what you're trying to learn.** If the service is AI-delivered, a static mockup won't tell you whether people trust it, engage with it, or find it useful. The prototype has to behave like the thing. That's more work, and it's the only way to get real signal.
@@ -155,5 +219,22 @@ The testing gave them enough confidence in the concept's desirability and the in
 **Design for the edges from the start.** The participant whose parent was dying wasn't an outlier to route around. That situation exposed real gaps in the design's assumptions. The most important design problems live at the edges of the user population, not the middle.
 
 **The AI is not the designer. We are.** I used AI tools extensively on this project, both to build the prototype and to support the build process itself. They were genuinely useful. But every judgment call about what the experience should feel like, what to sacrifice and what to protect, what the data from testing actually meant: that was mine. The tools don't make those calls. We do.
+
+## What I need from you
+
+This section is scaffolding from the visual-director agent. Delete it before publishing.
+
+### Images (2)
+- **Research synthesis board** — Cohort 1 interview synthesis, blurred/redacted. *Where:* opening of "The first cohort showed us..." section, after the "We ran two cohorts in March 2026" intro. *Source:* raw-case-material — `agetech/interviewboard-blurred.png` exists; do NOT use the unblurred `interviewboard.svg` per `CASE-CONTEXT.md` redaction rules. *Alternatives:* blurred service blueprint of the original cohort-1 flow; annotated screenshot of the original intake-first experience.
+- **Before/after lo-fi of the pivot** — Paired wireframes showing the intake-first (cohort 1) vs guidance-first (cohort 2) architectures. *Where:* "Between cohorts," between the trade-off paragraph and the Strategic-reframe InsightCallout. *Source:* raw-case-material — candidate sources are `agetech/chatgotlofi.svg`, `agetech/forecastlofi.svg`, `agetech/dashboardlofi.svg`. May need a new pairing graphic produced for clarity. *Alternatives:* single lo-fi of cohort 2 only; annotated screenshot of the cohort 2 mode-picker first message.
+
+### Sections to add (per critic) (3)
+- **Business case beat (high severity)** — 3–5 sentences naming the strategic frame (whose problem, why now, what the insurer gains: retention / MLR / group-benefits differentiation), the funding threshold the prototype had to clear, and what the team chose to leave out of the beta to make it defensible. *Where:* "The client got the signal..." section, after the existing paragraph and before the "Four things" H2. *Critic note:* "An insurer hiring at this level wants evidence the designer understood the economics of the bet, not just whether participants leaned in. You don't need numbers you don't have — you need to demonstrate you knew which numbers mattered."
+- **Four-persona workflow expansion (medium-high severity)** — When each persona was used, what each one caught that the others missed, what was novel about routing across them. *Where:* "Two intertwined problems" section, between the personas paragraph and "The build had two intertwined problems." *Critic note:* "The four-persona move is the strongest evidence of senior-level practice in the case and right now it's a cameo." This is the lever the title's methodology promise needs to land.
+- **Recruited-participant forecast-as-verdict moment (medium severity)** — A cohort 1 participant analog to the executive sponsor's "big assumption about a diagnosis" reaction. *Where:* "The first cohort showed us..." section, between "His reaction was immediate..." and the end-stage dementia moment. *Critic note:* "The Public Policy Lab lens reads this as the funder's voice landing as loud as the caregivers' voices." Fallback if no participant version surfaces in transcripts: name the executive sponsor's role explicitly the first time he appears.
+
+### Related notes (not placeholders)
+- The Cohort 1 PullQuote ("I just gave you all that information. What did I get for it?") is currently attributed as "Synthesis of Cohort 1 feedback" because the line is your synthesis, not a verbatim utterance. The copywriter and critic both flagged this. If a verbatim cohort 1 line hits the same beat, swap it in and restore single-participant attribution.
+- No `hero_image` is set in frontmatter and the V4 layout uses `specimen` (pomegranate-split) as the cover image. If a hero photograph slot exists in V4 and you'd like one, the strongest candidates from raw material are `agetech/blueprint-blurred.png` (high crop) or `agetech/chatgotlofi.svg`.
 
 <SpecimenSignoff specimen="/images/signoff-pomegranate-split.png" />
