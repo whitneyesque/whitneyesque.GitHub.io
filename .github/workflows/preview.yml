@@ -32,10 +32,12 @@ jobs:
           directory: dist
           gitHubToken: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Get case slug
+      - name: Derive case slug from branch name
         id: slug
         run: |
-          SLUG=$(git diff --name-only origin/main...HEAD -- src/content/cases/ | head -1 | sed 's|src/content/cases/||' | sed 's|\.mdx||')
+          BRANCH="${{ github.head_ref }}"
+          # design-system/<slug>-<run> → strip prefix and trailing -digits
+          SLUG=$(echo "$BRANCH" | sed 's|design-system/||' | sed -E 's/-[0-9]+$//')
           echo "slug=$SLUG" >> $GITHUB_OUTPUT
 
       - name: Comment preview URL on PR
