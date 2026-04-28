@@ -18,10 +18,25 @@ import StatRow from '../../components/StatRow.astro';
 import PullQuote from '../../components/PullQuote.astro';
 import InsightCallout from '../../components/InsightCallout.astro';
 import SpecimenSignoff from '../../components/SpecimenSignoff.astro';
+import Placeholder from '../../components/Placeholder.astro';
 
 ## The question
 
 TODO: Open the case with the real problem the organization faced, in plainspoken terms a non-designer could grasp. What was the e-commerce client trying to do that it didn't know how to do? What was the tension? Avoid summarizing the brief; name the underlying difficulty.
+
+<Placeholder
+  kind="section"
+  size="block"
+  ask="Gating decision before any further composer work: is this case in or out of the portfolio? If in, what's the frame — early-career artifact, a now-versus-then reflection, or elevated with material the source PDF doesn't contain?"
+  why="Critic flagged: the only source (Ecommerce - Case Study.pdf) describes IXD support inside an established Fjord pattern system circa 2015 — wireframing in Axure, a track-order content adjustment. Sitting next to agetech and ferguson-cx as 'Service Design,' it reads as a category mismatch and quietly subtracts trust from the cases on either side."
+  alternatives={[
+    "Cut the case entirely",
+    "Reframe explicitly as an early-career artifact with a now-versus-then reflection that earns its place by showing how Whitney's thinking has evolved",
+    "Elevate with material the PDF doesn't contain: the business reason for the tablet bet, what Fjord learned about quick-turn briefs, organizational dynamics the writer-as-junior-designer didn't have visibility into at the time",
+    "Rewrite frontmatter tags to honest labels (Interaction Design, Tablet UX, Early Career) if the case stays — current 'Service Design / E-commerce' tags over-claim relative to source"
+  ]}
+  source="critic-flag"
+/>
 
 ## The situation
 
@@ -36,10 +51,35 @@ TODO: The body of the case. Resist a chronological methodology march. Pick a spi
 - A pivot or strategic reframe
 - Evidence of outcomes
 
+<Placeholder
+  kind="section"
+  size="block"
+  ask="A now-versus-then reflection that turns this early-career IXD task into a deliberate note about how Whitney's thinking has evolved — what she'd push back on now, what she'd ask the IXD leads, what business and organizational context she'd want that nobody told her at the time"
+  why="Critic flagged: the source PDF is method narration (reviewed the site, sketched, prototyped in Axure, stress-tested with colleagues, adjusted the track-order screen) with no turn, no surprise, no business tension, no outcome data, and no reflection. Without a spine the next composer round drafts another junior-portfolio entry. Now-versus-then is the only credible spine the source can support."
+  alternatives={[
+    "Cut the case (covered upstream by the gating decision)",
+    "If retained without a now-vs-then frame, drop tags and any framing that implies senior-scope service design"
+  ]}
+  source="critic-flag"
+/>
+
 <InsightCallout label="TODO">
 Use this slot for the case's central design or strategic principle, in Whitney's own
 words wherever possible. Pull from her notes or transcripts. Do not fabricate.
 </InsightCallout>
+
+<Placeholder
+  kind="image"
+  size="in-body-figure"
+  ask="Wireframe or clickable-prototype screenshot lifted from raw-case-material/ecomm/Ecommerce - Case Study.pdf — the Axure prototype of a redesigned site section, or the track-order screen showing the address-import refinement"
+  why="If the case stays, the PDF is the only visual artifact available, and the IXD work needs to be visible in concrete form rather than narrated abstractly. The track-order screen is especially worth pulling because it carries the only specific contribution Whitney names in the source."
+  alternatives={[
+    "Pen-and-paper sketch from the early review/sketch phase if the PDF includes one",
+    "Side-by-side: original site fragment vs. redesigned tablet variant",
+    "Drop in-body figures and let the prose carry — only viable if the spine becomes a now-vs-then reflection where artifacts are intentionally absent"
+  ]}
+  source="visual-director-recommendation"
+/>
 
 ## Evidence
 
@@ -48,6 +88,19 @@ TODO: Pull the strongest participant or stakeholder quote here once transcripts 
 <PullQuote attribution="TODO: source attribution per redaction rules">
 TODO: pull a quote from a real transcript or note. Do not invent.
 </PullQuote>
+
+<Placeholder
+  kind="quote"
+  size="block"
+  ask="One decisive line for the PullQuote. The only candidate the source PDF supplies is Whitney's own contribution: 'I realized it would be helpful to shoppers to be able to import pre-existing addresses already stored in their account information.'"
+  why="Per critic, the PDF carries no participant or stakeholder quotes — Whitney's own IXD insight is the only candidate, and the call is whether that line earns the elevated treatment or reads as junior. The decision likely rides on which spine the case settles into."
+  alternatives={[
+    "Pull a line from Whitney's now-versus-then reflection once it's written — that's where a senior voice would actually live",
+    "Drop the PullQuote entirely; the case doesn't need it if Evidence becomes a now-vs-then reframe",
+    "If the case is reframed as an early-career artifact, surface a candid sentence about what Whitney didn't yet know how to ask for"
+  ]}
+  source="visual-director-recommendation"
+/>
 
 ## The decision / outcome
 
@@ -59,8 +112,41 @@ TODO: What changed because of this work? If the project shipped, what did the da
   { value: 'TODO', label: 'TODO: outcome metric three' },
 ]} />
 
+<Placeholder
+  kind="stat"
+  size="stat-cell"
+  ask="Real values for all three StatRow cells, or a decision to drop the StatRow entirely"
+  why="The source PDF contains no shipped numbers, no engagement metrics, no post-launch data, and no commercial outcome. The case is 10+ years old and the data is unlikely to surface from an interview now. Three TODO cells in the rendered preview will read as a stronger over-claim than the framing tags."
+  alternatives={[
+    "Drop the StatRow entirely — the case can close on qualitative reflection alone",
+    "Replace with three qualitative claims (e.g. what shipped, what stuck in Fjord's pattern system, what Whitney still uses) — but only if those qualitative claims can be sourced",
+    "Replace with three early-career-artifact framings (year, Whitney's level, scope of authored work) if the case is reframed as a now-vs-then piece"
+  ]}
+/>
+
 ## What I'm carrying forward
 
 TODO: Two to four reflections that demonstrate senior taste — what the project taught Whitney about service design, prototyping, working in this industry, or her own practice. The "still thinking about" question often surfaces the case's real intellectual content.
+
+## What I need from you
+
+This section is scaffolding from the visual-director agent. Delete it before publishing. This case is a pre-draft scaffold — every section body is a TODO instruction, not prose. The most load-bearing items below are the two critic-flag sections; nothing else lands until those are resolved.
+
+### Sections to add (per critic) (2)
+
+- **Gating decision** — Is this case in or out of the portfolio? Critic: the source PDF describes IXD support inside an established Fjord pattern system circa 2015, which reads as a category mismatch next to agetech and ferguson-cx and "actively hurts the portfolio" if left as is. Three viable paths: cut, reframe as early-career artifact with a now-vs-then reflection, or elevate with material the PDF doesn't contain (business reason for the tablet bet, organizational dynamics, what Fjord learned about quick-turn briefs). *Where:* upstream of everything — flagged in "The question" but it shapes the whole file. Also touches frontmatter tags (`Service Design`, `E-commerce`), which the critic flagged as over-claiming relative to the source.
+- **Now-versus-then reflection as the spine** — Contingent on keeping the case. Critic: the PDF is method narration with no turn, no surprise, no business tension, no outcome data, no reflection — "the only spine I can see being credible from this material" is a now-vs-then read on early-career craft. *Where:* "What we did" section, replacing the chronological build/test/pivot scaffolding.
+
+### Images (1)
+
+- **In-body figure from the source PDF** — Axure wireframe or clickable-prototype screenshot, ideally the track-order screen with the address-import refinement (the only specific contribution Whitney names). *Where:* "What we did" section, after the InsightCallout. *Source:* `raw-case-material/ecomm/Ecommerce - Case Study.pdf`. *Alternatives:* pen-and-paper sketch if the PDF carries one; side-by-side original-vs-redesigned variant; or drop in-body figures entirely if the spine is a now-vs-then reflection where artifacts are deliberately absent.
+
+### Stat values (1)
+
+- **All three StatRow cells, or a decision to drop the StatRow** — The PDF carries no shipped numbers, no engagement metrics, no commercial outcome. *Where:* "The decision / outcome" section. *Source:* drop the StatRow, or replace with three qualitative claims (what shipped, what stuck in Fjord's pattern system, what Whitney still uses) — but only if those qualitative claims can be sourced from an interview against the PDF.
+
+### Pull quotes (1)
+
+- **One decisive line for the PullQuote in Evidence** — Only candidate in the source is Whitney's own IXD insight ("I realized it would be helpful to shoppers to be able to import pre-existing addresses already stored in their account information"). *Source:* the PDF, page describing the track-order screen refinement. *Alternative:* pull a line from the now-vs-then reflection once it exists — that's where the senior voice actually lives — or drop the PullQuote.
 
 <SpecimenSignoff specimen="/images/signoff-camellia.png" />
