@@ -21,6 +21,20 @@ import PullQuote from '../../components/PullQuote.astro';
 import InsightCallout from '../../components/InsightCallout.astro';
 import BotanicalDivider from '../../components/BotanicalDivider.astro';
 import SpecimenSignoff from '../../components/SpecimenSignoff.astro';
+import Placeholder from '../../components/Placeholder.astro';
+
+<Placeholder
+  kind="image"
+  size="hero"
+  ask="Hero image: AutoNation dealership lot or showroom interior (period-correct, late-2000s California)"
+  why="V4 frontmatter has no hero_image; the case's spine is two weeks of dealership ethnography and a hero grounds the reader in the field site before the reframe lands"
+  alternatives={[
+    "Synthesis-wall photo extracted from the Fjord PDF in raw-case-material/auto-ecomm/ (critic confirmed dealership and synthesis-wall imagery is in the PDF)",
+    "Hand-drawn butcher-paper readout artifact, photographed — leans craft-moment instead of field-site",
+    "Period stock photo of a U.S. dealership lot"
+  ]}
+  source="visual-director-recommendation"
+/>
 
 <StatRow stats={[
   { value: 'TODO', label: 'TODO: meaningful metric' },
@@ -28,6 +42,17 @@ import SpecimenSignoff from '../../components/SpecimenSignoff.astro';
   { value: 'TODO', label: 'TODO: meaningful metric' },
   { value: 'TODO', label: 'TODO: meaningful metric' },
 ]} />
+
+<Placeholder
+  kind="stat"
+  size="stat-cell"
+  ask="Real values for all four StatRow cells — candidates: # of dealerships shadowed (3), weeks of fieldwork (2), # of Accenture researchers mentored mid-engagement (3), minutes salespeople left customers to physically locate a car (~45)"
+  why="The StatRow currently opens the page with four TODO/TODO cells; until real numbers land, the V4 archetype opener is empty"
+  alternatives={[
+    "Drop the StatRow entirely if the engagement doesn't generate four clean countable artifacts — narrative-led 6-section archetype supports omitting it",
+    "Reduce to two or three cells with the strongest numbers"
+  ]}
+/>
 
 ## The question
 
@@ -52,6 +77,19 @@ import SpecimenSignoff from '../../components/SpecimenSignoff.astro';
     weeks of dealership ethnography is the core craft moment per copywriter
     notes. */}
 
+<Placeholder
+  kind="image"
+  size="in-body-figure"
+  ask="Dealership ethnography photo: salesperson on the lot, customer waiting at a desk, or service-bay queue from one of the three California sites"
+  why="The methodology section will describe two weeks of dealership ethnography across three sites; an image grounds the field site and breaks up what is otherwise a prose-only section"
+  alternatives={[
+    "Dealership or synthesis-wall photo extracted from the Fjord PDF in raw-case-material/auto-ecomm/",
+    "Photo of the butcher-paper readout artifact (preliminary themes hand-drawn, deliberately rough)",
+    "Service blueprint sketch or scan from Whitney's notes"
+  ]}
+  source="visual-director-recommendation"
+/>
+
 ## TODO: The turn
 
 {/* TODO: The "Behind the Line of Visibility" reframe — from a customer-facing
@@ -62,6 +100,17 @@ import SpecimenSignoff from '../../components/SpecimenSignoff.astro';
 <PullQuote attribution="TODO: source and role">
   TODO: A real quote from research, a stakeholder, or Whitney's notes that captures the turn or the central tension.
 </PullQuote>
+
+<Placeholder
+  kind="quote"
+  size="block"
+  ask="The 'Behind the Line of Visibility' line as it appears in the firm-published Fjord PDF — attributed to Whitney or the Fjord team, framing the reframe from customer-facing e-commerce to internal data integrity"
+  why="The PullQuote slot is currently TODO and this is the anchor both the critic and copywriter independently flagged as the obvious one"
+  alternatives={[
+    "A field quote from a salesperson or AutoNation stakeholder about the 45-minute physical car-locate problem — leans evidence rather than thesis",
+    "Leave the PullQuote out and let the reframe land in body prose if the next composer round handles it well inline"
+  ]}
+/>
 
 <BotanicalDivider />
 
@@ -83,8 +132,46 @@ import SpecimenSignoff from '../../components/SpecimenSignoff.astro';
     produced research, journeys, and a roadmap — not a shipped launch unless
     evidence surfaces. Frame outcomes accordingly. */}
 
+<Placeholder
+  kind="section"
+  size="block"
+  ask="When this section gets prose, frame outcomes around research / customer journeys / roadmap of opportunities — and explicitly avoid implying a shipped 'first online dealership' launch unless new evidence surfaces"
+  why="Critic flagged: 'The next draft must not imply a shipped outcome it cannot evidence; the value claim should sit on the reframe and the roadmap, not on a launch.'"
+  alternatives={[
+    "A single sentence acknowledging that AutoNation became the first online-purchase dealership only if Whitney can verify the launch shipped",
+    "Lead the section with the roadmap and treat the reframe-acceptance by the AutoNation execs as the load-bearing outcome"
+  ]}
+  source="critic-flag"
+/>
+
 ## What I'm carrying forward
 
 {/* TODO: Two to four short reflections, each a single sharp paragraph. */}
+
+## What I need from you
+
+This section is scaffolding from the visual-director agent. Delete it before publishing.
+
+**Top-level note:** this case is a TODO scaffold, not a draft. The composer never ingested the real raw material (Fjord PDF + three Whitney .docx files in `raw-case-material/auto-ecomm/`) and the design-system-applier handoff explicitly says *"Do not ship."* The asset asks below assume a re-run of composer → critic → copywriter → applier first; until then, every placeholder below is provisional.
+
+### Images (3)
+
+- **Hero image** — a period-correct AutoNation dealership exterior or showroom interior. *Where:* top of body, before the StatRow. *Source:* `raw-case-material` first (Fjord PDF reportedly contains dealership and synthesis-wall photography per the critic) → `human-capture` only if no usable frame exists. *Alternatives:* synthesis-wall photo from the PDF; butcher-paper readout artifact photographed; period stock dealership lot.
+- **In-body fieldwork figure** — salesperson on the lot, customer waiting, or service-bay queue from one of the three California dealerships. *Where:* methodology / fieldwork section. *Source:* `raw-case-material` (extract from Fjord PDF). *Alternatives:* photo of the butcher-paper readout artifact; service blueprint sketch from Whitney's notes.
+- **Specimen + signoff botanicals** — currently `specimen-TBD.jpg` / `signoff-TBD.png`. *Where:* frontmatter + `<SpecimenSignoff />` at the bottom. *Source:* `human-capture` once the spine is set (per design-system-applier handoff, the botanical motif should carry thematic weight from the case's spine — pick after composer round 2).
+
+### Stat values (1 cluster — 4 cells)
+
+- **All four StatRow cells** — every cell currently reads `TODO` / `TODO: meaningful metric`. *Where:* the StatRow at the top of the body. *Source:* the Fjord PDF and the three Whitney .docx files in `raw-case-material/auto-ecomm/`. Candidate numbers from the critic's read of the raw material: 3 dealerships shadowed, 2 weeks of fieldwork, 3 Accenture researchers mentored mid-engagement, ~45 minutes salespeople left customers to physically locate cars. If four clean numbers don't surface, drop the StatRow — the 6-section archetype the applier picked supports omitting it.
+
+### Pull quotes (1)
+
+- **"Behind the Line of Visibility"** — the firm-published phrase that names the reframe. *Source:* the Fjord PDF in `raw-case-material/auto-ecomm/` (verify exact wording and surrounding context). The PullQuote slot is currently TODO; both the critic and copywriter independently named this as the anchor.
+
+### Sections to add (per critic) (3)
+
+- **Lead with the reframe, not the methodology** — *critic, high:* "a digital-channel mandate that fieldwork re-scoped to an internal-operations problem… the opening should put a non-designer reader inside that re-scoping decision in three paragraphs." *Where:* the opening of "The question" + "The situation." This is a structural call for the next composer round, not a slot a placeholder can hold.
+- **Scope honesty in Outcomes** — *critic, medium:* engagement produced research, journeys, themes, and a roadmap; do not imply a shipped "first online dealership" launch unless evidence surfaces. *Where:* the Outcomes section (placeholder dropped inline above).
+- **Time-horizon framing** — *critic, medium:* either own the era or lead with a "what I'm still carrying forward" through-line. *Where:* affects opening tone and the "What I'm carrying forward" closing. This is Whitney's call before the next composer round, not a section a placeholder can scaffold.
 
 <SpecimenSignoff specimen="/images/signoff-TBD.png" />
