@@ -22,6 +22,7 @@ import PullQuote from '../../components/PullQuote.astro';
 import InsightCallout from '../../components/InsightCallout.astro';
 import BotanicalDivider from '../../components/BotanicalDivider.astro';
 import SpecimenSignoff from '../../components/SpecimenSignoff.astro';
+import Placeholder from '../../components/Placeholder.astro';
 
 <StatRow stats={[
   { value: '50', label: 'Designers, researchers, executives' },
@@ -35,6 +36,18 @@ import SpecimenSignoff from '../../components/SpecimenSignoff.astro';
 A major automotive retailer's internal design team had grown from ten people in 2018 to more than fifty by 2025. AI was the new ambient pressure on every product team. Some designers were leaving meetings to vibe-code something in Figma and coming back twenty minutes later with a "prototype." Others didn't want to hear the word again. Both reactions are symptoms of the same problem: AI was being treated as either a magic answer or a contaminant, and very rarely as a design material with properties, constraints, and a place in the larger service.
 
 The brief from the client's design leadership was specific. Help the team get more comfortable with AI as a design material. Help them build complete solutions that aren't AI-for-AI's-sake. Do it in a way they can carry into their own product teams afterward. Not a one-off lecture, a usable practice.
+
+<Placeholder
+  kind="section"
+  size="block"
+  ask="One paragraph naming the specific business stakes for an automotive retailer making AI bets in 2025"
+  why="Critic flagged: nothing in the case names the economics of automotive retail (high-ticket, low-frequency purchase; deteriorating credit conditions; reputational exposure on a misjudged AI rollout). A hiring manager at an insurer or in-house strategic design team will ask whether the writer understands why the org is paying for this work."
+  alternatives={[
+    "A two-sentence version slotted at the end of the existing brief paragraph, naming loan-default backdrop and trust costs without a full new paragraph",
+    "A single line in the Outcome section connecting framework adoption to a P&L lens"
+  ]}
+  source="critic-flag"
+/>
 
 <InsightCallout label="My role">
 ### Co-facilitator, lead researcher, framework author.
@@ -56,6 +69,19 @@ The job of a design team isn't to find places to put AI. It's to keep returning 
 
 That reframe sounds tidy on a slide. Inside an organization where the loudest voices are already in solution mode ("we should build an intelligent vehicle matchmaker that does all of these things…"), it requires a vocabulary the team can actually pick up and use. Most of the workshop's content was built to give them that vocabulary.
 
+<Placeholder
+  kind="section"
+  size="block"
+  ask="One observed moment from the two days where the reframe landed on a participant"
+  why="Critic flagged: the reframe is asserted (Dreyfuss + InsightCallout) but never earned by a specific moment in the room. The case is told entirely from the consultants' POV; whose experience changed by this work is unspecified. The transcript has Patrick photographing a team's table mid-activity and walking them back through the value exchange — that is the texture missing here."
+  alternatives={[
+    "A participant question or reaction quoted from the spotlight transcript",
+    "A specific table's work product described in two sentences",
+    "Cleanly acknowledge in voice that ground truth on uptake is not yet available, and recalibrate the Outcome section so the engagement re-up isn't carrying weight it can't"
+  ]}
+  source="critic-flag"
+/>
+
 <BotanicalDivider />
 
 ## Six AI design principles, written for a service context
@@ -74,6 +100,19 @@ The principles run high-level on purpose, so they apply across explicit, ambient
 ## The Four Dimensions framework
 
 If the principles are where you're going, the dimensions are the levers, gears, and tools that get you there. I built this framework specifically for this workshop because no existing taxonomy quite did the job. Most AI design vocabulary is interface-level (chatbot patterns, prompt engineering), and the team needed something a service designer could use to reason about an AI's role across an omnichannel journey.
+
+<Placeholder
+  kind="image"
+  size="in-body-figure"
+  ask="A clean diagram of the Four Dimensions of AI in Services framework — actors, interface, collaboration model, control model — laid out as a single image"
+  why="This is the centerpiece artifact and the one piece of original IP attributable to Whitney by name. The case earns one diagram; right now the four dimensions are described entirely in prose and lose visual shape. The dimensions are also the spine the critic recommended demoting principles/canvas/blueprint to evidence around."
+  alternatives={[
+    "A whiteboard / Miro screenshot of the four dimensions if one was captured during workshop development",
+    "Four small icon-style cards rendered as a 2×2 grid — same content, lighter visual lift",
+    "A photo of the four-dimensions slide from the workshop deck (pptx in raw-case-material)"
+  ]}
+  source="visual-director-recommendation"
+/>
 
 ### Actors: who is participating?
 
@@ -111,11 +150,37 @@ That last placement is the pedagogical move. AI is on the canvas because it has 
 
 The team responded to this canvas immediately because it scratched something specific they already needed: a way to sit down with a product manager who had walked in saying "we should build an AI vehicle matchmaker" and have a useful conversation about whether that idea actually fit the brand, the moments, and the value being created.
 
+<Placeholder
+  kind="image"
+  size="in-body-figure"
+  ask="The value-centered canvas itself — value in the middle, moments at top, brand on one side, feedback at the bottom, AI in the corner"
+  why="The 'AI in the corner' move is the section's whole pedagogical claim, and right now the reader has to imagine the spatial argument. A photo of the canvas (and/or a clean redraw) makes the placement legible at a glance. experience-canvas.jpg in raw-case-material is the source."
+  alternatives={[
+    "A clean redrawn version of the canvas (commission) paired with the in-context photo",
+    "A workshop photo of a participant table with the canvas filled in mid-activity (individual-activity.jpg)",
+    "Skip the figure if anonymisation can't be cleared on the photo and a redraw isn't in budget"
+  ]}
+  source="visual-director-recommendation"
+/>
+
 ## Adapting the service blueprint for AI actors
 
 The third workshop framework was an adaptation of standard service blueprinting. Standard blueprints divide front stage and back stage. We added a second division: within each stage, separate the human actors from the AI actors. If AI is making a decision or taking an action on its own, treat it as an actor in its own right, not as a feature embedded in someone else's row.
 
 This sounds small. It does meaningful work. Once an AI is named as an actor, the team has to articulate what it's doing, what it has agency over, where the handoffs to humans live, and where the orchestration sits. That is exactly the conversation the team was avoiding by collapsing AI into "the system."
+
+<Placeholder
+  kind="image"
+  size="in-body-figure"
+  ask="The adapted service blueprint showing front stage / back stage rows split into human and AI actors"
+  why="The methodological adaptation is concrete and visual — the prose describes a blueprint with a new row division. Showing it makes the move legible in seconds; describing it leaves the reader doing the layout in their head. service-blueprint.jpg is in raw-case-material."
+  alternatives={[
+    "A side-by-side: standard blueprint vs. adapted blueprint, to make the 'second division' visible by contrast",
+    "A small annotated detail crop showing one human row and one AI row with a handoff arrow between them",
+    "Skip the figure if anonymisation flags content that would need redaction"
+  ]}
+  source="visual-director-recommendation"
+/>
 
 ## The pedagogy: paper, sketches, no laptops
 
@@ -144,5 +209,18 @@ What the workshop produced, less materially: a 50-person team that has, for two 
 <PullQuote attribution="Whitney Masulis, on the slide that mattered most">
 What is the problem that we're trying to fix here, and then what is the right tool to use when we're trying to fix it?
 </PullQuote>
+
+## What I need from you
+
+This section is scaffolding from the visual-director agent. Delete it before publishing.
+
+### Images (3)
+- **Four Dimensions diagram** — a clean single-image rendering of the actors / interface / collaboration / control framework. *Where:* in-body figure right after the Four Dimensions intro paragraph, before the `### Actors` H3. *Source:* human-capture (likely commission a redraw — no diagram exists in raw-case-material). *Alternatives:* whiteboard or Miro capture of the development draft; 2×2 icon grid; photo of the workshop deck slide (pptx is in raw-case-material).
+- **Value-centered canvas** — the canvas with value in the middle and AI in the corner. *Where:* end of the "A new canvas: putting AI in the corner" section. *Source:* raw-case-material (`experience-canvas.jpg`). *Alternatives:* commission a clean redraw paired with the in-context photo; participant-table photo (`individual-activity.jpg`); skip if anonymisation/budget blocks both.
+- **Adapted service blueprint** — front stage / back stage with human + AI actor rows. *Where:* end of the "Adapting the service blueprint for AI actors" section. *Source:* raw-case-material (`service-blueprint.jpg`). *Alternatives:* side-by-side of standard vs. adapted blueprint; small annotated detail crop showing a single human/AI handoff; skip if anonymisation flags redaction.
+
+### Sections to add (per critic) (2)
+- **Business stakes paragraph** — one paragraph naming the economics of automotive retail in 2025: high-ticket low-frequency purchase, deteriorating credit conditions / loan-default backdrop, the cost of a misjudged AI rollout to brand trust at the wrong macro moment. Critic: *"a hiring manager at an insurer, a bank, or an in-house strategic design team will read this case and ask: 'does she understand why the org is paying for this work?' Right now the answer isn't on the page."* The transcript already has the raw material from Patrick. *Where:* directly after the brief paragraph, before the "My role" InsightCallout.
+- **Observed moment of the reframe landing** — one specific moment from the two days where the AI-as-material reframe took hold for a participant. Critic: *"a frog or Public Policy Lab reader will notice immediately that whose experience changed because of this work is unspecified… the transcript has at least one — Patrick describing how he photographed a team's table mid-activity and walked them back through the value exchange."* Alternative is the cleaner acknowledgment of the ground-truth gap, with the Outcome section recalibrated so client re-engagement isn't load-bearing. *Where:* end of "The reframe: AI is a material, not a feature" section, before the BotanicalDivider.
 
 <SpecimenSignoff specimen="/images/signoff-pomegranate-split.png" />
