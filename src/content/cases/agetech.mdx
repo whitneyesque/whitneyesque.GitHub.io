@@ -128,28 +128,23 @@ Then the session that changed how I thought about the whole design. One particip
 
 That moment clarified something about the entire design. The tool needed to account for the full range of phases someone might be in when they first encountered it, including end-stages, and it needed to adapt quickly. The participant whose parent was dying wasn't an outlier to route around. The most important design problems lived at the edges of the user population, not in the middle.
 
-## Between cohorts, <em>I redesigned the flow entirely.</em>
+**Between cohorts, I redesigned the flow entirely.**
 
-Instead of starting with intake, we started with guidance. The first message introduced eight modes, each designed to deliver an actionable output within about ten minutes, and let the participant pick where to begin. The intake questionnaire became a consolidated block afterward, and instead of an adaptive one-question-at-a-time delivery, participants saw the full set of questions at once. If they had already provided answers to any of them in the course of the chatbot conversation, the GPT incorporated those and reduced the question set.
+Five things changed about what participants were asked and what they got back.
 
-That was a deliberate trade-off. Less elegant, but it gave people a sense of scope and control that the "smarter" version hadn't.
+**Entry point.** Cohort 1 began with sequential questions to build a complete profile before any guidance arrived. Cohort 2 began with eight named modes — Dispatcher, Checkup, Planner, Money Map, Translator, Rehearsal Studio, Family Sync, Pressure Valve — and let the participant pick where to start, based on what felt most urgent to them.
 
-<Placeholder
-  kind="image"
-  size="in-body-figure"
-  ask="Before/after of the cohort 1 vs cohort 2 flow — paired lo-fi wireframes showing the intake-first vs guidance-first architectures"
-  why="The redesign is the central turn of the case but is described entirely in prose. A paired before/after makes the structural change concrete and earns the strategic-reframe callout that follows."
-  alternatives={[
-    "Single lo-fi of the cohort 2 (guidance-first) flow only, as the version that worked",
-    "Annotated screenshot of the cohort 2 mode-picker first message",
-    "Skip; let the prose carry the pivot"
-  ]}
-  source="visual-director-recommendation"
-/>
+**Depth of questioning.** Cohort 1 asked a long sequence of questions to establish a baseline before delivering anything. Cohort 2 used a ten-question rapid triage inside whichever mode the participant chose, and went deeper only if they wanted to.
 
-<InsightCallout label="Strategic reframe">
-Value has to come before effort. Cohort 1 told us this in the most direct way possible: if you ask people to give a lot before they get anything back, you will lose them, especially if they're already stretched thin. The reframe wasn't just a UX choice; it changed the product's architecture.
-</InsightCallout>
+**Artifact delivery.** Cohort 1 produced template libraries organized around a set of planning frameworks — Path 1, Path 2, Path 3 — that participants needed to understand before they could use them. Cohort 2 produced specific named tools delivered directly: a Care Coordination Hub, a Medication Control Sheet, an Appointment Tracker. No meta-system to learn first.
+
+**Actionability.** Cohort 1 outputs were comprehensive and planning-oriented. Cohort 2 outputs were ranked next steps the participant could take that week. After one Cohort 2 participant's ten-question triage, the system's first recommendation was to put a wearable alert device in place within the week, before anything else.
+
+**In-flow adaptation.** Cohort 1 restarted when scope changed. Cohort 2 recalibrated. In one Cohort 2 session, the participant's situation updated three times mid-conversation — a second fall, a death in the family, a medication change — and each update refined the priority list without restarting.
+
+The trade-off was deliberate. Less elegant than a single adaptive flow, but it gave people a sense of scope and control that the "smarter" version hadn't.
+
+**Strategic reframe:** Value has to come before effort. Cohort 1 told us this in the most direct way possible: if you ask people to give a lot before they get anything back, you will lose them, especially if they're already stretched thin. The reframe wasn't just a UX choice; it changed the product's architecture.
 
 ## Cohort 2: <em>they leaned in.</em>
 
@@ -196,6 +191,8 @@ than as validation that already happened.
 ## The client got the signal they needed. <em>The next phase is substantially larger.</em>
 
 The testing gave them enough confidence in the concept's desirability and the interaction model to justify moving forward. The next phase is substantially larger: building the production AI, developing the real forecast model with a data science team, and running a two-month beta this fall that will include the AI, the forecast, human care guide calls, and task management features. That beta is a meaningful investment. The prototype is what made it defensible.
+
+The beta will produce the post-launch evidence: adoption, retention, what caregivers actually do with the AI when it's available to them at home. That data isn't in yet. What the prototype produced was the case for collecting it.
 
 <Placeholder
   kind="section"
