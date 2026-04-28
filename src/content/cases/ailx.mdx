@@ -1,0 +1,148 @@
+---
+title: 'From "we should do AI" <em>to a working vocabulary for AI in services.</em>'
+client: 'A major automotive retailer'
+year: 2025
+role: 'Co-facilitator and lead researcher; author of the Four Dimensions of AI in Services framework'
+team: 'Co-led with Patrick Quattlebaum (Harmonic Design principal); delivered to ~50 designers, researchers, and executives on the client''s internal design team'
+timeline: 'August – September 2025'
+tags:
+  - 'Service Design'
+  - 'AI'
+  - 'Workshop Facilitation'
+  - 'Framework Design'
+  - 'Practice Building'
+summary: 'A two-day workshop that gave a 50-person design team a vocabulary, a canvas, and a control taxonomy for treating AI as a design material, not a hammer.'
+specimen: '/images/specimen-pomegranate-split.jpg'
+specimenSignoff: '/images/signoff-pomegranate-split.png'
+slug: 'ailx'
+status: 'published'
+---
+import StatRow from '../../components/StatRow.astro';
+import PullQuote from '../../components/PullQuote.astro';
+import InsightCallout from '../../components/InsightCallout.astro';
+import BotanicalDivider from '../../components/BotanicalDivider.astro';
+import SpecimenSignoff from '../../components/SpecimenSignoff.astro';
+
+<StatRow stats={[
+  { value: '50', label: 'Designers, researchers, executives' },
+  { value: '2 days', label: 'Workshop, full team' },
+  { value: '4', label: 'Dimensions framework authored' },
+  { value: '6', label: 'AI design principles' },
+]} />
+
+## The team had grown 5x. The hammer in the hallway was AI.
+
+A major automotive retailer's internal design team had grown from ten people in 2018 to more than fifty by 2025. AI was the new ambient pressure on every product team. Some designers were leaving meetings to vibe-code something in Figma and coming back twenty minutes later with a "prototype." Others didn't want to hear the word again. Both reactions are symptoms of the same problem: AI was being treated as either a magic answer or a contaminant, and very rarely as a design material with properties, constraints, and a place in the larger service.
+
+The brief from the client's design leadership was specific. Help the team get more comfortable with AI as a design material. Help them build complete solutions that aren't AI-for-AI's-sake. Do it in a way they can carry into their own product teams afterward. Not a one-off lecture, a usable practice.
+
+<InsightCallout label="My role">
+### Co-facilitator, lead researcher, framework author.
+
+I led the research and knowledge-base development ahead of the workshop, tapping my network for primary conversations and pulling secondary sources into a Harmonic AI POV document covering human-to-AI interaction patterns, front-stage and back-stage use case typologies, emerging service design methods being adapted for AI, and analogies for explaining the transition to non-technical audiences. During the two days, I led the section on AI design principles and introduced the Four Dimensions of AI in Services framework, original work I authored to give the team a vocabulary for the choices they were already making implicitly. Patrick Quattlebaum led brand-tension and canvas sections; I led principles, dimensions, and the knowledge base.
+</InsightCallout>
+
+## The reframe: AI is a material, not a feature.
+
+The instinct in the room, and in most rooms right now, is to start from "we should do AI" and look for somewhere to put it. That order makes the technology the design problem. Everything that matters about a service (the brand promise, the value exchange, the moments where it actually meets a customer, the feedback loops that tell you whether any of it is working) gets rearranged around the AI rather than the other way around.
+
+The workshop's organizing move was to flip that order. Borrow from Henry Dreyfuss writing about industrial design in the 1950s: *fit the new machines and materials to people, not people to the materials of the machines.* Treat AI the way an industrial designer treats wood or steel: a material with properties, constraints, and an appropriate use, not a destination.
+
+<InsightCallout label="The thesis">
+## AI is in service of value, not the other way around.
+
+The job of a design team isn't to find places to put AI. It's to keep returning to the value being created (for the business, for the customer, for the associate) and ask whether AI is the right material for *this* moment in the service. Sometimes it is. Often something simpler is.
+</InsightCallout>
+
+That reframe sounds tidy on a slide. Inside an organization where the loudest voices are already in solution mode ("we should build an intelligent vehicle matchmaker that does all of these things…"), it requires a vocabulary the team can actually pick up and use. Most of the workshop's content was built to give them that vocabulary.
+
+<BotanicalDivider />
+
+## Six AI design principles, written for a service context
+
+I opened my section with six principles to hold in mind when AI is woven into a service. Not chatbot heuristics. These were written for the broader case, where AI shows up across channels, sometimes front stage, sometimes back stage, sometimes ambient.
+
+- **Contextual appropriateness.** Right thing, right moment, right person.
+- **Transparency.** Show reasoning, sources, and uncertainty. Don't perform confidence the system doesn't have.
+- **Graceful degradation.** There is always a way out, a fallback, an off-switch. Failure is a designed state.
+- **Continuous handoffs.** When AI hands a customer to a human (or another channel), the human inherits the context. No "I already told you this" moments.
+- **Earned complexity.** Introduce capability over time, in proportion to user familiarity and trust. Don't dump the full agent on day one.
+- **Adaptive control.** The user (and sometimes the operator) decides how much autonomy the AI has. Control is a knob, not a setting.
+
+The principles run high-level on purpose, so they apply across explicit, ambient, and mixed interfaces. The next move was to give the team something more operational: the dimensions you can actually turn.
+
+## The Four Dimensions framework
+
+If the principles are where you're going, the dimensions are the levers, gears, and tools that get you there. I built this framework specifically for this workshop because no existing taxonomy quite did the job. Most AI design vocabulary is interface-level (chatbot patterns, prompt engineering), and the team needed something a service designer could use to reason about an AI's role across an omnichannel journey.
+
+### Actors: who is participating?
+
+On the human side: customer, front-stage associate, back-stage associate, supplier. On the AI side: the customer's own personal AI agent, the company's customer-facing AI, the company's employee-facing AI, the supplier's tools. Naming the actors matters because the team had been collapsing all of these into "the AI" and losing the distinction between, say, an internal copilot for an associate and a customer-facing agent. A near-future scenario worth pushing on: agents-of-the-customer negotiating with agents-of-the-company on behalf of a person who isn't directly in the loop. This is already happening B2B; it will happen on the customer side soon.
+
+### Interface: what is the point of connection?
+
+Three modes: **explicit** (chatbot, dashboard, the user knows they are interacting with AI), **ambient** (presence-based, the system reacts without an explicit prompt: the lot reads your license plate, the door greets you by name), and **mix**. Most teams default to explicit because chatbots are the available metaphor. Ambient and mix are where service design actually has the most to say.
+
+### Collaboration model: how does the work get done?
+
+Four patterns: **sequential** (I ask, it answers, I work on the answer), **parallel** (we're both doing the same job; AI handles the routine cases, I handle the complex ones, the John Henry pattern), **independent** (it does the job alone), and **orchestrated** (multiple actors and systems coordinated across a journey). Most teams describe AI work as sequential by default. Naming the other three opens the design space.
+
+### Control model: how much autonomy does the AI have?
+
+This dimension is adapted from the U.S. military's human-in-the-loop / on-the-loop / out-of-the-loop taxonomy, translated into a five-step service design vocabulary:
+
+- **Manual.** The human does everything; AI is not involved in the decision.
+- **Assisted.** AI generates a draft; a human reviews every output before it ships. (A physician reviews every AI-generated note.)
+- **Monitored.** AI acts continuously; a human reviews on a schedule. (Dynamic pricing pushes daily, a human reviews daily.)
+- **Automated.** AI acts; humans are pulled in only when the system flags an exception.
+- **Autonomous.** AI acts; humans intervene only on severe failure.
+
+The point of laying control out as a spectrum is to surface that "use AI" is never a binary. Every AI choice in a service is a position on this scale, and the position has consequences for trust, liability, recovery, and brand.
+
+<PullQuote attribution="Whitney Masulis, on translating military doctrine into service design vocabulary">
+This is sort of like the John Henry. Human versus machine. We're both doing the same thing, but maybe they're doing the very routine, simple ones, and I'm doing the more complex, difficult ones.
+</PullQuote>
+
+## A new canvas: putting AI in the corner
+
+Patrick led a complementary move that landed the framework in something the team could use immediately. The team already had brand principles and an existing "moments that matter" framework they used in their day-to-day work. The workshop introduced a new value-centered canvas that put service value in the middle (who is this for, what are we solving, what is the value exchange?), the moments that matter at the top, brand alignment and tensions on one side, feedback loops at the bottom, and AI deliberately *in the corner*.
+
+That last placement is the pedagogical move. AI is on the canvas because it has to be, but it's not the center. The center is value. AI is one material in service of it.
+
+The team responded to this canvas immediately because it scratched something specific they already needed: a way to sit down with a product manager who had walked in saying "we should build an AI vehicle matchmaker" and have a useful conversation about whether that idea actually fit the brand, the moments, and the value being created.
+
+## Adapting the service blueprint for AI actors
+
+The third workshop framework was an adaptation of standard service blueprinting. Standard blueprints divide front stage and back stage. We added a second division: within each stage, separate the human actors from the AI actors. If AI is making a decision or taking an action on its own, treat it as an actor in its own right, not as a feature embedded in someone else's row.
+
+This sounds small. It does meaningful work. Once an AI is named as an actor, the team has to articulate what it's doing, what it has agency over, where the handoffs to humans live, and where the orchestration sits. That is exactly the conversation the team was avoiding by collapsing AI into "the system."
+
+## The pedagogy: paper, sketches, no laptops
+
+The workshop was deliberately low-fi. Fifty people in a room, working on paper, sketching by hand. Some participants left and came back having vibe-coded something in Figma. We let it happen, but the intent was clear: the workshop was not about generating outputs, it was about practicing the thinking. Laptops accelerate solutioning past the point where the framework can do its work.
+
+<PullQuote attribution="Whitney Masulis, during the workshop">
+Don't just start vibe coding when you don't have that slide. Go all the way back to what is it that you needed to do. Go all the way back to sketching.
+</PullQuote>
+
+The deeper bet: a 50-person design team that has practiced putting AI in the corner of a canvas, naming it as an actor in a blueprint, and locating it on a control spectrum will recognize the moves later, in their real product teams, when someone walks in with a solution-shaped brief. The workshop is not a deliverable; it's the start of a shared vocabulary.
+
+## What was hard to hold
+
+Two things from the retrospective worth naming. The first is the tension between depth and applicability. I could have gone deeper on the taxonomy. The dimensions are the kind of work that wants more time, more refinement, more cases. In retrospect, I would have traded some of that depth for more time on business impact: connecting each dimension to a specific decision a product team would have to make, with the trade-offs spelled out. The framework is sound. The bridge from framework to operating decision is where the next round of this work lives.
+
+The second is the messy middle. There is always a stretch in a workshop's development where the pieces don't fit together yet, where you can see the shape of the thing but not the seams. This one had it badly enough that I was nervous late in week one. The recovery was to keep returning to the brief (*AI as material, in service of value*) and let that constraint pull the disparate pieces into alignment. By the Monday before delivery, the walk-through worked.
+
+## Outcome
+
+The client asked Harmonic back for more work. That is the outcome signal we treat as load-bearing. The internal adoption story (whether teams are using the canvas, the dimensions, or the adapted blueprint inside their actual product work) is something we don't yet have ground truth on.
+
+What the workshop produced, materially: a four-dimensions framework with vocabulary for actors, interface, collaboration, and control; a value-centered canvas that situates AI alongside brand, moments, and feedback loops; an adapted service blueprint that names human and AI actors separately; six service-context AI design principles; and a knowledge base (a Harmonic POV document) that lives beyond this engagement and continues to be updated as the field moves.
+
+What the workshop produced, less materially: a 50-person team that has, for two days, practiced asking *what value are we creating* before *what AI should we use*. That practice is the real artifact.
+
+<PullQuote attribution="Whitney Masulis, on the slide that mattered most">
+What is the problem that we're trying to fix here, and then what is the right tool to use when we're trying to fix it?
+</PullQuote>
+
+<SpecimenSignoff specimen="/images/signoff-pomegranate-split.png" />
