@@ -57,40 +57,29 @@ const pageTitle = `${title} — Whitney Masulis`;
         <a href="/work.html" class="case-back-top">← Work</a>
         <h1 class="case-title" set:html={title} />
         <p class="case-summary">{summary}</p>
-      </div>
-    </header>
 
-    <div class="case-meta-bar">
-      <div class="case-meta-inner">
-        <dl class="case-meta-list">
-          <div class="case-meta-item">
-            <dt>Client</dt>
-            <dd>{client}</dd>
-          </div>
-          <div class="case-meta-item">
-            <dt>Year</dt>
-            <dd>{year}</dd>
-          </div>
-          <div class="case-meta-item">
-            <dt>Role</dt>
-            <dd>{role}</dd>
-          </div>
-          <div class="case-meta-item">
-            <dt>Timeline</dt>
-            <dd>{timeline}</dd>
-          </div>
-          {team && (
-            <div class="case-meta-item">
-              <dt>Team</dt>
-              <dd>{team}</dd>
-            </div>
-          )}
-        </dl>
-        <div class="tag-row">
+        {/* V4 spec: tag pills above the meta cards */}
+        <div class="case-hero-tags tag-row">
           {tags.map(tag => <span class="tag">{tag}</span>)}
         </div>
+
+        {/* V4 spec: 3 dark cards (Client / Year / Role) inside the dark hero */}
+        <dl class="case-detail-cards">
+          <div class="case-detail-card">
+            <dt class="case-detail-label">Client</dt>
+            <dd class="case-detail-value">{client}</dd>
+          </div>
+          <div class="case-detail-card">
+            <dt class="case-detail-label">Year</dt>
+            <dd class="case-detail-value">{year}</dd>
+          </div>
+          <div class="case-detail-card">
+            <dt class="case-detail-label">Role</dt>
+            <dd class="case-detail-value">{role}</dd>
+          </div>
+        </dl>
       </div>
-    </div>
+    </header>
 
     <div class="case-body">
       <slot />

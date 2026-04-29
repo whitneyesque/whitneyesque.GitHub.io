@@ -1,12 +1,12 @@
 ---
 /**
- * ProcessTimeline — horizontal flex of phase cards.
- * Static. No active state, no hover, all phases at equal weight.
+ * ProcessTimeline — V4 metro-map: centered phases on a horizontal gold line
+ * with circular gold markers + cream halo. Static, all phases at equal weight.
  *
  * Usage:
  *   <ProcessTimeline phases={[
- *     { num: '01', name: 'Monitor & Frame' },
- *     { num: '02', name: 'Explore & Identify' },
+ *     { num: '01', name: 'Architecture' },
+ *     { num: '02', name: 'Prototype' },
  *     ...
  *   ]} />
  */
@@ -22,7 +22,7 @@ const { phases } = Astro.props;
 <ol class="process-timeline" role="list">
   {phases.map(({ num, name }) => (
     <li class="process-timeline-step">
-      <span class="process-timeline-num">Phase {num}</span>
+      <span class="process-timeline-num">{num}</span>
       <span class="process-timeline-name">{name}</span>
     </li>
   ))}
