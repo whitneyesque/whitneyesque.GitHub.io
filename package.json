@@ -7,12 +7,18 @@
     "dev": "astro dev",
     "start": "astro dev",
     "build": "astro build",
-    "preview": "astro preview",
-    "astro": "astro"
+    "preview": "npm run build && wrangler dev",
+    "astro": "astro",
+    "deploy": "npm run build && wrangler deploy",
+    "cf-typegen": "wrangler types"
   },
   "devDependencies": {
     "@astrojs/mdx": "^4.0.0",
     "astro": "^5.0.0",
-    "sharp": "^0.34.5"
+    "sharp": "^0.34.5",
+    "wrangler": "^4.86.0"
+  },
+  "dependencies": {
+    "@astrojs/cloudflare": "12"
   }
 }
