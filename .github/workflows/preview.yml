@@ -46,7 +46,7 @@ jobs:
           script: |
             const url = '${{ steps.deploy.outputs.url }}';
             const slug = '${{ steps.slug.outputs.slug }}';
-            const caseUrl = slug ? `${url}/cases/${slug}` : url;
+            const caseUrl = slug ? `${url}/cases/${slug}.html` : url;
             await github.rest.issues.createComment({
               owner: context.repo.owner,
               repo: context.repo.repo,
