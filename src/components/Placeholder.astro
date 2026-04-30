@@ -9,12 +9,15 @@
  * content (or removed) before publishing.
  */
 interface Props {
-  /** What kind of asset is missing */
-  kind: 'image' | 'stat' | 'quote' | 'section';
+  /** What kind of asset is missing — accepts the strict V4 enum or any
+   *  free-form label (e.g. "Establishing image") used in earlier drafts. */
+  kind?: string;
   /** How much vertical space this placeholder should occupy */
   size?: 'hero' | 'darkband-figure' | 'in-body-figure' | 'stat-cell' | 'block';
   /** Concrete ask in plain language ("workshop photo of five frames on whiteboard") */
-  ask: string;
+  ask?: string;
+  /** Older drafts call this 'note' instead of 'ask'. Accept both. */
+  note?: string;
   /** Why this asset would strengthen the case (one sentence) */
   why?: string;
   /** Alternative options if the primary ask isn't available */
@@ -24,30 +27,46 @@ interface Props {
 }
 
 const {
-  kind,
+  kind = 'asset',
   size = 'in-body-figure',
   ask,
+  note,
   why,
   alternatives = [],
   source = 'visual-director-recommendation',
 } = Astro.props;
+
+// Accept either `ask` or `note`. If neither is provided, render a generic
+// "needs content" marker so bare <Placeholder /> calls still build.
+const message = ask || note || 'Asset to be sourced.';
+
+// Map free-form kinds to the closest CSS modifier so the tinted variants
+// (image / stat / quote / section) still apply when authors use labels
+// outside the strict enum.
+const kindClass = (() => {
+  const k = (kind || '').toLowerCase();
+  if (k.includes('quote') || k.includes('insight')) return 'quote';
+  if (k.includes('stat') || k.includes('number')) return 'stat';
+  if (k.includes('section') || k.includes('list') || k.includes('priorit')) return 'section';
+  return 'image';
+})();
 ---
 
 <div
   class:list={[
     'placeholder',
-    `placeholder--${kind}`,
+    `placeholder--${kindClass}`,
     `placeholder--size-${size}`,
   ]}
   role="img"
-  aria-label={`Placeholder, ${kind}: ${ask}`}
+  aria-label={`Placeholder, ${kind}: ${message}`}
 >
   <div class="placeholder-inner">
     <div class="placeholder-meta">
       <span class="placeholder-kind">{kind}</span>
       {source === 'critic-flag' && <span class="placeholder-source">critic flag</span>}
     </div>
-    <p class="placeholder-ask">{ask}</p>
+    <p class="placeholder-ask">{message}</p>
     {why && <p class="placeholder-why">{why}</p>}
     {alternatives.length > 0 && (
       <details class="placeholder-alternatives">
