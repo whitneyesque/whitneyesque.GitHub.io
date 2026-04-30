@@ -1,0 +1,178 @@
+---
+title: 'RefundPlus: <em>Designing the future state of a multi-actor refund service.</em>'
+client: 'Allied Solutions'
+year: 2024
+role: 'Service Designer (joined Phase 2)'
+team: "Two-designer Harmonic team in early phases, expanded mid-engagement; partnered with Allied's internal service design group and 30+ Allied participants across operations, technology, partner management, and leadership"
+timeline: 'Oct 2023 – Jun 2024'
+tags:
+  - 'Service Design'
+  - 'Service Blueprinting'
+  - 'Workshop Facilitation'
+  - 'Financial Services'
+  - 'B2B'
+specimen: '/images/specimen-fig-split.jpg'
+specimenSignoff: '/images/signoff-fig-split.png'
+summary: 'When new federal rules forced lenders to refund customers within thirty days, a manual, bootstrapped service had to become an automated one. We mapped what it would take.'
+slug: 'allied'
+status: 'published'
+---
+import StatRow from '../../components/StatRow.astro';
+import InsightCallout from '../../components/InsightCallout.astro';
+import BotanicalDivider from '../../components/BotanicalDivider.astro';
+import DarkBand from '../../components/DarkBand.astro';
+import SpecimenSignoff from '../../components/SpecimenSignoff.astro';
+import Placeholder from '../../components/Placeholder.astro';
+
+<StatRow stats={[
+  { value: '9 months', label: 'Engagement length' },
+  { value: '30+', label: 'Allied participants engaged' },
+  { value: '4', label: 'Actor types in the service' }
+]} />
+
+## A pilot that grew faster than the process behind it
+
+Allied Solutions runs RefundPlus, a service that calculates and processes refunds on cancelled GAP and other ancillary auto-loan products, the ones that pay out when a car is totaled, repossessed, or paid off early. It started as a small bet: a manual, hand-stitched pilot for a few lender clients. It worked. Then federal regulations changed. Lenders were now required to refund customers' money in every applicable case, on tight timelines. In some states, as little as thirty days. Demand for RefundPlus surged past what the manual process could absorb.
+
+Allied came to Harmonic Design with a sharp brief: turn a bootstrapped pilot into a profitable, automated, scalable service, without breaking the version already running.
+
+The complication was that no one inside Allied owned the whole picture. RefundPlus moves data and money across four kinds of actor: the lender who originated the loan, the dealer who sold the ancillary product, the provider who underwrites it, and Allied itself in the middle. Each one held part of the truth. None of them held all of it.
+
+<Placeholder
+  kind="image"
+  size="in-body-figure"
+  ask="Simple diagram of the four actors (lender, dealer, provider, Allied) and the data and money flows between them"
+  why="The prose names four actor types abstractly; one diagram lets the reader hold the whole system in mind before the case turns on its coordination problem"
+  alternatives={[
+    "Crop the actor swim lanes from the Experience Map or the service blueprint header",
+    "Skip; the prose carries the multi-actor framing well enough on its own"
+  ]}
+  source="visual-director-recommendation"
+/>
+
+## What the service had grown into
+
+Phase 1 was reconnaissance. The team ran inside-out workshops with Allied's operations, implementation, support, and sales teams to map the current state from the inside. Then they ran outside-in interviews with lenders and dealers to compare what Allied thought it was delivering with what its partners were actually receiving.
+
+The two views did not match. Inside Allied, "the customer" generally meant the lender. Outside, the experience was shaped just as much by dealers (who fed product data into the system) and providers (who actually issued the refunds). The process Allied could see end-to-end from inside turned out to be only a portion of the service its partners were experiencing.
+
+A second misalignment surfaced quickly. Inside the company, RefundPlus was treated as a product: something Allied had built and now sold. But it behaved like a service. The multi-party coordination and the dependency on partners outside Allied's walls weren't yet legible to the people running it.
+
+## The turn: <em>dealers weren't the bottleneck</em>
+
+Going in, the working hypothesis inside Allied was that dealers were where refund processing slowed down. The outside-in research said otherwise. Most processing delays traced to providers, the entities actually cutting refund checks. Dealers, meanwhile, contributed a different problem: many didn't know the refund regulations had legal teeth, or how short the timelines now were. Their lack of urgency was real, but it wasn't the root cause anyone had assumed.
+
+<InsightCallout label="The reframe">
+  The service had a *coordination problem*, not a dealer problem.
+</InsightCallout>
+
+That reframe shifted the design question from "how do we manage dealers" to "how do we make provider behavior, lender visibility, and dealer awareness work as one system." It also shifted what Allied needed to build: not a tighter process for one actor, but a connective layer that gave every actor the part of the picture they needed to act on time.
+
+<BotanicalDivider />
+
+## Designing the future state with the people who'd run it
+
+Phase 2 was collaborative. Rather than design the future state in private and present it, we built it with the people who would run it: operations, technology, partner management, and leadership inside Allied.
+
+The workshops produced four artifacts that fit together:
+
+- A future-state **service blueprint**, read in columns (moments) and rows (lender actions, touchpoints, frontstage Allied actions, backstage Allied actions, partner involvement, supporting processes/policies/technology, and a status milestone row that tracked how a refund's state should be represented through the entire flow).
+- A **capability inventory**: a structured catalog of every capability Allied would need to operationalize the blueprint, tagged by business area and by feature concept, sized for project planning.
+- Two views of an **evolution map**: the same set of capabilities organized once by business capability and once by feature concept. The point of two views is that program managers and product owners ask different questions of the same work, and the work shouldn't have to be re-organized to answer both.
+- A set of **moment briefs**: closer-in views of specific high-stakes moments in the future service, written to support the workstreams that would carry implementation forward.
+
+The blueprint did one thing on purpose that's easy to miss in a static deliverable. Wherever the workshop group could not resolve a design question (whether Allied should own a given capability, what data Allied actually needed from the lender at loan origination), the unresolved question stayed on the blueprint as an orange "big rock" sticky note, not smoothed over. The blueprint told the truth about what wasn't decided yet, and named who would need to decide it.
+
+<Placeholder
+  kind="quote"
+  size="block"
+  ask="Promote the closing sentence of the big rocks paragraph (the line beginning 'The blueprint told the truth') into a PullQuote at this slot"
+  why="Critic and copywriter both flagged this as the strongest design-values sentence in the case; pulling it out lifts a portfolio-grade line that is currently buried at the end of a paragraph and bridges the artifact's working logic to the figures below"
+  alternatives={[
+    "Source a participant voice from Research Findings - v1.0 | Allied RefundPlus.pdf and place that quote between sections 2 and 3 instead",
+    "Leave inline; the case can stand without a pull quote"
+  ]}
+  source="critic-flag"
+/>
+
+<DarkBand label="The future-state artifacts">
+
+<div class="case-darkband-figures">
+  <figure class="case-darkband-figure">
+    <div class="case-darkband-figure-placeholder">Future-state service blueprint slice · status milestone row + orange "big rock" sticky notes</div>
+    <figcaption class="case-darkband-figure-caption">Fig. 01 · Future-state service blueprint, status milestone row visible</figcaption>
+  </figure>
+  <figure class="case-darkband-figure">
+    <div class="case-darkband-figure-placeholder">Evolution map · by-feature-concept view, multi-disciplinary dependencies</div>
+    <figcaption class="case-darkband-figure-caption">Fig. 02 · Evolution map, by-concept view</figcaption>
+  </figure>
+</div>
+
+</DarkBand>
+
+The recommended future state vision that emerged from this work was a more comprehensive automated system: real-time status visibility for lenders through a dashboard, a dealer portal, electronic payment options, and a consultative support layer for lenders working through complex cases. We weighed several alternative concepts and folded most into the recommended vision. A few stayed out of scope for what the workshop participants could carry forward at that moment.
+
+## What it took to make a back-office service feel like a service
+
+The harder, less visible part of this engagement was helping Allied see RefundPlus as a service in the first place: not a product they sold to lenders, but a coordinated set of behaviors across four kinds of partner, most of whom Allied did not employ.
+
+That reframe didn't happen in a single moment. It happened in workshops where someone would describe a current-state problem and the room would walk back through the blueprint together and find the actual cause was a step earlier or later in the system. By the close of the engagement, the team's project retrospective named "the client started to think of RefundPlus as a service, not a product" as one of the engagement's outcomes. That framing shift doesn't show up on a roadmap, but it determines whether the future state can be built at all.
+
+<Placeholder
+  kind="section"
+  size="block"
+  ask="Either ground the service-vs-product reframe in one specific workshop moment where someone visibly changed how they talked about RefundPlus, or scale the claim back to 'by the end of the engagement, the program was describing it differently' without naming facilitation as the cause"
+  why="Critic flagged: as written, this paragraph attributes the vocabulary shift to specific facilitation choices, but the source material supports only a single retrospective line — which reads as a designer claiming authorship of a vocabulary change rather than describing one"
+  alternatives={[
+    "Pull a moment from the June 4-6 workshop chat transcripts that captures the shift live in someone's words",
+    "Tighten the paragraph to a one-sentence observation rather than a paragraph of facilitation-craft argument"
+  ]}
+  source="critic-flag"
+/>
+
+## My role
+
+I joined the RefundPlus engagement in Phase 2, after the inside-out and outside-in research had been collected. My contribution lived in the future state design phase: workshop participation, blueprint and evolution map construction, and the consolidation of multiple concept directions into a single recommended future state vision that the team presented in the final readout.
+
+<Placeholder
+  kind="section"
+  size="block"
+  ask="Whitney's specific contribution detail — which sessions she led vs. supported, which artifacts she owned end-to-end, and at least one design choice in the blueprint or evolution map that was hers rather than Mariah's or Matthias's"
+  why="Critic flagged this as the single biggest issue in the case — without it, an in-house hiring manager cannot evaluate Whitney's individual contribution no matter how strong the rest of the writing is"
+  alternatives={[
+    "Run the case-interviewer agent (composer recommended) and rebuild this section from the transcript",
+    "If a full interview is not feasible: at minimum, name two specific sessions she facilitated and one artifact she owned"
+  ]}
+  source="critic-flag"
+/>
+
+## What Happened Next
+
+Allied accepted the future state vision and moved into the activation phase. The B2B-facing work — the lender dashboard, dealer portal, electronic payment options, and consultative support layer — was approved as the foundation for the next phase of build. The borrower-facing layer was deliberately scoped out as outside the immediate roadmap.
+
+In the closing communication, Allied's project leader described the deliverables as the "north star for our development efforts." That language matters because it's the language of an internal team committing to carry the work forward, not an external consultant describing a finished engagement.
+
+A second Allied engagement was commissioned later in the year, building on the methods this project established.
+
+## What I'm Still Thinking About
+
+Not every stakeholder accepted that this was service design's job. One Allied leader, in the team retrospective, took the position that service design shouldn't be used for strategy. The position is real, and it shows up at companies that haven't yet seen this kind of work pay out. The future state vision is the strongest response I have to that objection: a strategic deliverable produced through service design methods, scoped against the operational reality of the people who'd have to run it. The work answered the objection more credibly than any argument I could have made on its behalf.
+
+## What I need from you
+
+This section is scaffolding from the visual-director agent. Delete it before publishing.
+
+### Images (3)
+- **Multi-actor system diagram** — simple diagram of the four actors (lender, dealer, provider, Allied) and the data and money flows between them. *Where:* after the "Each one held part of the truth" paragraph in section 1 ("A pilot that grew faster than the process behind it"). *Source:* human-capture or commission. *Alternatives:* crop the actor swim lanes from the Experience Map or the service blueprint header; or skip if the prose carries it.
+- **Future-state service blueprint slice (Fig. 01)** — cropped slice showing the status milestone row and at least one orange "big rock" sticky note. *Where:* DarkBand "The future-state artifacts", first figure (currently a `case-darkband-figure-placeholder` div). *Source:* raw-case-material — lucid/Miro export referenced in the Final Presentation deck; the artifact-walkthrough video shows the row Whitney calls out as a unique feature of this blueprint. *Alternatives:* a tight crop from `final presentation.jpg` if the export isn't accessible.
+- **Evolution map, by-concept view (Fig. 02)** — cropped slice of the by-feature-concept view of the evolution map showing multi-disciplinary dependencies. *Where:* DarkBand "The future-state artifacts", second figure (currently a `case-darkband-figure-placeholder` div). *Source:* raw-case-material — same lucid/Miro source as the blueprint. *Alternatives:* the by-business-capability view if the by-concept view doesn't crop cleanly.
+
+### Pull quotes (1)
+- **"Blueprint told the truth"** — promote the closing sentence of the big rocks paragraph ("The blueprint told the truth about what wasn't decided yet, and named who would need to decide it.") into a PullQuote at the slot above the DarkBand. *Source:* current prose, in the paragraph just before the DarkBand. Critic and copywriter both flagged this as the strongest pull candidate.
+
+### Sections to add (per critic) (3)
+- **My role specifics** — *(critic's #1 / HIGH)* "the case credibly describes a two-designer Harmonic team plus 30+ Allied stakeholders, but a senior reader cannot tell what Whitney specifically owned." Needs an interview pass: which sessions she led, which artifacts she owned end-to-end, at least one design choice in the blueprint or evolution map that was hers rather than Mariah's or Matthias's. *Where:* "## My role" section.
+- **Service-vs-product attribution** — *(critic's #2 / MEDIUM-HIGH)* "the current paragraph attributes the vocabulary shift to 'specific facilitation choices' and 'the language of the deliverables' but as far as the source material supports, that's a single retrospective line expanded into a paragraph about facilitation craft." Either ground the claim in a specific workshop moment or scale it back. *Where:* "## What it took to make a back-office service feel like a service" section.
+- **Reflection + ARM follow-on** — *(critic's #3 + #4 / MEDIUM)* "What I'm still thinking about" should land Whitney's perspective on what was hard, what she'd do differently, or what tension she's still carrying. If the ARM follow-on engagement is namable, add a one-sentence beat: "I don't know what they built; I do know they came back for the next service." *Where:* "## What I'm still thinking about" section.
+
+<SpecimenSignoff specimen="/images/signoff-fig-split.png" />

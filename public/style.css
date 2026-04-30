@@ -165,6 +165,8 @@ body.nav-open { overflow: hidden; }
 /* ----- LAYOUT ----- */
 .section { padding: var(--sp-12) var(--sp-8); max-width: 1100px; margin: 0 auto; }
 .section.full-bleed { max-width: none; background: var(--cream); }
+/* Home testimonials band — same lighter cream as full-bleed (#F4EDE4 per QA #03). */
+.section.testimonials-band { max-width: none; background: var(--cream); padding: var(--sp-12) var(--sp-8); }
 .section-inner { max-width: 1100px; margin: 0 auto; }
 .section.dark { background: var(--charcoal); color: var(--cream); max-width: none; }
 
@@ -333,12 +335,28 @@ p + p { margin-top: var(--sp-2); }
   text-align: center;
 }
 .project-card .project-card-body { padding: var(--sp-3) var(--sp-4) var(--sp-4); }
-.project-card h3 { font-size: 20px; margin-bottom: var(--sp-1); }
+.project-card h3 {
+  font-family: var(--font-display);
+  font-size: 22px;
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: var(--sp-2);
+  color: var(--charcoal);
+}
+/* Italic-gold second clause pattern for project titles (matches reference) */
+.project-card h3 em,
+.project-featured .project-title em {
+  font-style: italic;
+  font-weight: 700;
+  color: var(--gold-text);
+}
 .project-card .project-summary { font-size: 14px; color: var(--charcoal-mid); line-height: 1.6; }
 
-.project-status {
+/* Card meta line: "CASE STUDY · 2024" or contact note */
+.project-status,
+.project-card-meta {
   display: inline-block;
-  margin-top: var(--sp-2);
+  margin-top: var(--sp-3);
   font-family: var(--font-mono);
   font-size: 10px; letter-spacing: .12em; text-transform: uppercase;
   color: var(--charcoal-soft);
@@ -373,8 +391,8 @@ p + p { margin-top: var(--sp-2); }
 .tag {
   font-family: var(--font-mono);
   font-size: 10px; letter-spacing: .1em; text-transform: uppercase;
-  color: var(--sage-text);
-  background: var(--sage-light);
+  color: var(--gold-text);
+  background: var(--gold-pale);
   padding: 3px 10px;
   border-radius: 3px;
 }
@@ -680,8 +698,9 @@ p + p { margin-top: var(--sp-2); }
   .site-header nav.open a::after { display: none; }
 
   .hero-home {
-    min-height: 80vh; min-height: 80dvh;
-    padding: calc(var(--sp-12) + 64px) var(--sp-4) var(--sp-10);
+    /* Reference parity (#05): leave room for the "What I Do" peek below the fold. */
+    min-height: 70vh; min-height: 70dvh;
+    padding: calc(var(--sp-10) + 64px) var(--sp-4) var(--sp-8);
     margin-top: -64px;
   }
   .section { padding: var(--sp-8) var(--sp-3); }
@@ -779,29 +798,46 @@ p + p { margin-top: var(--sp-2); }
   line-height: 1.6;
 }
 
-.case-meta-bar {
-  background: var(--cream);
-  border-bottom: 1px solid var(--cream-deep);
-  padding: var(--sp-4) var(--sp-8);
+/* ----- CASE HERO META — V4 spec: 3 dark cards inside dark hero -----
+   Tag pills sit ABOVE the cards. Cards have semi-transparent cream bg + border. */
+.case-hero-tags {
+  display: flex; flex-wrap: wrap; gap: 8px;
+  margin-top: var(--sp-3);
+  margin-bottom: var(--sp-3);
 }
-.case-meta-inner {
-  max-width: 800px; margin: 0 auto;
+.case-hero-tags .tag {
+  background: rgba(244, 237, 228, .08);
+  border: 1px solid rgba(244, 237, 228, .25);
+  color: var(--cream);
+  letter-spacing: .14em;
 }
-.case-meta-list {
-  display: flex; flex-wrap: wrap; gap: var(--sp-4) var(--sp-6);
-  margin-bottom: var(--sp-2);
+.case-detail-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin-top: var(--sp-3);
+  max-width: 720px;
 }
-.case-meta-item { display: flex; flex-direction: column; gap: 2px; }
-.case-meta-item dt {
+.case-detail-card {
+  background: rgba(244, 237, 228, .06);
+  border: 1px solid rgba(244, 237, 228, .15);
+  border-radius: 4px;
+  padding: var(--sp-3);
+  display: flex; flex-direction: column; gap: 6px;
+}
+.case-detail-card dt,
+.case-detail-label {
   font-family: var(--font-mono);
-  font-size: 10px; letter-spacing: .15em; text-transform: uppercase;
-  color: var(--charcoal-soft);
+  font-size: 8px; letter-spacing: .18em; text-transform: uppercase;
+  color: rgba(244, 237, 228, .55);
 }
-.case-meta-item dd {
+.case-detail-card dd,
+.case-detail-value {
   font-family: var(--font-body);
-  font-size: 14px;
-  color: var(--charcoal);
+  font-size: 13px; line-height: 1.45;
+  color: var(--cream);
   font-weight: 500;
+  margin: 0;
 }
 
 .case-body {
@@ -863,24 +899,42 @@ p + p { margin-top: var(--sp-2); }
   color: var(--charcoal-soft);
 }
 
-/* InsightCallout component */
+/* ----- InsightCallout — V4 spec: ink primary, sage-deep secondary, cream text
+   Per #11 decision: full-bleed across the case body width (escapes the 800px
+   prose column with negative margins so it spans the full viewport). */
 .insight-callout {
-  margin: var(--sp-6) 0;
-  padding: var(--sp-4) var(--sp-5);
-  background: var(--sage-light);
-  border-left: 3px solid var(--sage-text);
-  border-radius: 0 6px 6px 0;
+  margin: var(--sp-8) calc(50% - 50vw);
+  padding: var(--sp-6) calc(50vw - 400px + var(--sp-6));
+  background: var(--ink);
+  color: var(--cream);
+  border-radius: 0;
+}
+.insight-callout.is-secondary {
+  background: var(--sage-text);
 }
 .insight-label {
   font-family: var(--font-mono);
   font-size: 10px; letter-spacing: .2em; text-transform: uppercase;
-  color: var(--sage-text);
+  color: var(--gold-light);
   display: block;
   margin-bottom: var(--sp-2);
 }
-.insight-body { font-size: 15px; line-height: 1.7; color: var(--charcoal); }
-.insight-body p { max-width: none; }
+.insight-body { font-size: 16px; line-height: 1.7; color: var(--cream); max-width: 800px; margin: 0 auto; }
+.insight-body p { max-width: none; color: var(--cream); }
 .insight-body p + p { margin-top: var(--sp-2); }
+.insight-body em { color: var(--gold-light); font-style: italic; }
+/* Strong/lead sentence needs MORE contrast on dark bg, not less. */
+.insight-body strong {
+  color: #FFF8EC;
+  font-weight: 700;
+  font-style: normal;
+}
+
+@media (max-width: 768px) {
+  .insight-callout {
+    padding: var(--sp-5) var(--sp-4);
+  }
+}
 
 /* StatRow component */
 .stat-row {
@@ -1100,44 +1154,52 @@ p + p { margin-top: var(--sp-2); }
   .case-darkband-figures { grid-template-columns: 1fr; }
 }
 
-/* ----- PROCESS TIMELINE (case body component) -----
-   Horizontal flex of phase cards. Static, all phases at equal weight. */
+/* ----- PROCESS TIMELINE (case body component) — V4 metro-map spec -----
+   Centered phases on a single horizontal gold line; circular gold markers
+   with cream halos sit on the line. Italic phase names below. */
 .process-timeline {
   display: flex;
-  flex-wrap: wrap;
-  gap: 0;
-  margin: var(--sp-6) 0;
-  padding: 0;
+  align-items: flex-start;
+  justify-content: space-between;
+  position: relative;
+  margin: var(--sp-8) 0;
+  padding: var(--sp-4) 0 0;
   list-style: none;
-  background: var(--cream);
-  border-radius: 8px;
-  overflow: hidden;
+  counter-reset: phase;
+}
+.process-timeline::before {
+  content: '';
+  position: absolute;
+  top: calc(var(--sp-4) + 8px);
+  left: 12px; right: 12px;
+  height: 1px;
+  background: var(--gold);
+  opacity: .6;
+  z-index: 0;
 }
 
 .process-timeline-step {
-  flex: 1 1 130px;
-  padding: var(--sp-3) var(--sp-3) var(--sp-4);
-  border-right: 1px solid var(--cream-deep);
+  flex: 1 1 0;
+  text-align: center;
   position: relative;
+  z-index: 1;
+  padding: 0 var(--sp-2);
 }
-
-.process-timeline-step:last-child { border-right: none; }
-
-.process-timeline-step::after {
+.process-timeline-step::before {
   content: '';
-  position: absolute;
-  left: var(--sp-3);
-  right: var(--sp-3);
-  bottom: 0;
-  height: 3px;
+  display: block;
+  width: 16px; height: 16px;
+  margin: 0 auto var(--sp-3);
+  border-radius: 50%;
   background: var(--gold);
+  box-shadow: 0 0 0 4px var(--cream);
 }
 
 .process-timeline-num {
   display: block;
   font-family: var(--font-mono);
   font-size: 10px;
-  letter-spacing: .15em;
+  letter-spacing: .18em;
   text-transform: uppercase;
   color: var(--gold-text);
   margin-bottom: var(--sp-1);
@@ -1146,60 +1208,40 @@ p + p { margin-top: var(--sp-2); }
 .process-timeline-name {
   display: block;
   font-family: var(--font-display);
-  font-size: 15px;
-  font-weight: 700;
+  font-style: italic;
+  font-size: 16px;
+  font-weight: 500;
   line-height: 1.25;
   color: var(--charcoal);
 }
 
 @media (max-width: 768px) {
-  .process-timeline { flex-direction: column; }
-  .process-timeline-step {
-    border-right: none;
-    border-bottom: 1px solid var(--cream-deep);
-    padding: var(--sp-3);
+  .process-timeline { flex-direction: column; align-items: flex-start; gap: var(--sp-4); }
+  .process-timeline::before {
+    top: 12px; bottom: 12px; left: calc(var(--sp-2) + 7px);
+    right: auto; width: 1px; height: auto;
   }
-  .process-timeline-step:last-child { border-bottom: none; }
-  .process-timeline-step::after {
-    left: var(--sp-3);
-    right: var(--sp-3);
-  }
+  .process-timeline-step { text-align: left; padding-left: var(--sp-6); }
+  .process-timeline-step::before { position: absolute; left: var(--sp-2); top: 4px; margin: 0; }
 }
 
-/* ----- BOTANICAL DIVIDER (Exception 2) -----
-   Heavily cropped dark band, full-bleed, used at the narrative hinge. */
+/* ----- BOTANICAL DIVIDER (Exception 2) — Even-darker, no-blur spec -----
+   Full-bleed dark band at the narrative hinge. Hard edges (no gradient fade)
+   and a darker filter than the original V4 spec — feels like a chord change. */
 .botanical-divider {
   margin-left: calc(50% - 50vw);
   margin-right: calc(50% - 50vw);
   margin-top: var(--sp-10);
   margin-bottom: var(--sp-10);
   height: 88px;
+  background-color: var(--ink);
   background-image: url('/images/botanicals-dark18x1.jpg');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+  /* Even darker than the V4 spec, hard edges. */
+  filter: brightness(.4) saturate(.6);
   position: relative;
-}
-
-/* Soften the seam at the top and bottom so it reads as texture, not photo */
-.botanical-divider::before,
-.botanical-divider::after {
-  content: '';
-  position: absolute;
-  left: 0;
-  right: 0;
-  height: 12px;
-  pointer-events: none;
-}
-
-.botanical-divider::before {
-  top: 0;
-  background: linear-gradient(to bottom, var(--warm-white), transparent);
-}
-
-.botanical-divider::after {
-  bottom: 0;
-  background: linear-gradient(to top, var(--warm-white), transparent);
 }
 
 @media (max-width: 768px) {
