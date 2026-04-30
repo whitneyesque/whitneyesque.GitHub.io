@@ -6,6 +6,8 @@ dist/
 .env.*
 !.env.example
 
+# Claude Code local-only tooling (launch configs, worktrees, session state)
+.claude/
 # wrangler files
 .wrangler
 .dev.vars*
