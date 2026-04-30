@@ -1,0 +1,121 @@
+---
+title: 'Treating product data as a service, <em>not a database.</em>'
+client: 'Ferguson Enterprises'
+year: 2023
+role: 'Service designer (mid-level, part-time); supported workshop facilitation and synthesis, mentored junior designers on the team'
+team: 'Small Harmonic Design team'
+timeline: 'August 2022 – January 2023'
+tags:
+  - 'Service Design'
+  - 'Service Blueprinting'
+  - 'Data Strategy'
+  - 'Cross-functional Alignment'
+  - 'Roadmapping'
+summary: 'Reframed an overwhelmed product-data team''s tooling problem as a service problem, mapped 275 steps across twelve roles, and produced a four-year roadmap that funded itself.'
+specimen: '/images/specimen-cymbidium.jpg'
+specimenSignoff: '/images/signoff-cymbidium.png'
+slug: 'ferguson-data'
+status: 'draft'
+---
+import StatRow from '../../components/StatRow.astro';
+import PullQuote from '../../components/PullQuote.astro';
+import InsightCallout from '../../components/InsightCallout.astro';
+import BotanicalDivider from '../../components/BotanicalDivider.astro';
+import SpecimenSignoff from '../../components/SpecimenSignoff.astro';
+import Placeholder from '../../components/Placeholder.astro';
+
+<StatRow stats={[
+  { value: '12', label: 'Stakeholder roles mapped' },
+  { value: '275+', label: 'Steps in the experience map' },
+  { value: '290+', label: 'Capabilities to modify or build' },
+  { value: '4 yr', label: 'Phased roadmap' },
+]} />
+
+<Placeholder />
+
+## A back office that couldn't keep up <em>with the front.</em>
+
+Ferguson is the largest value-added distributor for residential and non-residential construction across North America: plumbing, HVAC, appliances, lighting, PVF, water and wastewater. The front of the business had grown for two decades. The back office hadn't.
+
+A small product-data team was hand-keying spreadsheets for tens of thousands of vendors and hundreds of thousands of products. Every product needed enrichment, normalization, vetting, and uploading into an inefficient database. Seasonal updates piled on. The infrastructure was undersized and the people running it were burning out.
+
+The easy story to tell about this is a tooling story: replace the database, automate the enrichment, buy a PIM. The harder and more useful story is what happens when the bottleneck isn't the tool.
+
+<PullQuote>
+The bottleneck isn't the tool. It's that no one in the company sees product data as a service that other parts of the business depend on, with its own users, its own service levels, and its own failure modes.
+</PullQuote>
+
+## The reframe: <em>data as a service.</em>
+
+Most data-strategy work focuses on the plumbing: data lakes, metadata, platform efficiency. The Ferguson engagement started somewhere else. Who is the product-data team *serving*, and what would change if those internal customers were treated like customers?
+
+Sales, merchandising, content, enterprise architecture, store operations, and the vendors who supply the data each had a different relationship to the same product record. None of those relationships had been designed.
+
+<InsightCallout label="Reframe">
+**From technical asset to service.**
+
+The shift wasn't aesthetic. Treating product data as a service meant the team had users, not requesters. It meant service levels, not ticket queues. It meant designing the work, not just running it. That's the move that made every downstream artifact possible.
+</InsightCallout>
+
+## Mapping a system <em>no one had ever seen end-to-end.</em>
+
+The work began by partnering with the core product-data team and then deliberately widening the room. The interviews ran from the people typing data into spreadsheets out to sales reps who depend on accurate listings, enterprise architects responsible for the platforms underneath, customer-facing reps who answer the questions when data is wrong, and the vendors at the upstream edge who supply the source information in the first place.
+
+Twelve roles came out of those conversations. The resulting experience map ran past 275 steps. It was the first time anyone at Ferguson had seen the full path a single product record travels, from a vendor's hands to a customer's order.
+
+<Placeholder />
+
+That map became the working surface for everything downstream:
+
+- **Opportunity workshops.** The internal team used the map to prioritize problems, surface opportunities, and develop concepts for a new ingestion-and-enrichment service. Putting the operators at the design table was load-bearing. They would have to run the new system, so they had to help build it.
+- **Service blueprinting.** Cross-functional sessions translated the prioritized opportunities into a future-state service, with the front-stage and backstage detail required to actually run it. This is where "what could be different" turned into "what we'd have to build, hire, retrain, or buy."
+- **Evolution mapping.** A backcast across three time horizons sequenced the capabilities the future-state service would need, so the program could be phased without losing coherence.
+
+<BotanicalDivider />
+
+## What the map <em>made visible.</em>
+
+Two findings did the most strategic work.
+
+**Redundant workflows.** Two of the team's main workflows overlapped in ways that hadn't been visible until the map sat on one wall. Merging them was the first concrete cost-out the engagement delivered.
+
+**Capability gaps at scale.** The evolution map enumerated 290+ business and service capabilities that would need to be modified or created. That number is large on purpose.
+
+<Placeholder />
+
+<PullQuote>
+It's not a backlog. It's the size of the actual transformation, named so the organization could plan against it instead of underestimating it.
+</PullQuote>
+
+## A roadmap <em>that funded itself.</em>
+
+The team came out of the engagement with three things they didn't have going in:
+
+1. An end-to-end picture of how product data actually flows through Ferguson, at the level of detail required to make decisions about it.
+2. A phased four-year plan sequencing the 290+ capabilities into something a leadership team could read in a meeting.
+3. A set of high-level estimates the team used to build a business case, secure funding for the next phase, and start implementation planning with confidence rather than dread.
+
+<Placeholder />
+
+The handoff isn't "we delivered a roadmap." It's that a small, overworked team walked out of the engagement with the language and the artifacts to advocate for their own program, internally, in front of the people who controlled the budget.
+
+## What I need from you
+
+The four `<Placeholder />` slots in this case mark editorial moments where art needs to land. In priority order:
+
+1. **Top-of-case hero (after the StatRow).** The case is about making an invisible system visible, so the opener wants a wide artifact, not a portrait. First choice: a low-fidelity / blurred crop of the 275-step experience map, framed wide enough to read as scale rather than detail. Acceptable substitute: a workshop scene with the map taped across a wall and operators standing in front of it. Avoid stock construction-supply imagery — it pulls the case toward Ferguson's industry instead of the design work.
+2. **Inside "Mapping a system…" (after the 275-step paragraph).** The hero artifact for the case per the design-system-applier handoff. Needs to be the experience map itself, ideally a section that legibly shows multiple swimlanes (vendor → product-data → sales/merch → customer-facing) so a reader can see the twelve roles ribboning across. Redaction is fine; what matters is that it reads as *one continuous system*, not a methodology screenshot.
+3. **Inside "What the map made visible…" (between "That number is large on purpose." and the pull quote).** The evolution map / backcast across three time horizons. The pull quote argues the 290+ number is the size of the transformation; the visual has to back that claim by showing the capabilities sequenced across the four-year horizon. A blueprint excerpt (front-stage / backstage) is an acceptable second choice if the evolution map isn't releasable.
+4. **Inside "A roadmap that funded itself" (after the numbered list).** A clean, presentation-grade rendering of the four-year phased plan — the artifact that actually went in front of the funding conversation. This is the case's outcome surface; a polished diagram earns more here than a redacted Miro export.
+
+Specimen and signoff art:
+- `specimen: '/images/specimen-cymbidium.jpg'` and `specimenSignoff: '/images/signoff-cymbidium.png'` are referenced in frontmatter and at the bottom of the file. Neither asset exists yet. The design-system-applier chose Cymbidium orchid (V3 symbolism: insight / synthesis) — Whitney's call to confirm or swap before we shoot. If she swaps, both filenames update together.
+
+Open content questions still owed (carried forward from composer / critic / design-system-applier rounds — included here because every one of them changes what the visuals have to do):
+- Year, role, team, timeline (currently rendering as visible "TBD" strings in the meta bar — replace before promoting `status` from `draft` to `published`).
+- Did Whitney own the "data as a service" reframe at Ferguson, or did she carry in a Harmonic house frame? The answer determines whether the InsightCallout and the top pull quote stay as-is or get rewritten in her voice — and whether the hero placeholder wants the experience map (system-mapping move) or a different artifact (reframing move).
+- One scene from the work — a workshop disagreement, a moment the map on the wall changed someone's mind, a vendor or sales-rep observation that re-pointed the engagement. Without one, the case stays methodology-as-march. A scene also unlocks a second pull quote from a named source, which both PullQuote blocks currently lack.
+- Any business-side magnitude the critic flagged: program size, FTE equivalent of the manual workflow, time-to-list reduction, projected cost-out from merging the two redundant workflows. Even one number, NDA-anonymized, lifts the outcome out of consultancy boilerplate.
+- Confidentiality confirmation: Ferguson name, vendor counts, product counts, capability counts at the level of specificity used here.
+
+<SpecimenSignoff specimen="/images/signoff-cymbidium.png" />
