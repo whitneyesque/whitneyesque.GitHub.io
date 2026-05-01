@@ -830,6 +830,24 @@ p + p { margin-top: var(--sp-2); }
   position: relative; z-index: 1;
   max-width: 800px; margin: 0 auto;
 }
+.case-hero-specimen {
+  position: absolute;
+  top: 50%;
+  right: var(--sp-8);
+  transform: translateY(-50%);
+  width: 280px;
+  height: auto;
+  opacity: .45;
+  pointer-events: none;
+  z-index: 0;
+  mix-blend-mode: lighten;
+}
+@media (max-width: 900px) {
+  .case-hero-specimen { width: 180px; right: var(--sp-3); opacity: .28; }
+}
+@media (max-width: 600px) {
+  .case-hero-specimen { width: 130px; opacity: .18; right: var(--sp-2); }
+}
 .case-back-top {
   font-family: var(--font-mono);
   font-size: 11px; letter-spacing: .12em; text-transform: uppercase;
