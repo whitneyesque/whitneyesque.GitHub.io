@@ -50,8 +50,7 @@ body {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  min-height: 100svh;
-  min-height: var(--vh, 100svh); /* --vh set in JS to exact px after iOS computes real viewport */
+  min-height: 100dvh; /* dynamic viewport height — adapts as mobile browser chrome shows/hides */
 }
 
 
