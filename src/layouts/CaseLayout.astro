@@ -13,15 +13,13 @@ interface Props {
   summary: string;
   hero_image?: string;
   slug: string;
-  /** Deprecated; ignored. Kept on the interface so existing drafts still typecheck. */
   specimen?: string;
-  specimen_alt?: string;
   specimenSignoff?: string;
 }
 
 const {
   title, client, year, role, team, timeline, tags, summary,
-  hero_image, slug,
+  hero_image, specimen, slug,
 } = Astro.props;
 
 const canonicalURL = `https://whitneyesque.github.io/cases/${slug}.html`;
@@ -45,6 +43,16 @@ const next = currentIndex >= 0 && currentIndex < ordered.length - 1 ? ordered[cu
   <article class="case-article">
 
     <header class="case-hero" style={hero_image ? `--hero-image: url('${hero_image}')` : undefined} data-has-image={hero_image ? 'true' : undefined}>
+      {specimen && (
+        <img
+          class="case-hero-specimen"
+          src={specimen}
+          alt=""
+          aria-hidden="true"
+          loading="eager"
+          decoding="async"
+        />
+      )}
       <div class="case-hero-inner">
         <a href="/work.html" class="case-back-top">← Work</a>
         <h1 class="case-title" set:html={title} />
