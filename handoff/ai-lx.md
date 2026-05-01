@@ -1,4 +1,4 @@
-# Design-system-applier handoff — ailx
+# Design-system-applier handoff — ai-lx
 
 ## Layout archetype
 6-section / narrative-led (with a lightly expanded body for the four named frameworks)
@@ -30,7 +30,7 @@ Note: The previously-attempted version of this case at `site/src/content/cases/c
 - `/images/signoff-pomegranate-split.png` — closing ornament, rendered by `<SpecimenSignoff />` at the bottom of the case.
 
 No in-body images are referenced in the MDX. The Art Director's image plan (in the composer's handoff at the bottom of the polished draft) recommends:
-- Hero: `experience-canvas.jpg` (the new canvas; brand / moments / value / AI in the corner). Available in `raw-case-material/ailx/`.
+- Hero: `experience-canvas.jpg` (the new canvas; brand / moments / value / AI in the corner). Available in `raw-case-material/ai-lx/`.
 - Reframe section: `individual-activity.jpg` or `ideation.jpg` (paper-not-laptops pedagogy). Available.
 - Four Dimensions section: a clean diagram of the four dimensions framework — does not yet exist; Whitney would need to commission or draw.
 - Canvas section: `experience-canvas.jpg` again, paired with a cleaned redraw (also does not exist).
@@ -50,5 +50,5 @@ None of these are wired into the MDX. They can be added later either as plain `<
 2. **Title.** Carried the composer's "From X to Y" formulation in V4 form: `'From "we should do AI" <em>to a working vocabulary for AI in services.</em>'`. The composer flagged two alternates worth considering: *"AI Is a Material: A Two-Day Workshop That Gave 50 Designers a Practice, Not a Hammer"* or *"Putting AI in the Corner: Building a Practice for an Automotive Retailer's Design Team."* If you'd rather use one of those, change the `title` line in the frontmatter.
 3. **Adoption follow-up.** The composer's handoff carried Whitney's open question about Patrick's planned two-month follow-up with the VP of design. The MDX no longer contains the inline TODO. If anything has surfaced about internal usage of the canvas, dimensions, or adapted blueprint, the Outcome section is the place to add a sentence — the case currently treats client re-engagement as the load-bearing outcome signal, and adoption evidence (if any) would meaningfully strengthen the close.
 4. **"Continuous handoffs" rename.** Copywriter's substitute for the previously-banned "Seamless handoffs." Listed alternates: *Carried-over handoffs*, *Context-preserving handoffs*, *Handoffs that hold context*. Pick what sounds most like you, or leave as is.
-5. **Coexistence with `cases/carmax.mdx`.** The site already contains a previous V4 attempt at this case at `src/content/cases/carmax.mdx` (uses the client name, fig specimen, different title, leaner body). The new file at `src/content/cases/ailx.mdx` is the canonical anonymised version per the polished draft. Decide whether to delete `carmax.mdx`, redirect from `/cases/carmax` to `/cases/ailx`, or keep both. I did not modify `carmax.mdx`.
+5. **Coexistence with `cases/carmax.mdx`.** The site already contains a previous V4 attempt at this case at `src/content/cases/carmax.mdx` (uses the client name, fig specimen, different title, leaner body). The new file at `src/content/cases/ai-lx.mdx` is the canonical anonymised version per the polished draft. Decide whether to delete `carmax.mdx`, redirect from `/cases/carmax` to `/cases/ai-lx`, or keep both. I did not modify `carmax.mdx`.
 6. **Replacing "complete" in the brief paragraph.** Copywriter swapped "holistic" → "complete" with a flag that the word is functional but not memorable. If a sharper word comes to you ("end-to-end," "whole-service," or just dropping the modifier), the line is yours to take. Currently reads: *Help them build complete solutions that aren't AI-for-AI's-sake.*
