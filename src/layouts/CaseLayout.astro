@@ -1,5 +1,6 @@
 ---
 import BaseLayout from './BaseLayout.astro';
+import { getCollection } from 'astro:content';
 
 interface Props {
   title: string;
@@ -25,6 +26,14 @@ const {
 
 const canonicalURL = `https://whitneyesque.github.io/cases/${slug}.html`;
 const pageTitle = `${title} — Whitney Masulis`;
+
+const allPublished = await getCollection('cases', entry => entry.data.status === 'published');
+const ordered = allPublished
+  .map(entry => ({ slug: entry.slug, title: entry.data.title, year: entry.data.year }))
+  .sort((a, b) => b.year - a.year || a.slug.localeCompare(b.slug));
+const currentIndex = ordered.findIndex(c => c.slug === slug);
+const prev = currentIndex > 0 ? ordered[currentIndex - 1] : null;
+const next = currentIndex >= 0 && currentIndex < ordered.length - 1 ? ordered[currentIndex + 1] : null;
 ---
 <BaseLayout
   title={pageTitle}
@@ -68,9 +77,25 @@ const pageTitle = `${title} — Whitney Masulis`;
       <slot />
     </div>
 
-    <footer class="case-footer">
-      <a href="/work.html" class="case-back-bottom">← Back to Work</a>
-    </footer>
+    <nav class="case-nav" aria-label="Case study navigation">
+      <div class="case-nav-inner">
+        {prev ? (
+          <a href={`/cases/${prev.slug}.html`} class="case-nav-link case-nav-prev" rel="prev">
+            <span class="case-nav-direction">← Previous case</span>
+            <span class="case-nav-title" set:html={prev.title} />
+          </a>
+        ) : <span class="case-nav-spacer" aria-hidden="true"></span>}
+
+        <a href="/work.html" class="case-nav-allwork">All work</a>
+
+        {next ? (
+          <a href={`/cases/${next.slug}.html`} class="case-nav-link case-nav-next" rel="next">
+            <span class="case-nav-direction">Next case →</span>
+            <span class="case-nav-title" set:html={next.title} />
+          </a>
+        ) : <span class="case-nav-spacer" aria-hidden="true"></span>}
+      </div>
+    </nav>
 
   </article>
 </BaseLayout>

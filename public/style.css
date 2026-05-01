@@ -291,11 +291,19 @@ p + p { margin-top: var(--sp-2); }
 .work-list { padding-top: 0; }
 
 .project-featured {
+  position: relative;
   display: grid; grid-template-columns: 1.2fr 1fr; gap: var(--sp-8);
   padding: var(--sp-8);
   background: var(--cream);
   border-radius: 8px;
   margin-bottom: var(--sp-6);
+  transition: box-shadow .25s ease, transform .25s ease;
+}
+.project-featured.has-link { cursor: pointer; }
+.project-featured.has-link:hover,
+.project-featured.has-link:focus-within {
+  box-shadow: 0 18px 40px -20px rgba(42, 37, 32, .35), 0 4px 12px -4px rgba(42, 37, 32, .15);
+  transform: translateY(-2px);
 }
 .project-featured .project-thumb {
   aspect-ratio: 16 / 10;
@@ -322,11 +330,36 @@ p + p { margin-top: var(--sp-2); }
 
 .project-grid { display: grid; grid-template-columns: 1fr 1fr; gap: var(--sp-5); }
 .project-card {
+  position: relative;
   background: var(--cream);
   border-radius: 8px;
   overflow: hidden;
   display: flex; flex-direction: column;
+  transition: box-shadow .25s ease, transform .25s ease;
 }
+.project-card.has-link { cursor: pointer; }
+.project-card.has-link:hover,
+.project-card.has-link:focus-within {
+  box-shadow: 0 18px 40px -20px rgba(42, 37, 32, .35), 0 4px 12px -4px rgba(42, 37, 32, .15);
+  transform: translateY(-2px);
+}
+.project-card.placeholder { cursor: default; }
+.project-card.placeholder:hover { box-shadow: none; transform: none; }
+
+/* Stretched-link: the h3 <a> covers the entire card. */
+.project-card-link {
+  color: inherit;
+  text-decoration: none;
+}
+.project-card-link::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+/* Keep explicit btn on top of the stretched link */
+.project-featured .btn,
+.project-card .btn { position: relative; z-index: 2; }
 .project-card .project-thumb {
   aspect-ratio: 16 / 10;
   background: var(--charcoal);
@@ -352,9 +385,8 @@ p + p { margin-top: var(--sp-2); }
 }
 .project-card .project-summary { font-size: 14px; color: var(--charcoal-mid); line-height: 1.6; }
 
-/* Card meta line: "CASE STUDY · 2024" or contact note */
-.project-status,
-.project-card-meta {
+/* "Contact me to view full portfolio" — only used on the featured card now. */
+.project-status {
   display: inline-block;
   margin-top: var(--sp-3);
   font-family: var(--font-mono);
@@ -716,6 +748,27 @@ p + p { margin-top: var(--sp-2); }
   .project-featured { grid-template-columns: 1fr; padding: var(--sp-4); }
   .project-grid { grid-template-columns: 1fr; }
 
+  /* Tag row: breathing room above the Read Case Study button on mobile */
+  .project-featured .tag-row { margin-bottom: var(--sp-3); }
+
+  /* Cap thumb height so the dark area doesn't dominate full-width cards */
+  .project-card .project-thumb,
+  .project-featured .project-thumb {
+    aspect-ratio: auto;
+    min-height: 180px;
+    max-height: 240px;
+  }
+
+  /* About timeline: stack date above content so it doesn't eat half the viewport */
+  .wm-timeline-entry {
+    grid-template-columns: 1fr;
+    gap: 4px;
+  }
+  .wm-date-tag { padding-top: 0; }
+
+  /* Kill extra bottom padding on work list — footer brings its own top padding */
+  .work-list { padding-bottom: 0; }
+
   .site-footer { padding: var(--sp-8) var(--sp-3); }
   .site-footer .footer-content { flex-direction: column; gap: var(--sp-4); }
 
@@ -957,21 +1010,58 @@ p + p { margin-top: var(--sp-2); }
   color: var(--charcoal-soft);
 }
 
-/* Case footer */
-.case-footer {
-  max-width: 800px; margin: 0 auto;
-  padding: 0 var(--sp-8) var(--sp-16);
+/* Case nav — prev / All work / next */
+.case-nav {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: var(--sp-8) var(--sp-8) var(--sp-16);
   border-top: 1px solid var(--cream-deep);
-  padding-top: var(--sp-6);
 }
-.case-back-bottom {
-  font-family: var(--font-mono);
-  font-size: 11px; letter-spacing: .12em; text-transform: uppercase;
-  color: var(--gold-text);
+.case-nav-inner {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  gap: var(--sp-6);
+  align-items: start;
+}
+.case-nav-link {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
   text-decoration: none;
+  color: var(--charcoal);
   transition: color .2s;
 }
-.case-back-bottom:hover { color: var(--rust); }
+.case-nav-link:hover { color: var(--gold-text); }
+.case-nav-prev { text-align: left; }
+.case-nav-next { text-align: right; }
+.case-nav-direction {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--gold-text);
+}
+.case-nav-title {
+  font-family: var(--font-display);
+  font-size: 17px;
+  font-weight: 600;
+  line-height: 1.3;
+  color: inherit;
+}
+.case-nav-title em { color: var(--gold-text); font-style: italic; }
+.case-nav-allwork {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--charcoal-soft);
+  text-decoration: none;
+  align-self: center;
+  white-space: nowrap;
+  transition: color .2s;
+}
+.case-nav-allwork:hover { color: var(--rust); }
+.case-nav-spacer { display: block; }
 
 /* Case responsive */
 @media (max-width: 768px) {
@@ -981,7 +1071,17 @@ p + p { margin-top: var(--sp-2); }
   .case-body { padding: var(--sp-8) var(--sp-3); }
   .pull-quote { margin-left: 0; margin-right: 0; }
   .stat-row { gap: var(--sp-4); }
-  .case-footer { padding: var(--sp-5) var(--sp-3) var(--sp-12); }
+  .case-nav { padding: var(--sp-6) var(--sp-3) var(--sp-12); }
+  .case-nav-inner {
+    grid-template-columns: 1fr;
+    gap: var(--sp-5);
+  }
+  .case-nav-prev,
+  .case-nav-next { text-align: left; }
+  .case-nav-allwork {
+    align-self: start;
+    order: 99;
+  }
 }
 
 /* ----- ACCESSIBILITY ----- */
