@@ -23,6 +23,7 @@ import InsightCallout from '../../components/InsightCallout.astro';
 import ProcessTimeline from '../../components/ProcessTimeline.astro';
 import BotanicalDivider from '../../components/BotanicalDivider.astro';
 import DarkBand from '../../components/DarkBand.astro';
+import Placeholder from '../../components/Placeholder.astro';
 
 <StatRow stats={[
   { value: '13', label: 'Week Engagement' },
@@ -30,6 +31,19 @@ import DarkBand from '../../components/DarkBand.astro';
   { value: '2', label: 'Experience Maps Delivered' },
   { value: '20', label: 'Prioritized Opportunities Surfaced' },
 ]} />
+
+<Placeholder
+  kind="section"
+  size="block"
+  ask="Surface the load-bearing thesis ('decision-making infrastructure for an org that did not yet have it') on the first screen — either as a one-line lede here, or by sharpening section 1's closing line ('That recognition shaped everything I did over the next twelve weeks') to name the frame in Whitney's own words"
+  why="Critic Issue 1 (HIGH): the thesis currently appears explicitly only inside the InsightCallout 600–700 words in. A senior skimmer reads two carefully described interviews without yet knowing why."
+  alternatives={[
+    "Single-sentence lede above '## Two new-in-role leaders'",
+    "Rewrite the closing line of section 1 to name the frame explicitly",
+    "Add one explicit thesis sentence inside section 1's final paragraph"
+  ]}
+  source="critic-flag"
+/>
 
 ## Two new-in-role leaders, <em>two different briefs.</em>
 
@@ -52,6 +66,18 @@ It is hard to describe the business stakes of this engagement without naming the
 This is not a minor strategic adjustment. A device company optimizes for clinical performance and regulatory compliance. A digital-services company optimizes for user behavior over time. The organizational capabilities required are different. The customer relationships are different. The decision-making infrastructure is different.
 
 The product leader had been brought in to figure out the next-generation provider platform that would eventually replace the legacy one. The CX leader had been brought in to give the customer voice a credible seat at the strategy table. Both were navigating a recent reorganization. Both told me the rituals for making decisions in the new structure did not yet exist.
+
+<Placeholder
+  kind="section"
+  size="block"
+  ask="Compress this section to one paragraph. The device-vs-digital-services distinction is the load-bearing idea; the rest is supporting. The dual-brief framing earlier in the case already does most of the work this section thinks it's doing."
+  why="Critic Issue 3 (MEDIUM): three paragraphs of strategic context before the InsightCallout means the reader gets a strategy briefing before getting the design problem. The InsightCallout would land harder if the run-up were shorter."
+  alternatives={[
+    "Cut paragraph 2 (the device-company-vs-digital-services-company elaboration); paragraphs 1 and 3 carry the strategic shift and the dual-leader context",
+    "Leave as-is and lean on the InsightCallout to finish the argument"
+  ]}
+  source="critic-flag"
+/>
 
 <InsightCallout label="The framing that shaped the work">
 In a stable organization, a journey map is a research deliverable. In the organization the client was becoming, the map was being asked to function as decision-making infrastructure for an org that did not yet have it.
@@ -106,6 +132,19 @@ The structural finding that mattered most for the client's strategy emerged from
 When the equipment provider fails, the patient blames me. I'm the one who sent them there.
 </PullQuote>
 
+<Placeholder
+  kind="quote"
+  size="block"
+  ask="Verify the sleep-specialist pull quote above against the SP transcripts. Either confirm a verbatim line exists with this wording, replace with a verifiable verbatim line, or drop the PullQuote treatment and let the indirect-attribution sentence above ('One sleep specialist named it cleanly...') carry the structural finding."
+  why="Critic Issue 4a (MEDIUM): the quote is constructed from a v2 paraphrase per the Composer's handoff and the second PR comment. A senior reader cross-referencing finds it paraphrased — the trust dent travels to every other quote in the case."
+  alternatives={[
+    "Drop the PullQuote treatment; the body prose immediately above already carries the structural finding",
+    "Replace with a different verifiable verbatim sleep-specialist line that captures the patient-blame dynamic",
+    "Soften to indirect attribution within the body and remove the PullQuote treatment entirely"
+  ]}
+  source="critic-flag"
+/>
+
 The prescribing physician owns the relationship and bears the reputational risk. The equipment provider runs the day-to-day experience. The patient sees one continuous service. No actor in the system has authority over the whole thing. This is the structural gap a connected-health platform is positioned to occupy, and it became the through-line of the workshop two months later.
 
 <BotanicalDivider />
@@ -149,6 +188,19 @@ We ran two sessions at the end of July with the client's product, CX, and resear
 
 Five themes surfaced from the prioritized opportunities: patient communication (moving away from phone-based outreach), mask fit and selection (a moment of truth that drove cost and adherence), coordination and data consolidation (the broken handoff between physician and equipment provider), compliance and monitoring (the four-hour-a-night problem), and insurance and policy management (the prior-authorization burden).
 
+<Placeholder
+  kind="image"
+  size="in-body-figure"
+  ask="Workshop photo: redacted Miro/whiteboard from the prioritization session, with the four-lens grid visible (most valuable to providers / quick wins / most complex / greatest revenue potential)"
+  why="The case argues the workshop was the moment the artifact became infrastructure. A photo of Product and CX teams arguing over the artifact would carry the claim visually — the section is currently text-only."
+  alternatives={[
+    "Composite of two redacted Miro screens — Day 1 'How Might We' wall plus Day 2 prioritization grid",
+    "Single annotated thumbnail of the four-lens prioritization grid",
+    "Skip — the prose may already do the work"
+  ]}
+  source="visual-director-recommendation"
+/>
+
 The workshop did the job the CX leader had asked for in the stakeholder interview, before any provider research had been conducted. She had wanted Product and CX in a room arguing about customer problems together. The maps became the thing the room argued about. That outcome was not accidental. It was the function I had been designing toward since week one.
 
 I also built into the workshop a discussion segment on rituals and governance, explicitly framing how the maps could continue to live and evolve after the engagement ended. The product leader's framework concern got addressed there. The CX leader's culture-change concern got addressed in the workshop dynamics themselves. Both leaders walked out of the second day with what they had asked for, in different forms.
@@ -158,6 +210,19 @@ I also built into the workshop a discussion segment on rituals and governance, e
 Two experience maps, one for each provider archetype, with consistent visual language and a documented method for reading and updating them. A backlog of twenty prioritized How Might We opportunities, organized by lens. An insights deck for circulation across product and CX teams. A workshop recap deck with deep dives on the top opportunities and supporting research evidence. A discussion structure for embedding journey artifacts into product-development rituals over time.
 
 What the client actually got was a working session of their own product and CX teams in a room together arguing about a shared artifact for two days. The artifact gave them something to argue about. The argument is what the CX leader had needed.
+
+<Placeholder
+  kind="section"
+  size="block"
+  ask="Add a post-engagement signal — usage, citation in subsequent decisions, follow-on engagement, or client feedback that the maps did or did not function as intended. If nothing yet, name the absence explicitly in Whitney's voice ('the proof of whether the artifact functioned as infrastructure will come over the next year. What I can claim from inside the engagement is X.')."
+  why="Critic Issue 2 (HIGH): the case ends on what happened *inside* the engagement and claims the artifact became 'decision-making infrastructure,' but never substantiates what happened after delivery. Without a post-engagement signal — even a soft one — the thesis reads as the designer's framing of what she hoped the deliverable would do."
+  alternatives={[
+    "One-sentence soft signal (e.g., 'the maps were cited in the next quarterly planning session')",
+    "Explicit 'proof comes over the next year' caveat — preserves thesis integrity without overclaiming",
+    "Coda paragraph at the end of '## Reflection.' that names the consequence gap directly"
+  ]}
+  source="critic-flag"
+/>
 
 ## Reflection.
 
@@ -170,3 +235,23 @@ Three things I took from this engagement.
 **Push back earlier on what you can see coming.** The recruiting timeline was visible by week four. I raised it. I did not raise it loudly enough. I caught it at the mid-point and recovered, but the cost was a smaller HME sample and a caveat in the final deliverable. The cost of pushing earlier is always smaller than the cost of recovering later, and the cost of an honest caveat is smaller than the cost of overclaiming a finding the sample cannot support.
 
 This engagement raised my standard for what good research-led service design looks like. The research had to be rigorous enough to hold up under stakeholder scrutiny in two languages: the language of design (does this build empathy?) and the language of business (does this point to where we should invest?). The synthesis had to be iterated until it gave the team something to act on, not just something to learn. The artifact had to be designed to function inside the organization after delivery, not just to be presented and admired. None of those decisions were heroic. All of them are what senior service-design work, done well, looks like.
+
+## What I need from you
+
+This section is scaffolding from the visual-director agent. Delete it before publishing.
+
+### Images (1 new + handoff-listed)
+
+- **Workshop photo (new)** — redacted Miro/whiteboard from the prioritization session, with the four-lens grid visible. *Where:* inside "The opportunity workshop" section, between the five-themes paragraph and the "did the job the CX leader had asked for" paragraph. *Source:* `raw-case-material/medical/Opportunity workshop Session Deck.pdf` and `Opportunity-Provider-Journey-Workshop-Recap.pdf` may have frame grabs; otherwise human-capture from any retained Miro board. *Alternatives:* annotated thumbnail of the four-lens grid; skip if the section reads complete without it.
+- **DarkBand experience maps + specimen and signoff** — see `handoff/medical.md` for full detail on `/images/medical/hme-experience-map.jpg`, `/images/medical/sleep-specialist-experience-map.jpg`, `/images/specimen-pomegranate.jpg`, and `/images/signoff-pomegranate.png`. The DarkBand currently uses HTML scaffolding for the two map figures; swap real assets in once available. Source candidates from `raw-case-material/medical/` are listed in the handoff (HMP Exp Map, SS Exp Map, participant profiles).
+
+### Pull quotes (2)
+
+- **Sleep-specialist quote: verbatim verification** — the "When the equipment provider fails, the patient blames me. I'm the one who sent them there." quote is constructed from a v2 paraphrase per the Composer's handoff and the second PR comment. *Source:* `raw-case-material/medical/All SP Transcripts.docx` — search for verbatim lines about patient-blame dynamics. If no near-verbatim line exists, drop the PullQuote treatment entirely; the body prose immediately above ("One sleep specialist named it cleanly...") already carries the structural finding via indirect attribution.
+- **Author-voice pull quote register** — the "research summary / design brief" PullQuote inside the Synthesis section is Whitney's own reflection, intentionally unattributed. Critic Issue 4b flagged a possible register collision with the participant pull quotes. *Source:* design-system decision (carried over from the `ferguson-data.mdx` convention per the design-system-applier handoff). *Alternatives:* demote into body prose; add a distinct visual treatment to mark designer voice; leave as-is if the convention holds.
+
+### Sections to add (per critic) (3)
+
+- **Surface the thesis on the first screen — Critic Issue 1 (HIGH)** — "decision-making infrastructure for an org that didn't yet have it" appears explicitly only inside the InsightCallout 600–700 words in. *Where:* a one-line lede before "## Two new-in-role leaders, *two different briefs.*" or sharpen the closing line of section 1 ("That recognition shaped everything I did over the next twelve weeks") to name the frame in Whitney's own words. *Alternatives:* a single explicit thesis sentence inside section 1's final paragraph.
+- **Post-engagement signal (consequence gap) — Critic Issue 2 (HIGH)** — the case never says what happened after delivery. Did the maps survive into the next quarter? Did any of the twenty opportunities get funded? *Where:* "## What the client received, *and what they actually got.*" — pull one or two sentences in. *Alternatives:* explicit "the proof comes over the next year" caveat in Whitney's voice (preserves thesis integrity without overclaiming); coda paragraph at the end of "## Reflection." that names the gap directly.
+- **Strategy-memo compression — Critic Issue 3 (MEDIUM)** — "## What the company was actually trying to become." runs three paragraphs of strategic context before the InsightCallout. *Where:* compress to one paragraph (the device-vs-digital-services distinction is load-bearing; the rest is supporting), then move directly to the InsightCallout. *Alternatives:* cut paragraph 2 and keep paragraphs 1 and 3; leave as-is and lean on the InsightCallout to finish the argument.
