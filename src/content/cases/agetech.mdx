@@ -86,6 +86,11 @@ These are not easy questions. Describing a parent's cognitive decline, financial
 The system prompt enforced the questionnaire architecture and the compassionate language framework simultaneously. These aren't prompt-engineering decisions. They're service design decisions about how this service speaks to people in pain.
 </InsightCallout>
 
+<figure>
+  <img src="/images/agetech-gpt-conversation.png" alt="Redacted transcript from the prototype in use, showing the GPT walking a caregiver named Paloma through questions about her care recipient Ivanka — name, age, health conditions (with examples like 'dementia or Alzheimer's,' 'heart disease,' 'cancer'), diagnosis dates, communication preference (direct / gentle / slow), and household composition." />
+  <figcaption>A slice of the prototype in use during testing. Names anonymized.</figcaption>
+</figure>
+
 The geriatric-care persona caught phrasing late in the build that I wished I'd had it review earlier: clinical staging language that had crept in, words that read as neutral to me but landed as judgment to a caregiver. Bring the harshest critical lens in at the start, not the end.
 
 The tone reviews caught the obvious problems. Testing caught subtler ones. One of the forecast intake questions asked what state the care recipient lives in — meaning geographic state, because care costs vary dramatically by location. A participant read it as emotional state. Was she anxious? Confused? Depressed? The question was unambiguous to us. It was genuinely confusing to someone in the middle of a caregiving situation where "what state is she in" is a question they ask themselves constantly, and it never means geography.
@@ -156,6 +161,11 @@ In one cohort 1 session, after the "Signs to Watch in Yourself" section appeared
 
 The tool hadn't been asked to look at her. It did anyway. That was the principle proving itself.
 
+<figure>
+  <img src="/images/agetech-synthesis-board.png" alt="Redacted research synthesis board with rows of blurred participant photos and columns of post-test notes showing how cohort feedback was organized across the eight modes of the prototype." />
+  <figcaption>Synthesis board for the testing rounds. Identifying details blurred.</figcaption>
+</figure>
+
 ## The client got the signal they needed. *The next phase has user testing built in.*
 
 The testing gave them enough confidence in the concept's desirability and the interaction model to justify moving forward. The next phase is substantially larger: building the actual GPT for production, developing the real forecast model with a data science team, and running a two-month beta this fall that will include the AI, the forecast, human care-guide calls, and task-management features. That beta is a meaningful investment. The prototype is what made it defensible.
@@ -165,6 +175,11 @@ Three things came out of this work that weren't in the brief:
 - **Strategic direction.** Guidance-first is now a design principle for the service going forward, not a one-time fix to a flow.
 - **Production specification.** The guidance content and example outputs I created are serving as the experience specification for the production AI system.
 - **Testing methodology.** When the client suggested evaluating the next GPT internally rather than with users, I argued for continued user testing. The next phase has user testing built in.
+
+<figure>
+  <img src="/images/agetech-service-blueprint.png" alt="Redacted service blueprint showing the AI prototype's role across customer-facing actions, frontstage interactions, backstage processes, and supporting infrastructure. Specific text blurred." />
+  <figcaption>Excerpt from the service blueprint built around the prototype's outputs.</figcaption>
+</figure>
 
 ## Four things *that traveled with me out of this project.*
 
