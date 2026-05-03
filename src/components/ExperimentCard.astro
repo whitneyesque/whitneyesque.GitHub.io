@@ -1,0 +1,177 @@
+---
+/**
+ * ExperimentCard.astro — V4 design system
+ *
+ * Frames a single quantitative experiment. Gold header with charcoal text,
+ * cream body split 1 : 1.4 — left holds method + participants; right holds
+ * a 2×2 stat grid plus an optional participant verbatim.
+ *
+ * Use to anchor a discrete experiment moment in a case study (a cohort, a
+ * usability test, a controlled comparison). Keep stats to four for the grid
+ * to render cleanly.
+ */
+interface Stat {
+  /** Numeric or short value, e.g. "87%", "2.3×", "+34" */
+  num: string;
+  /** Mono-uppercase label below the value */
+  label: string;
+}
+
+interface Props {
+  /** Eyebrow text (e.g. "Experiment 03", "Cohort 1") — optional */
+  number?: string;
+  /** The experiment's question or title — italic display */
+  question: string;
+  /** Method description — paragraph */
+  method?: string;
+  /** Participants description — paragraph */
+  participants?: string;
+  /** Up to four stat cells. Renders as a 2×2 grid when ≥ 3 stats. */
+  stats?: Stat[];
+  /** Optional participant verbatim below the stats */
+  quote?: string;
+}
+
+const { number, question, method, participants, stats = [], quote } = Astro.props;
+---
+
+<div class="v4-exp">
+  <header class="v4-exp-head">
+    {number && <span class="v4-exp-eyebrow">{number}</span>}
+    <span class="v4-exp-title" set:html={question}></span>
+  </header>
+  <div class="v4-exp-body">
+    <div class="v4-exp-meta">
+      {method && (
+        <div class="v4-exp-meta-block">
+          <div class="v4-exp-meta-h">Method</div>
+          <div class="v4-exp-meta-p">{method}</div>
+        </div>
+      )}
+      {participants && (
+        <div class="v4-exp-meta-block">
+          <div class="v4-exp-meta-h">Participants</div>
+          <div class="v4-exp-meta-p">{participants}</div>
+        </div>
+      )}
+    </div>
+    <div class="v4-exp-right">
+      {stats.length > 0 && (
+        <div class="v4-exp-stats">
+          {stats.map((s) => (
+            <div>
+              <span class="v4-exp-stat-num">{s.num}</span>
+              <span class="v4-exp-stat-lab">{s.label}</span>
+            </div>
+          ))}
+        </div>
+      )}
+      {quote && <p class="v4-exp-quote">{quote}</p>}
+    </div>
+  </div>
+</div>
+
+<style>
+  .v4-exp {
+    border-radius: 12px;
+    overflow: hidden;
+    margin: 2.5rem 0;
+  }
+  .v4-exp-head {
+    background: var(--gold, #C8943E);
+    color: var(--charcoal, #2A2520);
+    padding: 28px 32px 30px;
+  }
+  .v4-exp-eyebrow {
+    display: block;
+    font-family: var(--font-mono, 'DM Mono', monospace);
+    font-size: 10px;
+    line-height: 1;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    font-weight: 500;
+    color: var(--charcoal, #2A2520);
+    opacity: 0.78;
+    margin-bottom: 14px;
+  }
+  .v4-exp-title {
+    display: block;
+    font-family: var(--font-display, 'Petrona', Georgia, serif);
+    font-size: 22px;
+    font-weight: 700;
+    line-height: 1.3;
+    color: var(--charcoal, #2A2520);
+    letter-spacing: -0.005em;
+    max-width: 760px;
+  }
+  .v4-exp-body {
+    background: var(--cream, #F4EDE4);
+    padding: 30px 32px 32px;
+    display: grid;
+    grid-template-columns: 1fr 1.4fr;
+    gap: 36px;
+  }
+  @media (max-width: 720px) {
+    .v4-exp-body {
+      grid-template-columns: 1fr;
+      gap: 24px;
+    }
+  }
+  .v4-exp-meta-block + .v4-exp-meta-block { margin-top: 18px; }
+  .v4-exp-meta-h {
+    font-family: var(--font-mono, 'DM Mono', monospace);
+    font-size: 9px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--charcoal-soft, #6B6560);
+    margin-bottom: 8px;
+  }
+  .v4-exp-meta-p {
+    font-size: 14px;
+    line-height: 1.5;
+    color: var(--charcoal, #2A2520);
+    max-width: none;
+  }
+  .v4-exp-right {
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+  }
+  .v4-exp-stats {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 22px 28px;
+  }
+  .v4-exp-stat-num {
+    display: block;
+    font-family: var(--font-display, 'Petrona', Georgia, serif);
+    font-style: italic;
+    font-weight: 700;
+    font-size: 30px;
+    line-height: 1;
+    color: var(--gold-text, #8A6820);
+    margin-bottom: 6px;
+    letter-spacing: -0.01em;
+  }
+  .v4-exp-stat-lab {
+    display: block;
+    font-family: var(--font-mono, 'DM Mono', monospace);
+    font-size: 9px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--charcoal-soft, #6B6560);
+    line-height: 1.4;
+  }
+  .v4-exp-quote {
+    border-top: 1px solid var(--cream-deep, #EBE1D4);
+    padding-top: 18px;
+    font-family: var(--font-display, 'Petrona', Georgia, serif);
+    font-style: italic;
+    font-weight: 500;
+    font-size: 15px;
+    line-height: 1.45;
+    color: var(--charcoal-mid, #4A443D);
+    max-width: none;
+    margin: 0;
+  }
+</style>

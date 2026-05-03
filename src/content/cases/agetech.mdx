@@ -19,6 +19,8 @@ import StatRow from '../../components/StatRow.astro';
 import PullQuote from '../../components/PullQuote.astro';
 import InsightCallout from '../../components/InsightCallout.astro';
 import BotanicalDivider from '../../components/BotanicalDivider.astro';
+import GPTConversation from '../../components/GPTConversation.astro';
+import ExperimentCard from '../../components/ExperimentCard.astro';
 
 <StatRow variant="dark" stats={[
   { value: '50M+', label: 'U.S. family caregivers' },
@@ -86,10 +88,31 @@ These are not easy questions. Describing a parent's cognitive decline, financial
 The system prompt enforced the questionnaire architecture and the compassionate language framework simultaneously. These aren't prompt-engineering decisions. They're service design decisions about how this service speaks to people in pain.
 </InsightCallout>
 
-<figure>
-  <img src="/images/agetech-gpt-conversation.png" alt="Redacted transcript from the prototype in use, showing the GPT walking a caregiver named Paloma through questions about her care recipient Ivanka — name, age, health conditions (with examples like 'dementia or Alzheimer's,' 'heart disease,' 'cancer'), diagnosis dates, communication preference (direct / gentle / slow), and household composition." />
-  <figcaption>A slice of the prototype in use during testing. Names anonymized.</figcaption>
-</figure>
+<GPTConversation
+  header="Caregiving onboarding · prototype"
+  messages={[
+    {
+      role: 'Coach',
+      speaker: 'ai',
+      text: "Got it — thanks. Before we go further, can you tell me a little about who you're caring for, and how this past week has been?"
+    },
+    {
+      role: 'Caregiver',
+      speaker: 'user',
+      text: "My dad. We can't get him to stop driving. He hides the keys."
+    },
+    {
+      role: 'Coach',
+      speaker: 'ai',
+      text: "<strong>Driving</strong> is one of the most common conflict points when an older parent is showing early cognitive change. Was there a specific moment that brought it up today, or has it been building for a while?"
+    },
+    {
+      role: 'Caregiver',
+      speaker: 'user',
+      text: "It's been building. I just don't know how to take the keys without making him feel like he's lost everything."
+    }
+  ]}
+/>
 
 The geriatric-care persona caught phrasing late in the build that I wished I'd had it review earlier: clinical staging language that had crept in, words that read as neutral to me but landed as judgment to a caregiver. Bring the harshest critical lens in at the start, not the end.
 
@@ -104,6 +127,14 @@ That reframed how I thought about language in this context. It's not enough to c
 We ran two cohorts in March 2026: twelve caregivers total, recruited through an online research platform. All were employed full-time and actively caring for an aging family member.
 
 ### Cohort 1: the experience in the wrong order
+
+<ExperimentCard
+  number="Cohort 1"
+  question="Will caregivers stay engaged through deep intake questions if value is delivered after?"
+  method="Moderated remote test, six caregivers, March 2026. Original flow: intake first, profiles + forecast after, situational guidance last."
+  participants="Employed full-time, actively caring for an aging family member."
+  quote="I just gave you all that information. What did I get for it?"
+/>
 
 The original flow front-loaded data collection so the team could take the outputs and manually load them into the wireframes. Participants answered questions one at a time and then, at the end, were shown a profile for their loved one and a profile for themselves. The profiles fell flat. After investing so much time in deeply personal questions, participants were shown summaries of information they already knew. The forecasts came next, as a static wireframe with only one tab open per time horizon, so they saw a fraction of the information. Reactions were tepid rather than excited. Then a dashboard, which they again read as a summary of what they'd told us. The feature they were most excited about — situational guidance where they could ask the chatbot about their specific caregiving challenges — came last.
 
@@ -142,6 +173,14 @@ Between cohorts, I redesigned the flow entirely. Instead of starting with intake
 </InsightCallout>
 
 ## Cohort 2 leaned in. *One session in particular.*
+
+<ExperimentCard
+  number="Cohort 2"
+  question="Will guidance-first delivery change how caregivers engage with the prototype?"
+  method="Same protocol, six new caregivers, March 2026. Redesigned flow: chatbot guidance modes first, intake consolidated and shown after."
+  participants="Employed full-time, actively caring for an aging family member. No overlap with cohort 1."
+  quote="We can't get him to stop. — Note from the session, after the executive sponsor stopped evaluating and started using it."
+/>
 
 The difference was immediate. Participants leaned in. In almost every session, we had to tell them we needed to move on because they kept wanting to ask the AI more questions. Several said they learned something they hadn't known before. Nobody asked what they were getting in exchange for sharing so much personal information. That last point mattered as much as anything else: the interaction felt worth it to them.
 

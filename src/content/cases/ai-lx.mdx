@@ -21,8 +21,9 @@ import PullQuote from '../../components/PullQuote.astro';
 import InsightCallout from '../../components/InsightCallout.astro';
 import BotanicalDivider from '../../components/BotanicalDivider.astro';
 import Placeholder from '../../components/Placeholder.astro';
+import BlueprintSlice from '../../components/BlueprintSlice.astro';
 
-<StatRow variant="dark" stats={[
+<StatRow stats={[
   { value: '50', label: 'Designers, researchers, executives' },
   { value: '2 days', label: 'Workshop, full team' },
   { value: '4', label: 'Dimensions framework authored' },
@@ -159,10 +160,102 @@ The third workshop framework was an adaptation of standard service blueprinting.
 
 This sounds small. It does meaningful work. Once an AI is named as an actor, the team has to articulate what it's doing, what it has agency over, where the handoffs to humans live, and where the orchestration sits. That is exactly the conversation the team was avoiding by collapsing AI into "the system."
 
-<figure>
-  <img src="/images/ai-lx-service-blueprint.jpg" alt="An adapted service-blueprint template with eight horizontal rows: MTMs, Customer Actions, Touchpoints (with Non-AI / AI / Hybrid checkboxes), Frontstage Actions: Human Actors, Frontstage Actions: AI Agents, Line of Visibility, Backstage Actions: Human Actors, Backstage Actions: AI Agents, and Supporting AI Systems. Each touchpoint and AI-actor row has structured fields underneath." />
-  <figcaption>The adapted blueprint. Within each stage, human and AI actors get their own rows, so the team has to articulate what each is doing rather than collapsing AI into "the system."</figcaption>
-</figure>
+<BlueprintSlice
+  title="Adapted blueprint slice — buying a car online"
+  caption='Two new rows ("Frontstage AI" and "Backstage AI / ML") sit alongside their human counterparts. Once AI is named as an actor, the team has to say what it does, where its authority ends, and what the human handoff looks like. Capabilities track the underlying competence each cell depends on. The orange "big rock" cell is a question the room could not resolve — captured, not smoothed over.'
+  stages={[
+    { name: 'Discover' },
+    { name: 'Compare' },
+    { name: 'Trust' },
+    { name: 'Configure' },
+    { name: 'Commit' }
+  ]}
+  lovAfter={4}
+  rows={[
+    {
+      label: 'Customer action',
+      cells: [
+        'Browses inventory from phone after work',
+        'Narrows down to 3–5 vehicles, compares specs',
+        'Asks questions about a specific car',
+        'Inputs trade-in info; picks a financing path',
+        'Reviews terms and signs digitally'
+      ]
+    },
+    {
+      label: 'Touchpoint',
+      cells: [
+        { content: 'Mobile web', chip: 'sage' },
+        { content: 'Compare view', chip: 'sage' },
+        { content: 'Chat · Vehicle page', chip: 'gold' },
+        { content: 'Financing form', chip: 'gold' },
+        { content: 'Checkout', chip: 'ink' }
+      ]
+    },
+    {
+      label: 'Frontstage · Human',
+      cells: [
+        '—',
+        '—',
+        'Sales associate available on request',
+        'Financing specialist consults if asked',
+        'Delivery coordinator confirms pickup'
+      ]
+    },
+    {
+      label: 'Frontstage · AI',
+      variant: 'highlight',
+      cells: [
+        'Personalized vehicle recommendations from browse history (ML)',
+        'Side-by-side comparison highlighting tradeoffs the customer hasn\'t named',
+        { content: 'Should the AI ever recommend AGAINST a purchase if data suggests poor fit? Needs ethics + comms.', bigRock: true },
+        'Conversational pre-qualification surfaces options without a hard credit pull',
+        'Adaptive UI surfaces likely concerns based on hesitation patterns'
+      ]
+    },
+    {
+      label: 'Backstage · Human',
+      cells: [
+        'Marketing & pricing analysts',
+        'Inventory ops, merchandising',
+        'Customer support specialists',
+        'Underwriters, fraud review (escalations)',
+        'Fulfillment, transport coordination'
+      ]
+    },
+    {
+      label: 'Backstage · AI / ML',
+      variant: 'highlight',
+      cells: [
+        'Inventory matching ML; demand forecasting',
+        'Dynamic pricing model; comparison ranking',
+        'Intent classification routes the right knowledge to the right surface',
+        'Risk-scoring model returns indicative pre-qualification',
+        'Fraud detection; fulfillment routing optimization'
+      ]
+    },
+    {
+      label: 'Supporting systems',
+      cells: [
+        'Inventory DB · ad platforms',
+        'Vehicle history APIs · comparison engine',
+        'CRM · chat platform',
+        'Lender integrations · valuation APIs',
+        'Payment processor · DMV / titling'
+      ]
+    },
+    {
+      label: 'Capabilities',
+      cells: [
+        'Personalization · behavioral analytics',
+        'Comparative reasoning · pricing intelligence',
+        'Knowledge retrieval · source attribution',
+        'Risk underwriting · conversational interfaces',
+        'Identity verification · electronic contracting'
+      ]
+    }
+  ]}
+/>
 
 ## The pedagogy: paper, sketches, no laptops
 

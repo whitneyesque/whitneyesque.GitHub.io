@@ -21,6 +21,7 @@ import PullQuote from '../../components/PullQuote.astro';
 import InsightCallout from '../../components/InsightCallout.astro';
 import BotanicalDivider from '../../components/BotanicalDivider.astro';
 import Placeholder from '../../components/Placeholder.astro';
+import BlueprintSlice from '../../components/BlueprintSlice.astro';
 
 <StatRow variant="dark" stats={[
   { value: '12', label: 'Stakeholder roles mapped' },
@@ -65,8 +66,8 @@ The work began by partnering with the core product-data team and then deliberate
 Twelve roles came out of those conversations. The resulting experience map ran past 275 steps. It was the first time anyone at Ferguson had seen the full path a single product record travels, from a vendor's hands to a customer's order.
 
 <figure>
-  <img src="/images/ferguson-data-grapes.jpg" alt="A 'Data Grapes' diagram: large purple bubbles representing types of enterprise data — Vendor Data, Product Data (with Critical Attributes labeled inside), Customer Data, Sales 'transaction' Data, Pricing Data, Marketing Data, Associate Data, Program Data — connected with thin arrows showing dependencies; smaller green and yellow stickies clustered around them tagging specific systems (TMS, WMS, PIM, VRM, CPQ, ERP, BI, HRIS) and notes." />
-  <figcaption>"Data Grapes" — the structure of enterprise data behind a single product record. Each bubble is a domain that touches the same record but rarely shares a vocabulary.</figcaption>
+  <img src="/images/ferguson-data-types.jpg" alt="A 'Data Types' diagram: large purple bubbles representing types of enterprise data — Vendor Data, Product Data (with Critical Attributes labeled inside), Customer Data, Sales 'transaction' Data, Pricing Data, Marketing Data, Associate Data, Program Data — connected with thin arrows showing dependencies; smaller green and yellow stickies clustered around them tagging specific systems (TMS, WMS, PIM, VRM, CPQ, ERP, BI, HRIS) and notes." />
+  <figcaption>"Data Types" — the structure of enterprise data behind a single product record. Each bubble is a domain that touches the same record but rarely shares a vocabulary.</figcaption>
 </figure>
 
 That map became the working surface for everything downstream:
@@ -74,6 +75,91 @@ That map became the working surface for everything downstream:
 - **Opportunity workshops.** The internal team used the map to prioritize problems, surface opportunities, and develop concepts for a new ingestion-and-enrichment service. Putting the operators at the design table was load-bearing. They would have to run the new system, so they had to help build it.
 - **Service blueprinting.** Cross-functional sessions translated the prioritized opportunities into a future-state service, with the front-stage and backstage detail required to actually run it. This is where "what could be different" turned into "what we'd have to build, hire, retrain, or buy."
 - **Evolution mapping.** A backcast across three time horizons sequenced the capabilities the future-state service would need, so the program could be phased without losing coherence.
+
+<BlueprintSlice
+  title="One slice of the future-state blueprint — onboarding a new supplier to the product-data systems"
+  caption="Pulled from one of the future-state blueprints. Each cell on the Capability row represents one of the 290+ capabilities the program had to enumerate to operationalize the future state. The orange big rock is one of the kind of unresolved questions the workshop kept on the blueprint instead of papering over."
+  stages={[
+    { name: 'Review guidelines' },
+    { name: 'Sign agreement' },
+    { name: 'Train & assess' },
+    { name: 'Submit sample data' },
+    { name: 'System onboarding' }
+  ]}
+  lovAfter={3}
+  rows={[
+    {
+      label: 'Supplier action',
+      cells: [
+        'Reviews the published product-data guidelines',
+        'Signs the data-sharing requirements agreement',
+        'Completes training modules and the data-maturity questionnaire',
+        'Submits a sample data set through the supplier-facing tool',
+        'Joins the assessment review and onboards into Ferguson systems'
+      ]
+    },
+    {
+      label: 'Ferguson · Sponsor / SSR',
+      cells: [
+        'Sponsor shares published guidelines with the supplier',
+        'Sponsor walks the supplier through the agreement',
+        'Supplier Success Rep schedules and runs the data-maturity meeting',
+        'SSR runs the sample through the matching tool with the supplier',
+        'SSR runs the assessment review and shares recommendations'
+      ]
+    },
+    {
+      label: 'Touchpoint',
+      cells: [
+        { content: 'Published guidelines doc', chip: 'sage' },
+        { content: 'Supplier-facing system', chip: 'sage' },
+        { content: 'Meeting · training portal', chip: 'gold' },
+        { content: 'Sample-data submission tool', chip: 'gold' },
+        { content: 'Assessment meeting · onboarding portal', chip: 'ink' }
+      ]
+    },
+    {
+      label: 'Backstage action',
+      cells: [
+        'Sponsor logs the relationship in CRM',
+        'Legal review on terms; agreement filed',
+        'Data team prepares supplier-specific training; questionnaire scored',
+        { content: 'Should the SSR or the supplier own remediation when sample data fails the maturity check? Open question — affects staffing model.', bigRock: true },
+        'Onboarding team provisions accounts; data team validates first production load'
+      ]
+    },
+    {
+      label: 'Systems',
+      cells: [
+        'Documentation portal · CRM',
+        'Supplier-facing system · contract management',
+        'Training portal · maturity assessment tool',
+        'Submission tool · data-matching engine',
+        'PIM · onboarding orchestration · monitoring'
+      ]
+    },
+    {
+      label: 'Policies & processes',
+      cells: [
+        'Data quality standards (published)',
+        'Data-sharing agreement template; legal review SLA',
+        'Training requirement; maturity threshold',
+        'Sample-data privacy controls; matching review SLA',
+        'Onboarding sign-off criteria; first-90-days monitoring'
+      ]
+    },
+    {
+      label: 'Capability',
+      cells: [
+        'Supplier-facing publishing; guideline versioning',
+        'Self-serve agreement workflow; legal e-sign',
+        'Adaptive training delivery; maturity scoring',
+        'Sample-data ingestion; automated matching feedback',
+        'Onboarding orchestration; supplier health monitoring'
+      ]
+    }
+  ]}
+/>
 
 <BotanicalDivider />
 

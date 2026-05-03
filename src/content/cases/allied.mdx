@@ -17,11 +17,12 @@ slug: 'allied'
 status: 'published'
 ---
 import StatRow from '../../components/StatRow.astro';
-import PullQuote from '../../components/PullQuote.astro';
 import InsightCallout from '../../components/InsightCallout.astro';
 import BotanicalDivider from '../../components/BotanicalDivider.astro';
 import DarkBand from '../../components/DarkBand.astro';
 import Placeholder from '../../components/Placeholder.astro';
+import BlueprintSlice from '../../components/BlueprintSlice.astro';
+import PullQuote from '../../components/PullQuote.astro';
 
 <StatRow variant="dark" stats={[
   { value: '9 months', label: 'Engagement length' },
@@ -85,6 +86,112 @@ The blueprint did one thing on purpose that's easy to miss in a static deliverab
 <PullQuote>
 The blueprint told the truth about what wasn't decided yet, and named who would need to decide it.
 </PullQuote>
+
+<BlueprintSlice
+  title="One slice of the future-state blueprint — a single refund moving through the service"
+  caption='Multi-actor: lender, dealer, and provider each have rows alongside Allied. The Status Milestone row is the case&apos;s distinctive move — it tracks how a refund&apos;s state should be represented through the entire flow, not just at the end. The orange "big rock" cell is the kind of unresolved question the workshop kept on the blueprint instead of smoothing over.'
+  stages={[
+    { name: 'Cancellation initiated' },
+    { name: 'Documentation collected' },
+    { name: 'Refund calculated' },
+    { name: 'Funds transferred' },
+    { name: 'Status closed' }
+  ]}
+  lovAfter={5}
+  rows={[
+    {
+      label: 'Lender action',
+      cells: [
+        'Lender flags cancellation in their loan system',
+        'Lender confirms loan + product data sent to Allied',
+        '—',
+        'Lender confirms funds received and reconciled',
+        'Lender closes the case in their system of record'
+      ]
+    },
+    {
+      label: 'Dealer action',
+      cells: [
+        '—',
+        'Dealer surfaces original product data on request',
+        '—',
+        '—',
+        'Dealer is notified the case is closed'
+      ]
+    },
+    {
+      label: 'Provider action',
+      cells: [
+        'Provider receives the cancellation event',
+        'Provider validates the refund is owed',
+        'Provider calculates the refund amount per their formula',
+        'Provider issues funds to Allied for routing',
+        '—'
+      ]
+    },
+    {
+      label: 'Touchpoint',
+      cells: [
+        { content: 'Allied portal · API event', chip: 'sage' },
+        { content: 'Allied portal · doc upload', chip: 'sage' },
+        { content: 'Provider system · API', chip: 'gold' },
+        { content: 'EFT · status portal', chip: 'gold' },
+        { content: 'Status portal · email', chip: 'ink' }
+      ]
+    },
+    {
+      label: 'Frontstage · Allied',
+      cells: [
+        'Allied confirms receipt and sets case in motion',
+        'Allied checks documentation against requirements; pings lender if anything is missing',
+        'Allied surfaces calculation status to lender; flags exceptions',
+        'Allied executes EFT and updates the status portal in real time',
+        'Allied confirms close-out and stops the clock against the regulatory deadline'
+      ]
+    },
+    {
+      label: 'Status milestone',
+      variant: 'highlight',
+      cells: [
+        { content: 'Cancellation pending', chip: 'gold' },
+        { content: 'Awaiting documentation', chip: 'gold' },
+        { content: 'Calculation in progress', chip: 'gold' },
+        { content: 'Payment in progress', chip: 'gold' },
+        { content: 'Closed within window', chip: 'gold' }
+      ]
+    },
+    {
+      label: 'Backstage · Allied',
+      cells: [
+        'Case-management workflow opens with auto-assigned owner',
+        'Documentation team works exceptions; calls lender as needed',
+        { content: 'Should Allied own the calculation logic, or pass it through from the provider? Open question — has implications for liability.', bigRock: true },
+        'Treasury operations reconciles inbound funds and triggers EFT to lender',
+        'Reporting captures cycle time vs. regulatory deadline'
+      ]
+    },
+    {
+      label: 'Supporting systems',
+      cells: [
+        'Case-management platform · lender API',
+        'Document store · lender portal',
+        'Calculation engine · provider integrations',
+        'Treasury system · ACH provider',
+        'Reporting · audit log'
+      ]
+    },
+    {
+      label: 'Capabilities',
+      cells: [
+        'Multi-channel intake; case auto-routing',
+        'Documentation requirements engine; exception handling',
+        'Refund calculation; provider integration management',
+        'Funds movement; status transparency to lender',
+        'Cycle-time reporting; regulatory compliance evidence'
+      ]
+    }
+  ]}
+/>
 
 <DarkBand label="The future-state artifacts">
 

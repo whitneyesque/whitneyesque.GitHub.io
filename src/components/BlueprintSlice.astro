@@ -1,0 +1,289 @@
+---
+/**
+ * BlueprintSlice.astro — V4 design system, Harmonic methodology
+ *
+ * Renders a service-blueprint slice with stages as columns and methodology
+ * rows as horizontal lanes. Supports the full Harmonic row stack:
+ *
+ *   Customer Actions → Touchpoints → Frontstage Actions →
+ *   ─── Line of Visibility ───
+ *   Backstage Actions → Supporting Systems & Processes → Capabilities
+ *   (optional) Notes / Gaps / Questions / Pain
+ *
+ * Cells can be plain strings, or objects with chip styling (sage/gold/ink/
+ * deep/rust) for channel/touchpoint pills, plus optional `bigRock` flag for
+ * unresolved-question cells (orange highlight, per Harmonic convention).
+ *
+ * Rows can be flagged `highlight: true` to call attention as new — used in
+ * the AI-LX case to mark Frontstage AI and Backstage AI/ML rows as added
+ * actor swimlanes.
+ *
+ * Use one slice per case max. Don't try to render the whole blueprint —
+ * pick 4–6 stages, drop the columns the case doesn't need.
+ */
+interface Stage {
+  name: string;
+  /** Optional storyboard frame — emoji, short text, or `/images/...` URL */
+  storyboard?: string;
+}
+
+interface Cell {
+  content: string;
+  /** Chip color for channel / touchpoint pills */
+  chip?: 'sage' | 'gold' | 'ink' | 'deep' | 'rust';
+  /** Orange "big rock" treatment for unresolved-question cells */
+  bigRock?: boolean;
+}
+
+interface Row {
+  label: string;
+  /** Cells, one per stage. Use empty string for blank cells. */
+  cells: (string | Cell)[];
+  /** Visual variants — `highlight` = gold-tint label (for new AI rows, etc) */
+  variant?: 'default' | 'highlight' | 'pain';
+}
+
+interface Props {
+  /** Optional title above the table */
+  title?: string;
+  /** Optional caption below the table */
+  caption?: string;
+  /** Stage column definitions */
+  stages: Stage[];
+  /** Methodology rows in order */
+  rows: Row[];
+  /** 0-based index of the row AFTER which the LOV band appears. Default: no LOV. */
+  lovAfter?: number;
+}
+
+const { title, caption, stages, rows, lovAfter } = Astro.props;
+const totalCols = stages.length + 1; // +1 for the row label column
+
+function normalizeCell(c: string | Cell): Cell {
+  return typeof c === 'string' ? { content: c } : c;
+}
+---
+
+<figure class="v4-bp-figure">
+  {title && <h4 class="v4-bp-title">{title}</h4>}
+
+  <div class="v4-bp-wrap">
+    <table class="v4-bp">
+      <thead>
+        <tr>
+          <th>Stage</th>
+          {stages.map((s) => (
+            <th>
+              {s.storyboard && (
+                <span class="v4-bp-storyboard" aria-hidden="true">{s.storyboard}</span>
+              )}
+              <span>{s.name}</span>
+            </th>
+          ))}
+        </tr>
+      </thead>
+      <tbody>
+        {rows.map((row, idx) => (
+          <>
+            <tr class:list={[
+              row.variant === 'pain' && 'pain',
+              row.variant === 'highlight' && 'highlight',
+            ]}>
+              <th scope="row">
+                {row.variant === 'highlight' && (
+                  <span class="v4-bp-newtag" aria-hidden="true">NEW</span>
+                )}
+                {row.label}
+              </th>
+              {row.cells.map((c) => {
+                const cell = normalizeCell(c);
+                return (
+                  <td class:list={[cell.bigRock && 'big-rock']}>
+                    {cell.chip ? (
+                      <span class={`chip chip-${cell.chip}`}>{cell.content}</span>
+                    ) : (
+                      <span set:html={cell.content}></span>
+                    )}
+                  </td>
+                );
+              })}
+            </tr>
+            {lovAfter === idx && (
+              <tr class="lov">
+                <td colspan={totalCols}>
+                  <span class="lov-label">Line of visibility</span>
+                  <span class="lov-rule" aria-hidden="true"></span>
+                </td>
+              </tr>
+            )}
+          </>
+        ))}
+      </tbody>
+    </table>
+  </div>
+
+  {caption && <figcaption class="v4-bp-caption">{caption}</figcaption>}
+</figure>
+
+<style>
+  .v4-bp-figure {
+    margin: 2.5rem 0;
+  }
+  .v4-bp-title {
+    font-family: var(--font-display, 'Petrona', Georgia, serif);
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--charcoal, #2A2520);
+    margin: 0 0 12px 0;
+  }
+  .v4-bp-wrap {
+    overflow-x: auto;
+  }
+  .v4-bp {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+  }
+  .v4-bp th, .v4-bp td {
+    padding: 16px 18px;
+    text-align: left;
+    vertical-align: top;
+    line-height: 1.45;
+    color: var(--charcoal, #2A2520);
+    border-top: 1px solid var(--cream-deep, #EBE1D4);
+    border-bottom: 1px solid var(--cream-deep, #EBE1D4);
+  }
+  /* Stage column header row — Petrona 700 */
+  .v4-bp thead th {
+    font-family: var(--font-display, 'Petrona', Georgia, serif);
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--charcoal, #2A2520);
+    background: transparent;
+    padding-top: 14px;
+    padding-bottom: 14px;
+  }
+  .v4-bp-storyboard {
+    display: block;
+    font-size: 28px;
+    line-height: 1;
+    margin-bottom: 8px;
+    opacity: 0.85;
+  }
+  /* Row label (first col) — mono uppercase */
+  .v4-bp tbody th {
+    font-family: var(--font-mono, 'DM Mono', monospace);
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--charcoal-soft, #6B6560);
+    font-weight: 500;
+    width: 13%;
+    background: transparent;
+    line-height: 1.4;
+    vertical-align: top;
+  }
+  /* Highlight variant — gold tint on the row label, "NEW" tag inline */
+  .v4-bp tr.highlight th {
+    background: rgba(200, 148, 62, 0.08);
+    color: var(--gold-text, #8A6820);
+  }
+  .v4-bp tr.highlight td {
+    background: rgba(200, 148, 62, 0.04);
+  }
+  .v4-bp-newtag {
+    display: inline-block;
+    background: var(--gold, #C8943E);
+    color: var(--charcoal, #2A2520);
+    font-size: 8px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    padding: 2px 6px;
+    border-radius: 2px;
+    margin-right: 8px;
+    vertical-align: 1px;
+  }
+  /* Line of visibility band — small-caps label above, dashed gold rule below */
+  .v4-bp .lov td {
+    border-top: none;
+    border-bottom: none;
+    padding: 22px 0 22px;
+    background: transparent;
+  }
+  .v4-bp .lov-label {
+    display: block;
+    font-family: var(--font-mono, 'DM Mono', monospace);
+    font-size: 10px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--gold-text, #8A6820);
+    font-weight: 500;
+    line-height: 1;
+    margin-bottom: 8px;
+  }
+  .v4-bp .lov-rule {
+    display: block;
+    height: 0;
+    border-top: 2.5px dashed var(--gold, #C8943E);
+  }
+  /* Pain row — italic charcoal-mid */
+  .v4-bp tr.pain td {
+    font-family: var(--font-display, 'Petrona', Georgia, serif);
+    font-style: italic;
+    font-weight: 500;
+    color: var(--charcoal-mid, #4A443D);
+    font-size: 14px;
+  }
+  .v4-bp tr.pain th {
+    color: var(--charcoal-soft, #6B6560);
+  }
+  /* Big rock — orange highlight for unresolved-question cells */
+  .v4-bp td.big-rock {
+    background: rgba(184, 92, 58, 0.10);
+    border-left: 3px solid var(--rust, #B85C3A);
+    position: relative;
+  }
+  .v4-bp td.big-rock::before {
+    content: 'BIG ROCK';
+    display: block;
+    font-family: var(--font-mono, 'DM Mono', monospace);
+    font-size: 8px;
+    letter-spacing: 0.16em;
+    color: var(--rust, #B85C3A);
+    font-weight: 700;
+    margin-bottom: 6px;
+  }
+  /* Chip pills */
+  .v4-bp .chip {
+    display: inline-block;
+    padding: 6px 11px;
+    border-radius: 3px;
+    font-family: var(--font-mono, 'DM Mono', monospace);
+    font-size: 9px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    font-weight: 500;
+    line-height: 1;
+    white-space: nowrap;
+  }
+  .v4-bp .chip-sage { background: var(--sage-light, #D4DEC9); color: var(--sage-text, #4A5C3F); }
+  .v4-bp .chip-gold { background: var(--gold, #C8943E); color: var(--charcoal, #2A2520); }
+  .v4-bp .chip-ink  { background: var(--ink, #1A1714); color: var(--cream, #F4EDE4); }
+  .v4-bp .chip-deep { background: var(--sage, #8B9A7E); color: var(--cream, #F4EDE4); }
+  .v4-bp .chip-rust { background: var(--rust, #B85C3A); color: var(--cream, #F4EDE4); }
+
+  .v4-bp-caption {
+    font-size: 13px;
+    color: var(--charcoal-mid, #4A443D);
+    line-height: 1.5;
+    margin-top: 12px;
+    font-style: italic;
+  }
+
+  /* Mobile: smaller padding, narrower row label column */
+  @media (max-width: 720px) {
+    .v4-bp th, .v4-bp td { padding: 10px 12px; font-size: 12px; }
+    .v4-bp tbody th { width: auto; min-width: 90px; }
+    .v4-bp thead th { font-size: 13px; }
+  }
+</style>
