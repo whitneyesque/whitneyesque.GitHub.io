@@ -1,0 +1,156 @@
+---
+/**
+ * GPTConversation.astro — V4 design system
+ *
+ * Renders an AI/human chat exchange as semantic chat bubbles. Use to show
+ * the actual behaviour of an AI service prototype rather than a screenshot.
+ *
+ * Layout: dark header strip, role labels OUTSIDE the bubbles, AI messages
+ * left-aligned with cream border, human messages right-aligned in gold-pale.
+ * Optional annotation callout below the conversation.
+ */
+interface Message {
+  /** Role label shown above the bubble (e.g. "Coach", "Caregiver", "AI") */
+  role: string;
+  /** Which side of the conversation — controls bubble style and alignment */
+  speaker: 'ai' | 'user';
+  /** Message text. May contain inline <strong>...</strong> to bold a phrase. */
+  text: string;
+}
+
+interface Props {
+  /** Header label (e.g. "Caregiving onboarding · prototype") */
+  header?: string;
+  /** The messages, in order, top to bottom */
+  messages: Message[];
+  /** Optional annotation callout below the conversation */
+  annotation?: {
+    title: string;
+    body: string;
+  };
+}
+
+const { header, messages, annotation } = Astro.props;
+---
+
+<div class="v4-gpt-wrap">
+  <div class="v4-gpt">
+    {header && (
+      <header class="v4-gpt-head">
+        <span class="v4-gpt-dot" aria-hidden="true"></span>
+        <span>{header}</span>
+      </header>
+    )}
+    <div class="v4-gpt-body">
+      {messages.map((m) => (
+        <div class={`v4-gpt-msg is-${m.speaker}`}>
+          <span class="v4-gpt-role">{m.role}</span>
+          <div class="v4-gpt-bubble" set:html={m.text}></div>
+        </div>
+      ))}
+    </div>
+  </div>
+
+  {annotation && (
+    <aside class="v4-gpt-annot">
+      <div class="v4-gpt-annot-title">{annotation.title}</div>
+      <p class="v4-gpt-annot-body">{annotation.body}</p>
+    </aside>
+  )}
+</div>
+
+<style>
+  .v4-gpt-wrap {
+    margin: 2.5rem 0;
+  }
+  .v4-gpt {
+    background: var(--warm-white, #FAF7F3);
+    border: 1px solid var(--cream-deep, #EBE1D4);
+    border-radius: 12px;
+    overflow: hidden;
+    max-width: 560px;
+  }
+  .v4-gpt-head {
+    background: var(--ink, #1A1714);
+    color: var(--cream, #F4EDE4);
+    padding: 14px 22px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-family: var(--font-mono, 'DM Mono', monospace);
+    font-size: 12px;
+    letter-spacing: 0.04em;
+  }
+  .v4-gpt-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--gold-light, #D4A85A);
+    flex-shrink: 0;
+  }
+  .v4-gpt-body {
+    padding: 26px 22px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  .v4-gpt-msg {
+    display: flex;
+    flex-direction: column;
+    max-width: 78%;
+  }
+  .v4-gpt-msg.is-user { align-self: flex-end; align-items: flex-end; }
+  .v4-gpt-msg.is-ai   { align-self: flex-start; align-items: flex-start; }
+  .v4-gpt-role {
+    font-family: var(--font-mono, 'DM Mono', monospace);
+    font-size: 9px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    margin-bottom: 6px;
+    padding: 0 16px;
+  }
+  .v4-gpt-msg.is-user .v4-gpt-role { color: var(--gold-text, #8A6820); }
+  .v4-gpt-msg.is-ai   .v4-gpt-role { color: var(--charcoal-soft, #6B6560); }
+  .v4-gpt-bubble {
+    padding: 14px 18px;
+    border-radius: 8px;
+    font-size: 13px;
+    line-height: 1.55;
+    color: var(--charcoal, #2A2520);
+  }
+  .v4-gpt-msg.is-user .v4-gpt-bubble {
+    background: var(--gold-pale, #F0E4CC);
+    color: var(--charcoal, #2A2520);
+  }
+  .v4-gpt-msg.is-ai .v4-gpt-bubble {
+    background: var(--warm-white, #FAF7F3);
+    border: 1px solid var(--cream-deep, #EBE1D4);
+    color: var(--charcoal-mid, #4A443D);
+  }
+  .v4-gpt-bubble :global(strong) {
+    color: var(--charcoal, #2A2520);
+    font-weight: 700;
+  }
+
+  .v4-gpt-annot {
+    background: var(--gold-pale, #F0E4CC);
+    border-left: 3px solid var(--gold, #C8943E);
+    padding: 16px 20px;
+    margin-top: 18px;
+    max-width: 560px;
+    border-radius: 4px;
+  }
+  .v4-gpt-annot-title {
+    font-family: var(--font-display, 'Petrona', Georgia, serif);
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--charcoal, #2A2520);
+    margin-bottom: 4px;
+  }
+  .v4-gpt-annot-body {
+    font-size: 12.5px;
+    line-height: 1.55;
+    color: var(--charcoal-mid, #4A443D);
+    margin: 0;
+  }
+</style>
