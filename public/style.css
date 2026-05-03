@@ -445,12 +445,13 @@ p + p { margin-top: var(--sp-2); }
 .project-featured--alt .project-thumb--light {
   background: var(--charcoal);
 }
-/* White-bg PNG specimens against the charcoal thumb: multiply drops the
-   white background and renders the flower in a subdued, moody register
-   — matching the dark-room feel of the rose / protea JPGs. */
+/* The "light" PNG specimens have transparent backgrounds, so no blend
+   mode is needed to drop the bg. Instead, dim and desaturate the flower
+   directly so it reads as moody/restrained — matching the dark-room
+   feel of the rose / protea JPGs rather than glowing against charcoal. */
 .project-thumb-specimen--light {
-  mix-blend-mode: multiply;
-  opacity: 1;
+  filter: brightness(0.55) saturate(0.7);
+  opacity: 0.9;
 }
 
 /* Quote block in the card body (replaces summary paragraph) */
