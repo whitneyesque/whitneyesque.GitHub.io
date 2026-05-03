@@ -450,8 +450,8 @@ p + p { margin-top: var(--sp-2); }
    directly so it reads as moody/restrained — matching the dark-room
    feel of the rose / protea JPGs rather than glowing against charcoal. */
 .project-thumb-specimen--light {
-  filter: brightness(0.55) saturate(0.7);
-  opacity: 0.9;
+  filter: brightness(0.8) saturate(0.85);
+  opacity: 1;
 }
 
 /* Quote block in the card body (replaces summary paragraph) */
