@@ -1,0 +1,58 @@
+---
+/**
+ * WorkCardAlt.astro — specimen-forward grid card.
+ * Layout: botanical specimen fills the dark thumb; research quote moves to
+ * the cream body where summary text used to live. No body copy.
+ *
+ * specimen: path to an image already on a dark background → mix-blend-mode: lighten
+ *           (rose, ranunculus, protea all qualify).
+ *           White-background design-system specimens need the CSS class
+ *           project-thumb--light-specimen on the thumb instead — handle
+ *           by adding a `specimenLight` prop if needed later.
+ */
+interface Props {
+  title: string;       // may contain HTML (e.g. <em> for gold italic clause)
+  href: string;
+  specimen?: string;   // optional — falls back to plain dark thumb
+  /** true for white-background specimens (design-system PNGs) → multiply blend;
+   *  false/omitted for dark-background specimens (JPGs) → lighten blend */
+  specimenLight?: boolean;
+  quote: string;       // research quote text, no surrounding curly quotes
+  cite: string;        // attribution line
+  tags: string[];
+  published: boolean;
+}
+
+const { title, href, specimen, specimenLight = false, quote, cite, tags, published } = Astro.props;
+---
+
+<article class={`project-card project-card--alt reveal${published ? ' has-link' : ''}`}>
+  <div class="project-thumb">
+    {specimen && (
+      <img
+        class={`project-thumb-specimen${specimenLight ? ' project-thumb-specimen--light' : ''}`}
+        src={specimen}
+        alt=""
+        aria-hidden="true"
+        loading="lazy"
+        decoding="async"
+      />
+    )}
+  </div>
+  <div class="project-card-body">
+    <h3>
+      {published
+        ? <a href={href} class="project-card-link"><Fragment set:html={title} /></a>
+        : <Fragment set:html={title} />
+      }
+    </h3>
+    <blockquote class="card-quote">
+      <p>&ldquo;<Fragment set:html={quote} />&rdquo;</p>
+      <cite>{cite}</cite>
+    </blockquote>
+    <div class="tag-row">
+      {tags.map(tag => <span class="tag">{tag}</span>)}
+    </div>
+    {published && <a href={href} class="btn">Read Case Study</a>}
+  </div>
+</article>

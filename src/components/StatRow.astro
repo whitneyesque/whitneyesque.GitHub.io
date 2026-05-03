@@ -5,10 +5,12 @@ interface Stat {
 }
 interface Props {
   stats: Stat[];
+  /** 'dark' renders on the charcoal/ink background used at the top of case studies */
+  variant?: 'default' | 'dark';
 }
-const { stats } = Astro.props;
+const { stats, variant = 'default' } = Astro.props;
 ---
-<div class="stat-row">
+<div class={`stat-row${variant === 'dark' ? ' stat-row--dark' : ''}`}>
   {stats.map(({ value, label }) => (
     <div class="stat-item">
       <span class="stat-value">{value}</span>

@@ -1,8 +1,11 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { getCollection } from 'astro:content';
+import WorkCardAlt from '../components/WorkCardAlt.astro';
+import WorkFeaturedAlt from '../components/WorkFeaturedAlt.astro';
+// Original card components kept available:
+// import WorkCard from '../components/WorkCard.astro';
 
-// Build a set of published case slugs so we can link cards dynamically
 const publishedCases = await getCollection('cases', entry => entry.data.status === 'published');
 const published = new Set(publishedCases.map(e => e.slug));
 
@@ -27,127 +30,61 @@ const canonicalURL = 'https://whitneyesque.github.io/work.html';
 
     <h2 class="sr-only">Featured case study</h2>
 
-    <article class={`project-featured reveal${published.has('agetech') ? ' has-link' : ''}`}>
-      <div class="project-thumb">
-        <p class="thumb-quote">&ldquo;I just gave you all that information. What did I get for it?&rdquo;</p>
-        <span class="thumb-cite">Research participant, caregiver intake study</span>
-      </div>
-      <div class="project-info">
-        <span class="section-label">Featured · 2026</span>
-        <h3 class="project-title">
-          {published.has('agetech')
-            ? <a href="/cases/agetech.html" class="project-card-link">Designing a caregiving benefit <em>for the sandwich generation.</em></a>
-            : <Fragment>Designing a caregiving benefit <em>for the sandwich generation.</em></Fragment>
-          }
-        </h3>
-        <p class="project-summary">A zero-to-one innovation project inside a large insurance company, building an employer-sponsored benefit for employees caring for aging parents. Led research with working caregivers, developed the service concept and system capabilities, and built a working GPT prototype with eight distinct interaction modes to test the experience before committing to build.</p>
-        <div class="tag-row">
-          <span class="tag">AgeTech</span>
-          <span class="tag">Prototyping AI</span>
-          <span class="tag">Service Blueprint</span>
-          <span class="tag">User Research</span>
-        </div>
-        {published.has('agetech')
-          ? <a href="/cases/agetech.html" class="btn">Read Case Study</a>
-          : <span class="project-status">Contact me to view full portfolio</span>
-        }
-      </div>
-    </article>
+    <WorkFeaturedAlt
+      title="Designing a caregiving benefit <em>for the sandwich generation.</em>"
+      href="/cases/agetech.html"
+      specimen="/images/specimen-rose.jpg"
+      quote="I just gave you all that information. What did I get for it?"
+      cite="Research participant, caregiver intake study"
+      tags={['AgeTech', 'Prototyping AI', 'Service Blueprint', 'User Research']}
+      published={published.has('agetech')}
+      label="Featured · 2026"
+    />
 
     <h2 class="sr-only">Other case studies</h2>
 
     <div class="project-grid">
 
-      <article class={`project-card reveal${published.has('allied') ? ' has-link' : ''}`}>
-        <div class="project-thumb">
-          <p class="thumb-quote">&ldquo;6 to 8 weeks of waiting &mdash; mostly because of the billing system.&rdquo;</p>
-          <span class="thumb-cite">Dealer, lender ecosystem research</span>
-        </div>
-        <div class="project-card-body">
-          <h3>
-            {published.has('allied')
-              ? <a href="/cases/allied.html" class="project-card-link">From manual workaround <em>to scalable service at Allied Solutions.</em></a>
-              : <Fragment>From manual workaround <em>to scalable service at Allied Solutions.</em></Fragment>
-            }
-          </h3>
-          <p class="project-summary">A successful pilot had outgrown the manual processes holding it together, right as new federal regulations made the service mandatory for lenders nationwide. Ran research across a multi-actor ecosystem of lenders, dealers, and third-party providers, located the real bottleneck (not where anyone expected), and co-created a service blueprint and capability map the client used to build an internal service design practice alongside the product.</p>
-          <div class="tag-row">
-            <span class="tag">Financial Services</span>
-            <span class="tag">Qualitative Research</span>
-            <span class="tag">Service Blueprint</span>
-            <span class="tag">Capabilities Map</span>
-          </div>
-          {published.has('allied') && <a href="/cases/allied.html" class="btn">Read Case Study</a>}
-        </div>
-      </article>
+      <WorkCardAlt
+        title="From manual workaround <em>to scalable service at Allied Solutions.</em>"
+        href="/cases/allied.html"
+        specimen="/images/specimen-protea.jpg"
+        quote="6 to 8 weeks of waiting &mdash; mostly because of the billing system."
+        cite="Dealer, lender ecosystem research"
+        tags={['Financial Services', 'Qualitative Research', 'Service Blueprint', 'Capabilities Map']}
+        published={published.has('allied')}
+      />
 
-      <article class={`project-card reveal${published.has('sfpl') ? ' has-link' : ''}`}>
-        <div class="project-thumb">
-          <p class="thumb-quote">&ldquo;Things have changed so dramatically since the pandemic. You can feel it at every branch.&rdquo;</p>
-          <span class="thumb-cite">Branch staff, ambassador series</span>
-        </div>
-        <div class="project-card-body">
-          <h3>
-            {published.has('sfpl')
-              ? <a href="/cases/sfpl.html" class="project-card-link">A strategic plan <em>for the San Francisco Public Library.</em></a>
-              : <Fragment>A strategic plan <em>for the San Francisco Public Library.</em></Fragment>
-            }
-          </h3>
-          <p class="project-summary">Part of a consulting team (alongside Gensler and Margaret Sullivan Studio) helping SFPL set direction for the next five years while preserving the culture that makes the library work. Ran co-creation with thirty-two staff ambassadors across departments to close the gap between leadership vision and frontline reality. The Library Commission adopted the plan unanimously.</p>
-          <div class="tag-row">
-            <span class="tag">Public Sector</span>
-            <span class="tag">Workshop Design</span>
-            <span class="tag">Facilitation</span>
-          </div>
-          {published.has('sfpl') && <a href="/cases/sfpl.html" class="btn">Read Case Study</a>}
-        </div>
-      </article>
+      <WorkCardAlt
+        title="A strategic plan <em>for the San Francisco Public Library.</em>"
+        href="/cases/sfpl.html"
+        specimen="/images/specimen-protea.jpg"
+        quote="Things have changed so dramatically since the pandemic. You can feel it at every branch."
+        cite="Branch staff, ambassador series"
+        tags={['Public Sector', 'Workshop Design', 'Facilitation']}
+        published={published.has('sfpl')}
+      />
 
-      <article class={`project-card reveal${published.has('ai-lx') ? ' has-link' : ''}`}>
-        <div class="project-thumb">
-          <p class="thumb-quote">&ldquo;AI in service of value &mdash; versus everyone in service of AI.&rdquo;</p>
-          <span class="thumb-cite">Patrick Quattlebaum, engagement lead</span>
-        </div>
-        <div class="project-card-body">
-          <h3>
-            {published.has('ai-lx')
-              ? <a href="/cases/ai-lx.html" class="project-card-link">From &ldquo;we should do AI&rdquo; <em>to a working vocabulary for AI in services.</em></a>
-              : <Fragment>From &ldquo;we should do AI&rdquo; <em>to a working vocabulary for AI in services.</em></Fragment>
-            }
-          </h3>
-          <p class="project-summary">A two-day workshop with a national automotive retailer's fifty-person design team. Co-facilitated with Patrick Quattlebaum (Harmonic Design); authored the Four Dimensions of AI in Services framework. The workshop produced a vocabulary, a canvas, and a control taxonomy for treating AI as a design material rather than a hammer in search of a nail.</p>
-          <div class="tag-row">
-            <span class="tag">Service Design</span>
-            <span class="tag">AI</span>
-            <span class="tag">Workshop Facilitation</span>
-            <span class="tag">Framework Design</span>
-          </div>
-          {published.has('ai-lx') && <a href="/cases/ai-lx.html" class="btn">Read Case Study</a>}
-        </div>
-      </article>
+      <WorkCardAlt
+        title="From &ldquo;we should do AI&rdquo; <em>to a working vocabulary for AI in services.</em>"
+        href="/cases/ai-lx.html"
+        specimen="/images/specimen-paradise.png"
+        specimenLight={true}
+        quote="AI in service of value &mdash; versus everyone in service of AI."
+        cite="Patrick Quattlebaum, engagement lead"
+        tags={['Service Design', 'AI', 'Workshop Facilitation', 'Framework Design']}
+        published={published.has('ai-lx')}
+      />
 
-      <article class={`project-card reveal${published.has('ferguson-cx') ? ' has-link' : ''}`}>
-        <div class="project-thumb">
-          <p class="thumb-quote">&ldquo;Order not ready. Associate not present.&rdquo;</p>
-          <span class="thumb-cite">The two wait-time scenarios</span>
-        </div>
-        <div class="project-card-body">
-          <h3>
-            {published.has('ferguson-cx')
-              ? <a href="/cases/ferguson-cx.html" class="project-card-link">From &ldquo;make waiting feel better&rdquo; <em>to two prototypes in two real Ferguson branches.</em></a>
-              : <Fragment>From &ldquo;make waiting feel better&rdquo; <em>to two prototypes in two real Ferguson branches.</em></Fragment>
-            }
-          </h3>
-          <p class="project-summary">A vague brief about &ldquo;the perception of waiting&rdquo; reframed into two specific service breakdowns &mdash; Order Not Ready and Associate Not Present &mdash; then resolved with two named prototypes (Make-It-Happen and KnockKnock) deployed live in branches and tested with real customers. Both met every design criterion.</p>
-          <div class="tag-row">
-            <span class="tag">Service Design</span>
-            <span class="tag">Prototyping</span>
-            <span class="tag">Live Field Testing</span>
-            <span class="tag">Workshop Facilitation</span>
-          </div>
-          {published.has('ferguson-cx') && <a href="/cases/ferguson-cx.html" class="btn">Read Case Study</a>}
-        </div>
-      </article>
+      <WorkCardAlt
+        title="From &ldquo;make waiting feel better&rdquo; <em>to two prototypes in two real Ferguson branches.</em>"
+        href="/cases/ferguson-cx.html"
+        specimen="/images/specimen-ranunculus.jpg"
+        quote="Order not ready. Associate not present."
+        cite="The two wait-time scenarios"
+        tags={['Service Design', 'Prototyping', 'Live Field Testing', 'Workshop Facilitation']}
+        published={published.has('ferguson-cx')}
+      />
 
     </div>
   </section>

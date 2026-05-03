@@ -1,0 +1,38 @@
+---
+/**
+ * WorkCard.astro — original V4 grid card (quote-in-thumb, body-copy-in-body).
+ * Kept as the reference implementation. To switch back, import this instead
+ * of WorkCardAlt in work.astro.
+ */
+interface Props {
+  title: string;       // may contain HTML (e.g. <em> for gold italic clause)
+  href: string;
+  quote: string;       // research quote, no surrounding curly quotes
+  cite: string;        // attribution line
+  summary: string;
+  tags: string[];
+  published: boolean;
+}
+
+const { title, href, quote, cite, summary, tags, published } = Astro.props;
+---
+
+<article class={`project-card reveal${published ? ' has-link' : ''}`}>
+  <div class="project-thumb">
+    <p class="thumb-quote">&ldquo;<Fragment set:html={quote} />&rdquo;</p>
+    <span class="thumb-cite">{cite}</span>
+  </div>
+  <div class="project-card-body">
+    <h3>
+      {published
+        ? <a href={href} class="project-card-link"><Fragment set:html={title} /></a>
+        : <Fragment set:html={title} />
+      }
+    </h3>
+    <p class="project-summary">{summary}</p>
+    <div class="tag-row">
+      {tags.map(tag => <span class="tag">{tag}</span>)}
+    </div>
+    {published && <a href={href} class="btn">Read Case Study</a>}
+  </div>
+</article>
