@@ -438,11 +438,16 @@ p + p { margin-top: var(--sp-2); }
   opacity: .9;
   pointer-events: none;
 }
-/* White-background specimens (design-system PNGs) need multiply so the white
-   becomes transparent against the dark thumb */
+/* White-background specimens (design-system PNGs) — switch the thumb to cream
+   and use multiply so the white background dissolves; flower colors stay visible.
+   (Multiply on charcoal turns colored flowers nearly black; cream lets them show.) */
+.project-card--alt .project-thumb--light,
+.project-featured--alt .project-thumb--light {
+  background: var(--cream);
+}
 .project-thumb-specimen--light {
   mix-blend-mode: multiply;
-  opacity: .85;
+  opacity: 1;
 }
 
 /* Quote block in the card body (replaces summary paragraph) */
