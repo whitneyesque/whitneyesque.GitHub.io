@@ -1,31 +1,26 @@
 ---
 /**
  * WorkFeaturedAlt.astro — specimen-forward featured card (2-column layout).
- * Left column: botanical specimen in the dark thumb.
- * Right column: label, title, research quote (replaces summary), tags, CTA.
+ * Left column: botanical specimen.
+ * Right column: label, title, tags, "Read Case Study" CTA.
  */
 interface Props {
   title: string;       // may contain HTML with <em>
   href: string;
   specimen?: string;   // specimen image path
-  specimenLight?: boolean; // true for white-bg PNGs → multiply blend mode
-  quote: string;       // research quote, no surrounding curly quotes
-  cite: string;
+  specimenLight?: boolean; // true for white-bg PNGs → cream thumb + multiply
   tags: string[];
-  published: boolean;
   label?: string;      // e.g. "Featured · 2026"
-  status?: string;     // shown when unpublished, e.g. "Contact me to view full portfolio"
 }
 
 const {
-  title, href, specimen, specimenLight = false, quote, cite, tags, published,
+  title, href, specimen, specimenLight = false, tags,
   label = 'Featured',
-  status = 'Contact me to view full portfolio',
 } = Astro.props;
 ---
 
-<article class={`project-featured project-featured--alt reveal${published ? ' has-link' : ''}`}>
-  <div class="project-thumb">
+<article class="project-featured project-featured--alt reveal has-link">
+  <div class={`project-thumb${specimenLight ? ' project-thumb--light' : ''}`}>
     {specimen && (
       <img
         class={`project-thumb-specimen${specimenLight ? ' project-thumb-specimen--light' : ''}`}
@@ -40,21 +35,11 @@ const {
   <div class="project-info">
     <span class="section-label">{label}</span>
     <h3 class="project-title">
-      {published
-        ? <a href={href} class="project-card-link"><Fragment set:html={title} /></a>
-        : <Fragment set:html={title} />
-      }
+      <a href={href} class="project-card-link"><Fragment set:html={title} /></a>
     </h3>
-    <blockquote class="card-quote card-quote--featured">
-      <p>&ldquo;<Fragment set:html={quote} />&rdquo;</p>
-      <cite>{cite}</cite>
-    </blockquote>
     <div class="tag-row">
       {tags.map(tag => <span class="tag">{tag}</span>)}
     </div>
-    {published
-      ? <a href={href} class="btn">Read Case Study</a>
-      : <span class="project-status">{status}</span>
-    }
+    <a href={href} class="btn">Read Case Study</a>
   </div>
 </article>
