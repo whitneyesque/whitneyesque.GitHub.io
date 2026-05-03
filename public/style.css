@@ -445,14 +445,12 @@ p + p { margin-top: var(--sp-2); }
 .project-featured--alt .project-thumb--light {
   background: var(--charcoal);
 }
-/* On dark thumbs, white-bg PNG specimens use lighten + a hue-corrected
-   invert so the white background drops out cleanly while the flower's
-   color stays visible (rather than becoming a near-black silhouette,
-   which is what multiply on charcoal would produce). */
+/* White-bg PNG specimens against the charcoal thumb: multiply drops the
+   white background and renders the flower in a subdued, moody register
+   — matching the dark-room feel of the rose / protea JPGs. */
 .project-thumb-specimen--light {
-  mix-blend-mode: lighten;
-  filter: invert(1) hue-rotate(180deg);
-  opacity: 0.95;
+  mix-blend-mode: multiply;
+  opacity: 1;
 }
 
 /* Quote block in the card body (replaces summary paragraph) */
