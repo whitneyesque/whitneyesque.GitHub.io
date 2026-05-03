@@ -443,10 +443,16 @@ p + p { margin-top: var(--sp-2); }
    (Multiply on charcoal turns colored flowers nearly black; cream lets them show.) */
 .project-card--alt .project-thumb--light,
 .project-featured--alt .project-thumb--light {
-  background: var(--cream);
+  background: var(--charcoal);
 }
+/* The "light" PNG specimens have transparent backgrounds, so no blend
+   mode is needed to drop the bg. Instead, dim and desaturate the flower
+   directly so it reads as moody/restrained — matching the dark-room
+   feel of the rose / protea JPGs rather than glowing against charcoal.
+   Tuned: brightness(0.8) saturate(0.85) — landed between "too dim" and
+   "too glowing". */
 .project-thumb-specimen--light {
-  mix-blend-mode: multiply;
+  filter: brightness(0.8) saturate(0.85);
   opacity: 1;
 }
 
